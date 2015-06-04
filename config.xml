@@ -37,4 +37,7 @@
 <feature name="http://api.phonegap.com/1.0/file"/>
 <feature name="http://api.phonegap.com/1.0/media"/>
 <feature name="http://api.phonegap.com/1.0/battery"/>
+<gap:plugin name="org.apache.cordova.device"/>
+<gap:plugin name="org.apache.cordova.network-information"/>
+<gap:plugin name="org.apache.cordova.dialogs"/>
  </widget>

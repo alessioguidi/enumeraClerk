@@ -11,7 +11,8 @@ serviceVarNuovaRigaResult: function(inSender, inDeprecated) {
 var item = this.serviceVarNuovaRiga.getData();
 if (item.errorCode != "") {
 app.toastError(item.message);
-app.phoneGapBeep.update();
+//  app.phoneGapBeep.update();
+navigator.notification.beep(3);
 }
 this.textBarcode.setDataValue("");
 this.textBarcode.focus();
