@@ -112,7 +112,7 @@ buttonVendite: ["wm.Button", {"_classes":{"domNode":["MenuButton"]},"border":"0"
 panel4: ["wm.Panel", {"enableTouchHeight":true,"height":"100%","horizontalAlign":"center","layoutKind":"left-to-right","styles":{},"verticalAlign":"middle","width":"100%"}, {}, {
 buttonProvvigioni: ["wm.Button", {"_classes":{"domNode":["MenuButton"]},"border":"0","caption":"Commissions","desktopHeight":"100px","height":"100px","imageIndex":11,"imageList":"imageList1","mobileHeight":"100px","styles":{"backgroundColor":"#ffffff","color":"#0c0303"}}, {"onclick":"navigationCallProvvigioni"}],
 buttonProfilo: ["wm.Button", {"_classes":{"domNode":["MenuButton"]},"border":"0","caption":"Settings","desktopHeight":"100px","height":"100px","imageIndex":13,"imageList":"imageList1","mobileHeight":"100px","styles":{"backgroundColor":"#ffffff","color":"#0c0303"}}, {"onclick":"navigationCallConfig"}],
-buttonUscita: ["wm.Button", {"_classes":{"domNode":["MenuButton"]},"border":"0","caption":"ExitApp","desktopHeight":"100px","height":"100px","imageIndex":2,"imageList":"imageList1","mobileHeight":"100px","styles":{"backgroundColor":"#ffffff","color":"#0c0303"}}, {"onclick":"navigationCallExit"}]
+buttonUscita: ["wm.Button", {"_classes":{"domNode":["MenuButton"]},"border":"0","caption":"ExitApp","desktopHeight":"100px","height":"100px","imageIndex":2,"imageList":"imageList1","mobileHeight":"100px","styles":{"backgroundColor":"#ffffff","color":"#0c0303"}}, {"onclick":"app.confirmExit"}]
 }],
 panelFooter: ["wm.Panel", {"height":"22px","horizontalAlign":"right","layoutKind":"left-to-right","verticalAlign":"top","width":"100%"}, {}, {
 label3: ["wm.Label", {"align":"center","height":"100%","padding":"4","styles":{"fontSize":"9px"},"width":"100%"}, {}, {

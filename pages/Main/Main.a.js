@@ -17,7 +17,7 @@ handleDeviceReady: function (event) {
 // current GPS coordinates
 //
 // navigator.splashscreen.hide();
-// document.addEventListener("backbutton", onBackButton, false);
+document.addEventListener("backbutton", onBackButton, false);
 /*
 document.addEventListener("searchbutton", onSearch, false);
 document.addEventListener("menubutton", onMenuButton, false);
@@ -29,11 +29,25 @@ this.pictureNetwork.setImageIndex(49);
 function onOffline() {
 this.pictureNetwork.setImageIndex(50);
 }
+*/
 // Handle the backbutton
 //
 function onBackButton() {
-alert("You hit the back button!");
+//navigator.notification.confirm("Are you sure want to exit from App?", onConfirmExit, "Confirmation", "Yes,No");
+if (main.pageContainer1.pageName == "Menu"){
+app.confirmExit.update();
 }
+else {
+if (typeof (navigator.app) !== "undefined") {
+history.go(-1);
+navigator.app.backHistory();
+} else {
+console.log("window.history.back");
+window.history.back();
+}
+}
+}
+/*
 // Handle the menubutton
 //
 function onMenuButton() {
