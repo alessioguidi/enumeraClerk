@@ -1,0 +1,72 @@
+/* GROUP: Standard Button */
+/* dijitReset needed for popupButton */
+.wm_proximity .wmbutton,
+.wm_proximity button.wmbutton, /* mostly to clobber .dj_ie .wmbutton in default/theme.css */
+.wm_proximity .wmbutton .dijitReset {
+	font-family: "Source Sans Pro", Calibri, Candara, Arial, sans-serif;
+	font-size: 15px;
+	color: #ffffff;
+/* 	font-weight: normal; // THEMER: DISABLED */
+}
+.wm_proximity .wmbutton {
+	border-radius: 1px;
+	-webkit-border-radius: 1px;
+/* 	box-shadow: 4px 4px 4px black; // THEMER: DISABLED */
+/* 	-webkit-box-shadow: 4px 4px 4px black; // THEMER: DISABLED */
+	background-color: #222222;
+	background-image: none;
+	filter: none;
+}
+
+/* GROUP: Hover State */
+ .wm_proximity   .wmbutton:hover {
+ 	color: #FFFFFF;
+/* 	font-weight: bold; // THEMER: DISABLED */
+        box-shadow: 0px 0px 0px black;    
+	background-color: #090909;
+	background-image: none;
+	filter: none;
+}
+
+
+/* GROUP: Active State */
+/* button.wmbutton required instead of .wmbutton for IE8 */
+.wm_proximity   button.wmbutton.toggleButtonDown,
+.wm_proximity   .wmbutton.Active,
+.wm_proximity   .wmbutton.Active:hover,
+.wm_proximity   .wmbutton:active,
+.wm_proximity   .wmbutton:hover:active {
+	color: #FFFFFF;
+/* 	font-weight: bold; // THEMER: DISABLED */
+	box-shadow: 4px 4px 4px black;
+	background-color: #5d6ea3;
+	background-image: none;
+	filter: none;
+}
+
+/* GROUP: Focus State */
+/* NOTE: This occurs when the user tabs to the button.
+  It may also occur when the user clicks the button */
+.wm_proximity   .wmbutton:focus {
+     outline: solid 1px #9999ff;
+}
+
+/* GROUP: Popup Menu */
+.wm_proximity .wmbutton.wmPopupButton .popupIcon {
+   background-image: url(lib/wm/base/widget/themes/wm_default/images/comboArrowDownDark.png);
+   background-position: 0% 50%;
+}
+
+/* GROUP: Disabled Button */
+.wm_proximity .Disabled.wmbutton,
+.wm_proximity .Disabled.wmbutton:hover,
+.wm_proximity .Disabled.wmbutton:active,
+.wm_proximity .Disabled.wmbutton:active:hover {
+  color: #FFFFFF;
+/* 	font-weight: bold; // THEMER: DISABLED */
+  box-shadow: 0px 0px 0px black;
+	background-color: #707070;
+	background-image: none;
+	filter: none;
+  opacity: 0.65;
+}

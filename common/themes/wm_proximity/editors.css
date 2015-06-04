@@ -1,0 +1,242 @@
+/* TODO: Fix all .dijitButtonContents which are found in Select editors which are found in editable grid */
+
+/* GROUP: Standard Editors */
+/* THEMER: DO NOT SUBCLASS START */
+.wm_proximity .dojoxGrid .dijitTextBox,
+.wm_proximity .dojoxGrid .dijitComboBox,
+.wm_proximity .dojoxGrid .dijitSelect .dijitButtonContents,
+/* THEMER: DO NOT SUBCLASS END */
+.wm_proximity .wmeditor .dijitTextBox,
+.wm_proximity .wmeditor .dijitTextArea,
+.wm_proximity .wmeditor .dijitComboBox,
+.wm_proximity .wmeditor .dijitSelect .dijitButtonContents,
+.wm_proximity .dijitTimePickerItem,
+.wm_proximity .wmeditor .RichTextEditable iframe {
+/* 	border: solid 1px rgb(102, 102, 102); // THEMER: DISABLED */
+/* 	font-family: sans-serif; // THEMER: DISABLED */
+/* 	font-size: 12px; // THEMER: DISABLED */
+/* 	color: #000000; // THEMER: DISABLED */
+/* 	font-weight: bold; // THEMER: DISABLED */
+	background-color: #ffffff;
+	background-image: none;
+	filter: none;
+}
+
+/* THEMER: DO NOT SUBCLASS START */
+.wm_proximity  .wmeditor .dijitTextBox,
+.wm_proximity  .wmeditor .dijitTextArea,
+.wm_proximity  .wmeditor .dijitComboBox,
+/* THEMER: DO NOT SUBCLASS END */
+.wm_proximity  .dojoxGrid .dijitTextBox,
+.wm_proximity  .dojoxGrid .dijitTextArea,
+.wm_proximity  .dojoxGrid .dijitComboBox
+ {
+	border-radius: 2px;
+	-webkit-border-radius: 2px;
+}
+
+.wm_proximity .wmeditor.wmrichtext {
+    -webkit-border-bottom-left-radius: 4px;  /* THEMER: CALC: ${border-bottom-left-radius} */
+    -webkit-border-bottom-right-radius: 4px; /* THEMER: CALC: ${border-bottom-right-radius} */
+    border-bottom-left-radius: 4px;       /* THEMER: CALC: ${border-bottom-left-radius} */
+    border-bottom-right-radius: 4px;      /* THEMER: CALC: ${border-bottom-right-radius} */
+}
+
+
+/* GROUP: Hover */
+/* THEMER: DO NOT SUBCLASS START */
+.wm_proximity .dijitTimePickerMarker.dijitTimePickerMarkerHover,
+.wm_proximity .dijitTimePickerItem.dijitTimePickerItemHover,
+/* THEMER: DO NOT SUBCLASS END */
+.wm_proximity .wmeditor .dijitTextBox.dijitHover,
+.wm_proximity .wmeditor .dijitTextArea:hover,
+.wm_proximity .wmeditor .dijitComboBox.dijitHover,
+.wm_proximity .wmeditor .dijitSelect.dijitHover .dijitButtonContents,
+.wm_proximity .wmeditor .RichTextEditable:hover iframe {
+	color: #000000;
+/* 	border: solid 0px rgb(102, 102, 102); // THEMER: DISABLED */
+	background-color: #e5e5e5;
+	background-image: none;
+	filter: none;
+}
+
+/* GROUP: Focus */
+/* THEMER: DO NOT SUBCLASS START */
+.wm_proximity .dojoxGrid .dijitTextBox.dijitFocused,
+.wm_proximity .dojoxGrid .dijitComboBox.dijitFocused,
+.wm_proximity .dojoxGrid .dijitSelect.dijitFocused .dijitButtonContents,
+/* THEMER: DO NOT SUBCLASS END */
+.wm_proximity .wmeditor .dijitTextBox.dijitFocused,
+.wm_proximity .wmeditor .dijitTextBox.dijitFocused.dijitHover,
+.wm_proximity .wmeditor .dijitTextArea.dijitFocused,
+.wm_proximity .wmeditor .dijitTextArea.dijitFocused:hover,
+.wm_proximity .wmeditor .dijitComboBox.dijitFocused,
+.wm_proximity .wmeditor .dijitComboBox.dijitFocused.dijitHover,
+.wm_proximity .wmeditor .dijitSelect.dijitFocused .dijitButtonContents,
+.wm_proximity .wmeditor .dijitSelect.dijitFocused.dijitHover .dijitButtonContents,
+.wm_proximity .isDirty.wmeditor .dijitTextBox.dijitFocused,
+.wm_proximity .isDirty.wmeditor .dijitTextArea.dijitFocused,
+.wm_proximity .isDirty.wmeditor .dijitComboBox.dijitFocused,
+.wm_proximity .wmeditor .RichTextEditable.Focused iframe {
+	color: ;
+	border: groove 3px #66afe9;
+/* 	background-color: #f6d399; // THEMER: DISABLED */
+/* 	background-image: none; // THEMER: DISABLED */
+/* 	filter: none; // THEMER: DISABLED */
+}
+
+/* GROUP: isDirty */
+.wm_proximity .isDirty.wmeditor .dijitTextBox,
+.wm_proximity .isDirty.wmeditor .dijitTextArea,
+.wm_proximity .isDirty.wmeditor .dijitComboBox {
+	color: inherit;
+	border: solid 0px #666666;
+/* 	background-color: rgb(68, 68, 68); // THEMER: DISABLED */
+/* 	background-image: none; // THEMER: DISABLED */
+/* 	filter: none; // THEMER: DISABLED */
+}
+
+/* GROUP: Invalid */
+.wm_proximity .wmeditor .dijitError.dijitTextBox,
+.wm_proximity .wmeditor .dijitError.dijitTextArea,
+.wm_proximity .wmeditor .dijitError.dijitComboBox,
+.wm_proximity .wmeditor .dijitError.isDirty.dijitTextBox,
+.wm_proximity .wmeditor .dijitError.isDirty.dijitTextArea,
+.wm_proximity .wmeditor .dijitError.isDirty.dijitComboBox
+{
+	color: inherit;
+	border: solid 0px #666666;
+	background-color: #F9F7BA; 
+	background-image: none; 
+	filter: none;
+}
+
+
+/* GROUP: Captions */
+.wm_proximity .wmeditor .wmeditor-caption {
+/* 	font-family: undefined; // THEMER: DISABLED */
+	font-size: 14px;
+/* 	color: #000000; // THEMER: DISABLED */
+	font-weight: normal;
+}
+
+/* GROUP: Read-only */
+.wm_proximity .wmeditor .wmeditor-readonlyNode {
+	font-family: inherit; 
+/* 	font-size: 12px; // THEMER: DISABLED */
+	color: #555555;
+	font-weight: inherit;
+}
+
+
+/* GROUP: Drop Down Boxes */
+/* THEMER: DO NOT SUBCLASS START */
+.wm_proximity .dojoxGrid .dijitComboBox .dijitArrowButton,
+/* THEMER: DO NOT SUBCLASS END */
+.wm_proximity .wmeditor .dijitSpinner .dijitArrowButton,
+.wm_proximity .wmeditor .dijitComboBox .dijitArrowButton,
+.wm_proximity .wmeditor .dijitSelect .dijitArrowButton {
+	background-image: -webkit-gradient(linear, center top, center bottom, from(rgb(170, 170, 170)), color-stop(52%%,rgb(102, 102, 102)), to(rgb(102, 102, 102))); ;
+	background-image: -moz-linear-gradient(top, rgb(170, 170, 170) 0%,rgb(102, 102, 102) 52%%,rgb(102, 102, 102) 100%); ;
+	background-image: -o-linear-gradient(top, rgb(170, 170, 170) 0%,rgb(102, 102, 102) 52%%,rgb(102, 102, 102) 100%); ;
+	background-image: -ms-linear-gradient(top, rgb(170, 170, 170) 0%,rgb(102, 102, 102) 52%%,rgb(102, 102, 102) 100%); ;
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='rgb(170, 170, 170)', endColorstr='rgb(102, 102, 102)',GradientType=0); ;
+}
+
+/* THEMER: DO NOT SUBCLASS START */
+.wm_proximity .dojoxGrid .dijitComboBox .dijitArrowButton,
+.wm_proximity .dijitComboBox .dijitArrowButton .dijitArrowButtonInner, /* Grid combo boxes and selects */
+.wm_proximity .dijitSelect .dijitArrowButton .dijitArrowButtonInner,
+/* THEMER: DO NOT SUBCLASS END */
+.wm_proximity .wmeditor .dijitComboBox .dijitArrowButton,
+.wm_proximity .wmeditor .dijitSelect .dijitArrowButton,
+.wm_proximity .wmeditor .dijitComboBox .dijitArrowButton .dijitArrowButtonInner,
+.wm_proximity .wmeditor .dijitSelect .dijitArrowButton .dijitArrowButtonInner {
+    -webkit-border-bottom-right-radius: 2px;
+    -webkit-border-top-right-radius: 2px; 
+    border-bottom-right-radius: 2px;
+    border-top-right-radius: 2px;
+}
+
+
+/* GROUP: Drop Down Boxes Hover */ 
+/* THEMER: DO NOT SUBCLASS START */
+.wm_proximity .dojoxGrid .dijitComboBox .dijitArrowButton:hover,
+/* THEMER: DO NOT SUBCLASS END */
+.wm_proximity .wmeditor .dijitSpinner .dijitArrowButton:hover,
+.wm_proximity .wmeditor .dijitComboBox .dijitArrowButton:hover,
+.wm_proximity .wmeditor .dijitSelect .dijitArrowButton:hover {
+	background-image: -webkit-gradient(linear, center top, center bottom, from(rgb(170, 170, 170)), color-stop(52%%,rgb(102, 102, 102)), to(rgb(102, 102, 102)));
+	background-image: -moz-linear-gradient(top, rgb(170, 170, 170) 0%,rgb(102, 102, 102) 52%%,rgb(102, 102, 102) 100%);
+	background-image: -o-linear-gradient(top, rgb(170, 170, 170) 0%,rgb(102, 102, 102) 52%%,rgb(102, 102, 102) 100%);
+	background-image: -ms-linear-gradient(top, rgb(170, 170, 170) 0%,rgb(102, 102, 102) 52%%,rgb(102, 102, 102) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='rgb(170, 170, 170)', endColorstr='rgb(102, 102, 102)',GradientType=0);
+}
+
+/* GROUP: Drop Down Clicking */
+/* THEMER: DO NOT SUBCLASS START */
+.wm_proximity .dojoxGrid .dijitComboBox .dijitArrowButton:active,
+/* THEMER: DO NOT SUBCLASS END */
+.wm_proximity .wmeditor .dijitSpinner .dijitArrowButton:active,
+.wm_proximity .wmeditor .dijitComboBox .dijitArrowButton:active,
+.wm_proximity .wmeditor .dijitSelect .dijitArrowButton:active {
+	background-image: -webkit-gradient(linear, center top, center bottom, from(rgb(170, 170, 170)), color-stop(52%%,rgb(102, 102, 102)), to(rgb(102, 102, 102)));
+	background-image: -moz-linear-gradient(top, rgb(170, 170, 170) 0%,rgb(102, 102, 102) 52%%,rgb(102, 102, 102) 100%);
+	background-image: -o-linear-gradient(top, rgb(170, 170, 170) 0%,rgb(102, 102, 102) 52%%,rgb(102, 102, 102) 100%);
+	background-image: -ms-linear-gradient(top, rgb(170, 170, 170) 0%,rgb(102, 102, 102) 52%%,rgb(102, 102, 102) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='rgb(170, 170, 170)', endColorstr='rgb(102, 102, 102)',GradientType=0);
+		  
+}
+
+
+/* GROUP: Drop Down Box Arrows */
+/* THEMER: DO NOT SUBCLASS START */
+.wm_proximity .dijitComboBox .dijitArrowButton .dijitArrowButtonInner,
+.wm_proximity .dijitSelect .dijitArrowButton .dijitArrowButtonInner,
+/* THEMER: DO NOT SUBCLASS END */
+.wm_proximity .wmeditor .dijitComboBox .dijitArrowButton .dijitArrowButtonInner,
+.wm_proximity .wmeditor .dijitSelect .dijitArrowButton .dijitArrowButtonInner {
+	background: url(images/comboArrowDownLight.png) no-repeat 50% 50%;
+}
+
+
+
+/* GROUP: Spinner Arrows Down */
+.wm_proximity .wmeditor .dijitSpinner .dijitArrowButton .dijitArrowButtonInner {
+	background: url(images/comboArrowDownLight.png) no-repeat 30% 30%;
+}
+
+/* GROUP: Spinner Arrows Up */
+.wm_proximity .wmeditor .dijitSpinner .dijitArrowButton.dijitUpArrowButton .dijitArrowButtonInner {
+	background: url(images/comboArrowUpLight.png) no-repeat 50% 50%;
+}
+
+
+
+/* GROUP: Sliders */
+.wm_proximity .wmeditor .dijitSlider .dijitSliderImageHandleH {
+	background: url(images/preciseSliderThumb.png) no-repeat 50% undefined%; ; ;
+	outline: solid 0px ;
+}
+
+/* GROUP: Slider Bar Progress */
+.wm_proximity .wmeditor .dijitSlider .dijitSliderProgressBarH,
+.wm_proximity .wmeditor .dijitSlider .dijitSliderLeftBumper,
+.wm_proximity .wmeditor .dijitSliderFocused.dijitSlider .dijitSliderProgressBarH,
+.wm_proximity .wmeditor .dijitSliderFocused.dijitSlider .dijitSliderLeftBumper {
+	background-color: #2780e3;
+	background-image: none;
+	filter: none;
+}
+
+/* GROUP: Slider Bar Remainder */
+.wm_proximity .wmeditor .dijitSlider .dijitSliderRemainingBarH,
+.wm_proximity .wmeditor .dijitSlider .dijitSliderRightBumper,
+.wm_proximity .wmeditor .dijitSliderFocused.dijitSlider .dijitSliderRemainingBarH,
+.wm_proximity .wmeditor .dijitSliderFocused.dijitSlider .dijitSliderRightBumper {
+/* 	background-image: -webkit-gradient(linear, center top, center bottom, from(rgb(170, 170, 170)), color-stop(52%%,rgb(102, 102, 102)), to(rgb(102, 102, 102))); // THEMER: DISABLED */
+/* 	background-image: -moz-linear-gradient(top, rgb(170, 170, 170) 0%,rgb(102, 102, 102) 52%%,rgb(102, 102, 102) 100%); // THEMER: DISABLED */
+/* 	background-image: -o-linear-gradient(top, rgb(170, 170, 170) 0%,rgb(102, 102, 102) 52%%,rgb(102, 102, 102) 100%); // THEMER: DISABLED */
+/* 	background-image: -ms-linear-gradient(top, rgb(170, 170, 170) 0%,rgb(102, 102, 102) 52%%,rgb(102, 102, 102) 100%); // THEMER: DISABLED */
+/* 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='rgb(170, 170, 170)', endColorstr='rgb(102, 102, 102)',GradientType=0); // THEMER: DISABLED */
+}    

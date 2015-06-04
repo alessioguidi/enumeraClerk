@@ -1,0 +1,5 @@
+cosmoBasic (40x40 - 65)
+cosmoDocuments (40x40 - 77)
+cosmoPlayer (40x40 - 60)
+cosmoMobile (40x40 - 55)
+cosmoMultimedia (40x40 - 66)

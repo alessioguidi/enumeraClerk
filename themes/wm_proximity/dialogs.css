@@ -1,0 +1,51 @@
+/* GROUP: Dialog Frame */
+.wm_proximity .wmdialog {
+/* 	border-radius: 2px; // THEMER: DISABLED */
+/* 	-webkit-border-radius: 2px; // THEMER: DISABLED */
+	box-shadow: 3px 3px 3px black;
+	-webkit-box-shadow: 3px 3px 3px black;
+}
+
+/* GROUP: Dialog Container */
+.wm_proximity .wmdialog {
+	background-color: #ffffff;
+	background-image: none;
+	filter: none;
+/* 	font-family: sans-serif; // THEMER: DISABLED */
+/* 	font-size: 12px; // THEMER: DISABLED */
+/* 	color: #ffffff; // THEMER: DISABLED */
+	font-weight: normal;
+}
+
+/* GROUP: Dialog Titlebar */
+.wm_proximity .dialogtitlebar .wmlabel{
+/* 	font-family: sans-serif; // THEMER: DISABLED */
+/* 	font-size: 12px; // THEMER: DISABLED */
+	color: #555555;
+	font-weight: normal;
+}
+
+.wm_proximity .dialogtitlebar {
+	background-color: #dddddd;
+	background-image: none;
+	filter: none;
+}
+
+
+/* GROUP: Titlebar Buttons: Close Button */
+.wm_proximity .dialogtitlebar .dialogclosebutton {
+	background: url(images/DialogIconsGray.png) no-repeat undefined% undefined%;
+}
+
+/* GROUP: Titlebar Buttons: Minify Button */
+.wm_proximity .dialogtitlebar .dialogminifybutton {
+	background-color: transparent;
+	background-image: none;
+	filter: none;
+}
+/* GROUP: Titlebar Buttons: Maxify Button */
+.wm_proximity .dialogtitlebar .dialogmaxifybutton {
+	background-color: transparent;
+	background-image: none;
+	filter: none;
+}
