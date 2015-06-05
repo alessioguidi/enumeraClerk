@@ -232,8 +232,8 @@ wire1: ["wm.Wire", {"expression":"!${serviceVarRigheLista.isEmpty}","targetPrope
 }]
 }],
 panel6: ["wm.Panel", {"height":"40px","horizontalAlign":"left","layoutKind":"left-to-right","verticalAlign":"top","width":"100%"}, {}, {
-buttonBack: ["wm.Button", {"border":"0","caption":"Back","height":"40px"}, {"onclick":"buttonBackClick","onclick1":"layerRicerca"}],
-buttonDelete: ["wm.Button", {"border":"0","caption":"Delete","height":"40px"}, {"onclick":"serviceVarElimina","onclick1":"serviceVarListe","onclick2":"layerRicerca"}],
+buttonBack: ["wm.Button", {"_classes":{"domNode":["buttonBack"]},"border":"0","caption":"Back","height":"40px","styles":{}}, {"onclick":"buttonBackClick","onclick1":"layerRicerca"}],
+buttonDelete: ["wm.Button", {"_classes":{"domNode":["buttonDelete"]},"border":"0","caption":"Delete","height":"40px","styles":{}}, {"onclick":"serviceVarElimina","onclick1":"serviceVarListe","onclick2":"layerRicerca"}],
 buttonCheckout: ["wm.Button", {"border":"0","caption":"Checkout","height":"40px"}, {"onclick":"notificationCallCheckOut"}]
 }]
 }],
@@ -253,7 +253,7 @@ gridRighe: ["wm.DojoGrid", {"columns":[
 {"show":false,"field":"COD_DEPOSITO","title":"COD_DEPOSITO","width":"100%","align":"left","formatFunc":"","mobileColumn":false},
 {"show":false,"field":"UBICAZIONE","title":"UBICAZIONE","width":"100%","align":"left","formatFunc":"","mobileColumn":false},
 {"show":false,"field":"UM","title":"UM","width":"100%","align":"left","formatFunc":"","mobileColumn":false},
-{"show":true,"field":"QTA","title":"Qty","width":"21px","align":"left","formatFunc":"","mobileColumn":true},
+{"show":true,"field":"QTA","title":"Qty","width":"20px","align":"left","formatFunc":"","mobileColumn":true},
 {"show":false,"field":"QTAPRELEVATA","title":"QTAPRELEVATA","width":"100%","align":"left","formatFunc":"","mobileColumn":false},
 {"show":false,"field":"DATAINS","title":"DATAINS","width":"100%","align":"left","formatFunc":"","mobileColumn":false},
 {"show":false,"field":"ORAINS","title":"ORAINS","width":"100%","align":"left","formatFunc":"","mobileColumn":false},
@@ -271,29 +271,29 @@ gridRighe: ["wm.DojoGrid", {"columns":[
 {"show":false,"field":"SERIE_GROUPAGE","title":"SERIE_GROUPAGE","width":"100%","align":"left","formatFunc":"","mobileColumn":false},
 {"show":false,"field":"IDTESTA_GROUPAGE","title":"IDTESTA_GROUPAGE","width":"100%","align":"left","formatFunc":"","mobileColumn":false},
 {"show":false,"field":"IDRIGA_GROUPAGE","title":"IDRIGA_GROUPAGE","width":"100%","align":"left","formatFunc":"","mobileColumn":false},
-{"show":true,"field":"DESCRIZIONE","title":"Description","width":"119px","align":"left","formatFunc":"","editorProps":null,"mobileColumn":true},
+{"show":true,"field":"DESCRIZIONE","title":"Description","width":"100%","align":"left","formatFunc":"","editorProps":null,"mobileColumn":true},
 {"show":false,"field":"PREZZO","title":"PREZZO","width":"100%","align":"left","formatFunc":"","mobileColumn":false},
 {"show":false,"field":"STR_SCONTI","title":"STR_SCONTI","width":"100%","align":"left","formatFunc":"","mobileColumn":false},
 {"show":false,"field":"SCONTOVALORE","title":"SCONTOVALORE","width":"100%","align":"left","formatFunc":"","mobileColumn":false},
 {"show":false,"field":"VAL_UNITARIO","title":"Amount","width":"62px","align":"left","formatFunc":"","mobileColumn":false},
-{"show":true,"field":"TAGLIA","width":"16px","align":"left","formatFunc":"","editorProps":null,"mobileColumn":true},
-{"show":true,"field":"VAL_TOTALE_RIGA","title":"€","width":"38px","align":"left","formatFunc":"","editorProps":null,"mobileColumn":true},
+{"show":true,"field":"TAGLIA","width":"20px","align":"left","formatFunc":"","editorProps":null,"mobileColumn":true},
+{"show":true,"field":"VAL_TOTALE_RIGA","title":"€","width":"45px","align":"left","formatFunc":"","editorProps":null,"mobileColumn":true},
 {"show":false,"field":"VAL_TOTALE_PREL","title":"VAL_TOTALE_PREL","width":"100%","align":"left","formatFunc":"","mobileColumn":false},
 {"show":false,"field":"NUOVO_RRP","title":"NUOVO_RRP","width":"100%","align":"left","formatFunc":"","mobileColumn":false},
 {"show":false,"field":"NOTE_RIGA","title":"NOTE_RIGA","width":"100%","align":"left","formatFunc":"","mobileColumn":false},
 {"show":false,"field":"QTA_TOTALE","title":"QTA_TOTALE","width":"100%","align":"left","formatFunc":"","mobileColumn":false},
 {"show":false,"field":"VAL_TOTALE","title":"VAL_TOTALE","width":"100%","align":"left","formatFunc":"","mobileColumn":false},
-{"show":true,"field":"buttonDelete","width":"40px","align":"left","formatFunc":"wm_button_formatter","expression":"\"Del\"","isCustomField":true,"cssClass":"\"buttonIngrid\"","mobileColumn":true},
+{"show":true,"field":"buttonDelete","width":"30px","align":"left","formatFunc":"wm_button_formatter","formatProps":{"buttonclass":"buttonDelete"},"expression":"\"x\"","isCustomField":true,"cssClass":"\"buttonIngrid\"","mobileColumn":true},
 {"show":false,"field":"QTA_ORI","title":"QTA_ORI","width":"100%","align":"left","formatFunc":"","mobileColumn":false},
 {"show":false,"field":"VAL_TOTALE_RIGA_ORI","title":"VAL_TOTALE_RIGA_ORI","width":"100%","align":"left","formatFunc":"","mobileColumn":false},
 {"show":false,"field":"NUM_DECIMALI","title":"NUM_DECIMALI","width":"100%","align":"left","formatFunc":"","mobileColumn":false}
-],"dsType":"righeListaResponse","height":"100%","localizationStructure":{},"margin":"4","minDesktopHeight":60,"primaryKeyFields":["ROWID"],"selectFirstRow":true,"singleClickEdit":true,"styles":{"fontSize":"11px"}}, {"onRowDeleted":"notificationCallDelRiga","onGridButtonClick":"notificationCallDelRiga"}, {
+],"dsType":"righeListaResponse","height":"100%","localizationStructure":{},"margin":"4","minDesktopHeight":60,"primaryKeyFields":["ROWID"],"selectFirstRow":true,"singleClickEdit":true,"styles":{"fontSize":"11px"}}, {"onGridButtonClick":"notificationCallDelRiga","onRowDeleted":"notificationCallDelRiga"}, {
 binding: ["wm.Binding", {}, {}, {
 wire: ["wm.Wire", {"expression":undefined,"source":"serviceVarRigheLista","targetProperty":"dataSet"}, {}]
 }]
 }],
 panel3: ["wm.Panel", {"desktopHeight":"30px","enableTouchHeight":true,"height":"36px","horizontalAlign":"center","layoutKind":"left-to-right","mobileHeight":"36px","verticalAlign":"top","width":"100%"}, {}, {
-textBarcode: ["wm.Text", {"caption":"Barcode","captionAlign":"left","dataValue":undefined,"desktopHeight":"35px","displayValue":"","height":"36px","width":"100%"}, {"onchange":"textBarcodeChange"}]
+textBarcode: ["wm.Text", {"caption":"Barcode","captionAlign":"left","captionSize":"70px","dataValue":undefined,"desktopHeight":"35px","displayValue":"","height":"30px","mobileHeight":"30px","width":"90%"}, {"onchange":"textBarcodeChange"}]
 }]
 }],
 layerNuovo: ["wm.Layer", {"borderColor":"","caption":"layer1","horizontalAlign":"left","themeStyleType":"","verticalAlign":"top"}, {}, {

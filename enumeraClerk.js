@@ -15,7 +15,7 @@ dojo.declare("enumeraClerk", wm.Application, {
 	"sessionExpirationHandler": "navigateToLogin", 
 	"studioVersion": "6.7.0.RELEASE", 
 	"tabletMain": "", 
-	"theme": "common.themes.wm_proximity", 
+	"theme": "common.themes.wm_enumera", 
 	"toastPosition": "cc", 
 	"touchToClickDelay": 500, 
 	"touchToRightClickDelay": 1500,

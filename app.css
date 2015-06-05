@@ -13,5 +13,16 @@ html.WMApp body .buttonMenu {
 background-color: #2780e3;
 
 }
+html.WMApp body .buttonDelete {
+    background-image: linear-gradient(rgb(199, 20, 68) 0%, rgb(157, 14, 39) 100%);
+}
+
+
+
+
+
+html.WMApp body .buttonBack {
+background-image: linear-gradient(rgb(153, 84, 187), rgb(153, 84, 187) 60%, rgb(153, 84, 187));
+}
 
 

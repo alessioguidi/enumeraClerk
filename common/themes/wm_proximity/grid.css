@@ -6,7 +6,7 @@
 
 .wm_proximity .GridListStyle  .wmlist-cell,
 .wm_proximity .GridListStyle td.dojoxGridCell {
-	border: dashed 1px rgb(153, 153, 153);
+	border: dashed 1px #999999;
 }
 
 .wm_proximity .GridListStyle div.dojoxGridRow,
@@ -76,7 +76,7 @@
 .wm_proximity .GridListStyle .wmlist-item.wmlist-item-selected,
 .wm_proximity .GridListStyle.Disabled .wmlist-item.wmlist-item-selected,
 .wm_proximity .GridListStyle .wmlist-item.wmlist-item-selected.wmlist-item-over {
-	background-color: #f6d399;
+	background-color: #5bbae6;
 	background-image: none;
 	filter: none;
 /* 	color: #ffffff; // THEMER: DISABLED */

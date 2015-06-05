@@ -1,0 +1,15 @@
+/* GROUP: Tool tips */
+.wm_enumera .AppToolTip {
+/* 	font-family: sans-serif; // THEMER: DISABLED */
+/* 	font-size: 12px; // THEMER: DISABLED */
+  color: black;
+  font-weight: bold;
+
+/* 	background-color: rgb(255, 254, 203); // THEMER: DISABLED */
+/* 	background-image: none; // THEMER: DISABLED */
+/* 	filter: none; // THEMER: DISABLED */
+
+  border-radius: 0px;
+  -webkit-border-radius: 0px;
+  box-shadow: 2px 2px 2px #666;
+}

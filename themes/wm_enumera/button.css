@@ -1,0 +1,72 @@
+/* GROUP: Standard Button */
+/* dijitReset needed for popupButton */
+.wm_enumera .wmbutton,
+.wm_enumera button.wmbutton, /* mostly to clobber .dj_ie .wmbutton in default/theme.css */
+.wm_enumera .wmbutton .dijitReset {
+	font-family: Tahoma, Geneva, sans-serif;
+	font-size: 14px;
+	color: #ffffff;
+	font-weight: normal;
+}
+.wm_enumera .wmbutton {
+	border-radius: 2px;
+	-webkit-border-radius: 2px;
+/* 	box-shadow: 4px 4px 4px black; // THEMER: DISABLED */
+/* 	-webkit-box-shadow: 4px 4px 4px black; // THEMER: DISABLED */
+	background-color: #ff6707;
+	background-image: none;
+	filter: none;
+}
+
+/* GROUP: Hover State */
+ .wm_enumera   .wmbutton:hover {
+ 	color: #FFFFFF;
+	font-weight: bold;
+        box-shadow: 0px 0px 0px black;    
+	background-color: #000000;
+	background-image: none;
+	filter: none;
+}
+
+
+/* GROUP: Active State */
+/* button.wmbutton required instead of .wmbutton for IE8 */
+.wm_enumera   button.wmbutton.toggleButtonDown,
+.wm_enumera   .wmbutton.Active,
+.wm_enumera   .wmbutton.Active:hover,
+.wm_enumera   .wmbutton:active,
+.wm_enumera   .wmbutton:hover:active {
+	color: #FFFFFF;
+/* 	font-weight: bold; // THEMER: DISABLED */
+	box-shadow: 4px 4px 4px black;
+	background-color: #5d6ea3;
+	background-image: none;
+	filter: none;
+}
+
+/* GROUP: Focus State */
+/* NOTE: This occurs when the user tabs to the button.
+  It may also occur when the user clicks the button */
+.wm_enumera   .wmbutton:focus {
+     outline: solid 1px #9999ff;
+}
+
+/* GROUP: Popup Menu */
+.wm_enumera .wmbutton.wmPopupButton .popupIcon {
+   background-image: url(lib/wm/base/widget/themes/wm_default/images/comboArrowDownDark.png);
+   background-position: 0% 50%;
+}
+
+/* GROUP: Disabled Button */
+.wm_enumera .Disabled.wmbutton,
+.wm_enumera .Disabled.wmbutton:hover,
+.wm_enumera .Disabled.wmbutton:active,
+.wm_enumera .Disabled.wmbutton:active:hover {
+  color: #FFFFFF;
+/* 	font-weight: bold; // THEMER: DISABLED */
+  box-shadow: 0px 0px 0px black;
+	background-color: #707070;
+	background-image: none;
+	filter: none;
+  opacity: 0.65;
+}

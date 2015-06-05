@@ -1,0 +1,28 @@
+/* GROUP: Container */
+.wm_enumera .wmfancypanel .wmFancyPanel-containerWidget {
+    border-top-left-radius: 0px !important; /* THEMER: HIDE */
+    border-top-right-radius: 0px !important;/* THEMER: HIDE */
+    -webkit-border-top-left-radius: 0px !important;/* THEMER: HIDE */
+    -webkit-border-top-right-radius: 0px !important;/* THEMER: HIDE */
+    box-shadow: 0px 0px 0px black !important;/* THEMER: HIDE */
+	border-radius: 0px 0px 1px 1px;
+	-webkit-border-radius: 0px 0px 1px 1px;
+    background-color: white;
+    background-image: none;
+    filter: none;
+}
+
+
+/* GROUP: Panel Title */
+.wm_enumera .wmfancypanel .wmFancyPanel-labelWidget {
+	border-radius: 1px 1px 0px 0px;
+	-webkit-border-radius: 1px 1px 0px 0px;
+
+	font-family: 'Source Sans Pro', Calibri, Candara, Arial, sans-serif;
+	font-size: 17px;
+	font-weight: normal;
+    color: #FFFFFF;
+	background-color: #272b30;
+	background-image: none;
+	filter: none;
+}
