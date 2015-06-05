@@ -301,11 +301,14 @@ enumeraClerk.extend({
 		    	//alert("uscirei se potessi");
         //window.plugin.backgroundMode.enable();
         //navigator.app.exitApp();
+        navigator.app.exitApp();
+        /*
         navigator.Backbutton.goHome(function() {
             console.log('success')
         }, function() {
             console.log('fail')
         });
+        */
 	},
 	_end: 0
 });
