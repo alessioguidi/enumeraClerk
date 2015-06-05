@@ -25,13 +25,16 @@ Liste.widgets = {
 			wire: ["wm.Wire", {"expression":undefined,"source":"gridClienti","targetProperty":"loadingDialog"}, {}]
 		}]
 	}],
-	serviceVarListe: ["wm.ServiceVariable", {"inFlightBehavior":"executeLast","operation":"liste","service":"xhrService","startUpdate":true}, {}, {
+	serviceVarListe: ["wm.ServiceVariable", {"inFlightBehavior":"executeLast","operation":"liste","service":"xhrService","startUpdate":true}, {"onResult":"layerRicerca"}, {
 		input: ["wm.ServiceInput", {"type":"listeInputs"}, {}, {
 			binding: ["wm.Binding", {}, {}, {
 				wire: ["wm.Wire", {"expression":undefined,"source":"app.serviceApp.sessionName","targetProperty":"JXSESSNAME"}, {}],
 				wire1: ["wm.Wire", {"expression":undefined,"source":"app.serviceApp.userName","targetProperty":"operatore"}, {}],
 				wire2: ["wm.Wire", {"expression":undefined,"source":"app.varConfig.server","targetProperty":"server"}, {}]
 			}]
+		}],
+		binding: ["wm.Binding", {}, {}, {
+			wire: ["wm.Wire", {"expression":undefined,"source":"listaVendite","targetProperty":"loadingDialog"}, {}]
 		}]
 	}],
 	notificationCall1: ["wm.NotificationCall", {}, {}, {
@@ -41,7 +44,7 @@ Liste.widgets = {
 			}]
 		}]
 	}],
-	serviceVarElimina: ["wm.ServiceVariable", {"inFlightBehavior":"executeLast","operation":"eliminaVendita","service":"xhrService"}, {"onResult":"notificationCall2"}, {
+	serviceVarElimina: ["wm.ServiceVariable", {"inFlightBehavior":"executeLast","operation":"eliminaVendita","service":"xhrService"}, {"onResult":"serviceVarListe"}, {
 		input: ["wm.ServiceInput", {"type":"eliminaVenditaInputs"}, {}, {
 			binding: ["wm.Binding", {}, {}, {
 				wire: ["wm.Wire", {"expression":undefined,"source":"app.serviceApp.sessionName","targetProperty":"JXSESSNAME"}, {}],
@@ -123,7 +126,14 @@ Liste.widgets = {
 			}]
 		}]
 	}],
-	layoutBox1: ["wm.Layout", {"horizontalAlign":"left","verticalAlign":"top"}, {}, {
+	notificationDeleteLista: ["wm.NotificationCall", {"operation":"confirm"}, {"onOk":"serviceVarElimina"}, {
+		input: ["wm.ServiceInput", {"type":"confirmInputs"}, {}, {
+			binding: ["wm.Binding", {}, {}, {
+				wire: ["wm.Wire", {"expression":"\"Confirm delete operation?\"","targetProperty":"text"}, {}]
+			}]
+		}]
+	}],
+	layoutBox1: ["wm.Layout", {"horizontalAlign":"left","styles":{},"verticalAlign":"top"}, {}, {
 		panelHeader: ["wm.Panel", {"border":"1","borderColor":"#2780e3","desktopHeight":"50px","enableTouchHeight":true,"height":"50px","horizontalAlign":"left","layoutKind":"left-to-right","mobileHeight":"50px","styles":{"backgroundColor":"#2780e3","color":"#ffffff"},"verticalAlign":"top","width":"100%"}, {}, {
 			buttonMenu: ["wm.Button", {"_classes":{"domNode":["buttonMenu"]},"border":"0","borderColor":"","caption":"Menu","desktopHeight":"100px","height":"50px","imageIndex":0,"imageList":"app.cosmoBasic","mobileHeight":"50px","styles":{}}, {"onclick":"app.navigationCallMenu"}],
 			labelTitolo: ["wm.Label", {"_classes":{"domNode":["labelTitolo"]},"align":"left","borderColor":"","caption":"Sales","height":"100%","margin":"0,6,0,0","padding":"4","styles":{"textAlign":"right"},"width":"100%"}, {}]
@@ -190,15 +200,15 @@ Liste.widgets = {
 							wire: ["wm.Wire", {"expression":"${listaVendite.selectedItem.COGNOME} + \" \" +${listaVendite.selectedItem.DESC_AGENZIA} + \" \" +${listaVendite.selectedItem.DESC_LEADER}","targetProperty":"caption"}, {}]
 						}]
 					}],
-					panel6: ["wm.Panel", {"height":"40px","horizontalAlign":"left","layoutKind":"left-to-right","verticalAlign":"top","width":"100%"}, {}, {
+					panel6: ["wm.Panel", {"height":"40px","horizontalAlign":"left","layoutKind":"left-to-right","styles":{},"verticalAlign":"top","width":"100%"}, {}, {
 						buttonBack: ["wm.Button", {"_classes":{"domNode":["buttonBack"]},"border":"0","caption":"Back","height":"40px","styles":{}}, {"onclick":"buttonBackClick","onclick1":"layerRicerca"}],
-						buttonDelete: ["wm.Button", {"_classes":{"domNode":["buttonDelete"]},"border":"0","caption":"Delete","height":"40px","styles":{}}, {"onclick":"serviceVarElimina","onclick1":"serviceVarListe","onclick2":"layerRicerca"}],
-						buttonCheckout: ["wm.Button", {"border":"0","caption":"Checkout","height":"40px"}, {"onclick":"notificationCallCheckOut"}]
+						buttonDelete: ["wm.Button", {"_classes":{"domNode":["buttonDelete"]},"border":"0","caption":"Delete","height":"40px","styles":{}}, {"onclick":"notificationDeleteLista"}],
+						buttonCheckout: ["wm.Button", {"border":"0","caption":"Checkout","height":"40px","styles":{}}, {"onclick":"notificationCallCheckOut"}]
 					}],
 					label2: ["wm.Label", {"align":"right","height":"22px","padding":"4","width":"100%"}, {}, {
 						binding: ["wm.Binding", {}, {}, {
-							wire: ["wm.Wire", {"expression":"'Total qty: ' + parseInt(${serviceVarRigheLista.QTA_TOTALE}) + ' - Total amount: ' + parseFloat(${serviceVarRigheLista.VAL_TOTALE}).toFixed(2)","targetProperty":"caption"}, {}],
-							wire1: ["wm.Wire", {"expression":"!${serviceVarRigheLista.isEmpty}","targetProperty":"showing"}, {}]
+							wire1: ["wm.Wire", {"expression":"!${serviceVarRigheLista.isEmpty}","targetProperty":"showing"}, {}],
+							wire: ["wm.Wire", {"expression":"'Total qty: ' + parseInt(${serviceVarRigheLista.QTA_TOTALE}) + ' - Total amount: ' + parseFloat(${serviceVarRigheLista.VAL_TOTALE}).toFixed(2)","targetProperty":"caption"}, {}]
 						}]
 					}]
 				}],
@@ -252,7 +262,7 @@ Liste.widgets = {
 {"show":false,"field":"QTA_ORI","title":"QTA_ORI","width":"100%","align":"left","formatFunc":"","mobileColumn":false},
 {"show":false,"field":"VAL_TOTALE_RIGA_ORI","title":"VAL_TOTALE_RIGA_ORI","width":"100%","align":"left","formatFunc":"","mobileColumn":false},
 {"show":false,"field":"NUM_DECIMALI","title":"NUM_DECIMALI","width":"100%","align":"left","formatFunc":"","mobileColumn":false}
-],"deviceType":null,"dsType":"righeListaResponse","height":"100%","localizationStructure":{},"margin":"4","minDesktopHeight":60,"primaryKeyFields":["ROWID"],"selectFirstRow":true,"singleClickEdit":true,"styles":{"fontSize":"11px"}}, {"onGridButtonClick":"notificationCallDelRiga","onRowDeleted":"notificationCallDelRiga"}, {
+],"deviceType":null,"dsType":"righeListaResponse","height":"100%","localizationStructure":{},"margin":"4","minDesktopHeight":60,"selectFirstRow":true,"singleClickEdit":true,"styles":{"fontSize":"11px"}}, {"onGridButtonClick":"notificationCallDelRiga","onRowDeleted":"notificationCallDelRiga"}, {
 					binding: ["wm.Binding", {}, {}, {
 						wire: ["wm.Wire", {"expression":undefined,"source":"serviceVarRigheLista","targetProperty":"dataSet"}, {}]
 					}]

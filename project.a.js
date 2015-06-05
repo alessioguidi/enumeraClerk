@@ -341,7 +341,7 @@ dojo.declare("enumeraClerk", wm.Application, {
 	"name": "", 
 	"phoneGapLoginPage": "Login", 
 	"phoneMain": "", 
-	"projectSubVersion": 27, 
+	"projectSubVersion": 28, 
 	"projectVersion": 1, 
 	"sessionExpirationHandler": "navigateToLogin", 
 	"studioVersion": "6.7.0.RELEASE", 
@@ -652,7 +652,7 @@ html.WMApp body .buttonMenu {\
 background-color: #2780e3;\
 }\
 html.WMApp body .buttonDelete {\
-background-image: linear-gradient(rgb(199, 20, 68) 0%, rgb(157, 14, 39) 100%);\
+background-color: red;\
 }\
 html.WMApp body .buttonBack {\
 background-image: linear-gradient(rgb(153, 84, 187), rgb(153, 84, 187) 60%, rgb(153, 84, 187));\

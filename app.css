@@ -14,8 +14,10 @@ background-color: #2780e3;
 
 }
 html.WMApp body .buttonDelete {
-    background-image: linear-gradient(rgb(199, 20, 68) 0%, rgb(157, 14, 39) 100%);
+    background-color: red;
 }
+
+
 
 
 

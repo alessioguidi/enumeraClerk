@@ -57,9 +57,9 @@ Main.widgets = {
 	loginPage: ["wm.PageDialog", {"border":"2","desktopHeight":"300px","height":"300px","hideControls":true,"mobileHeight":"300px","pageName":"Login","title":"Login"}, {}],
 	layoutBox1: ["wm.Layout", {"horizontalAlign":"left","styles":{},"verticalAlign":"top"}, {}, {
 		toggleButtonPanel1: ["wm.ToggleButtonPanel", {"horizontalAlign":"left","padding":"undefined","showing":false,"verticalAlign":"top"}, {}, {
-			toggleButtonVendite: ["wm.ToggleButton", {"border":"1,0,1,1","borderColor":"#2087fc","captionDown":"Sales","captionUp":"Sales","height":"100%","margin":"0","width":"34%"}, {"onclick":"navigationCallListe"}],
-			toggleButtonArticolo: ["wm.ToggleButton", {"border":"1,0,1,1","borderColor":"#2087fc","captionDown":"Product","captionUp":"Product","height":"100%","margin":"0","width":"33%"}, {"onclick":"navigationCallArticolo"}],
-			toggleButtonProvvigioni: ["wm.ToggleButton", {"border":"1,1,1,1","borderColor":"#2087fc","captionDown":"Commissions","captionUp":"Commissions","height":"100%","margin":"0","width":"33%"}, {"onclick":"navigationCallCommissions"}]
+			toggleButtonVendite: ["wm.ToggleButton", {"border":"0,1,0,0","borderColor":"#2087fc","captionDown":"Sales","captionUp":"Sales","height":"100%","margin":"0","width":"34%"}, {"onclick":"navigationCallListe"}],
+			toggleButtonArticolo: ["wm.ToggleButton", {"border":"0,1,0,0","borderColor":"#2087fc","captionDown":"Product","captionUp":"Product","height":"100%","margin":"0","width":"33%"}, {"onclick":"navigationCallArticolo"}],
+			toggleButtonProvvigioni: ["wm.ToggleButton", {"border":"0","borderColor":"#2087fc","captionDown":"Commissions","captionUp":"Commissions","height":"100%","margin":"0","width":"33%"}, {"onclick":"navigationCallCommissions"}]
 		}],
 		pageContainer1: ["wm.PageContainer", {"deferLoad":true,"pageName":"Menu","styles":{},"subpageEventlist":{},"subpageMethodlist":{},"subpageProplist":{}}, {}]
 	}]
