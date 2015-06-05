@@ -11,7 +11,7 @@ Articolo.widgets = {
 			wire: ["wm.Wire", {"expression":undefined,"source":"fancyPanel1","targetProperty":"loadingDialog"}, {}]
 		}]
 	}],
-	notificationArticoloNonTrovato: ["wm.NotificationCall", {}, {}, {
+	notificationArticoloNonTrovato: ["wm.NotificationCall", {}, {"onClose":"notificationArticoloNonTrovatoClose"}, {
 		input: ["wm.ServiceInput", {"type":"alertInputs"}, {}, {
 			binding: ["wm.Binding", {}, {}, {
 				wire: ["wm.Wire", {"expression":"\"Item not found\"","targetProperty":"text"}, {}]
@@ -58,7 +58,7 @@ Articolo.widgets = {
 			}]
 		}],
 		buttonBar: ["wm.ButtonBarPanel", {"border":"1,0,0,0","borderColor":"black","height":"41px","horizontalAlign":"center","mobileHeight":"41px"}, {}, {
-			button3: ["wm.Button", {"border":"0","caption":"Close","height":"40px"}, {"onclick":"dialogGiacenzaTaglie.hide"}]
+			button3: ["wm.Button", {"border":"0","caption":"Close","height":"40px"}, {"onclick":"dialogGiacenzaTaglie.hide","onclick1":"button3Click1"}]
 		}]
 	}],
 	dialogSelectVariante: ["wm.DesignableDialog", {"buttonBarId":"buttonBar1","containerWidgetId":"containerWidget1","title":"Select variation"}, {}, {

@@ -214,7 +214,7 @@ listaVendite: ["wm.DojoGrid", {"columns":[
 {"show":false,"field":"COGNOME","title":"Name","width":"100%","align":"left","formatFunc":"","mobileColumn":false},
 {"show":false,"field":"NOME","title":"NOME","width":"100%","align":"left","formatFunc":"","mobileColumn":false},
 {"show":false,"field":"NUMERODOC","title":"Passport","width":"100%","align":"left","formatFunc":"","mobileColumn":false}
-],"deviceType":["phone"],"dsType":"listeResponse","height":"100%","localizationStructure":{},"margin":"4","minDesktopHeight":60,"noHeader":true,"primaryKeyFields":["IDPRELIEVO"],"styles":{}}, {"onSelect":"serviceVarRigheLista"}, {
+],"deviceType":null,"dsType":"listeResponse","height":"100%","localizationStructure":{},"margin":"4","minDesktopHeight":60,"noHeader":true,"primaryKeyFields":["IDPRELIEVO"],"styles":{}}, {"onSelect":"serviceVarRigheLista"}, {
 binding: ["wm.Binding", {}, {}, {
 wire: ["wm.Wire", {"expression":undefined,"source":"serviceVarListe","targetProperty":"dataSet"}, {}],
 wire1: ["wm.Wire", {"expression":"${serviceVarListe.count} > 0","targetProperty":"showing"}, {}]

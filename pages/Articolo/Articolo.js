@@ -6,7 +6,7 @@ dojo.declare("Articolo", wm.Page, {
     "preferredDevice": "phone",
 
     serviceVarArticoloResult: function(inSender, inDeprecated) {
-        console.log(this.serviceVarArticolo);
+        
         if (this.serviceVarArticolo.data.sku === '') {
             this.notificationArticoloNonTrovato.update();
         };
@@ -27,6 +27,13 @@ dojo.declare("Articolo", wm.Page, {
         else {
             this.textBarcode.setDataValue(this.serviceVarArticolo.data.parent_sku + "@" + row.VARIANTE)
         }
+        this.textBarcode.focus();
     },
-    _end: 0
+    button3Click1: function(inSender) {
+		this.textBarcode.focus();
+	},
+	notificationArticoloNonTrovatoClose: function(inSender) {
+		this.textBarcode.focus();
+	},
+	_end: 0
 });

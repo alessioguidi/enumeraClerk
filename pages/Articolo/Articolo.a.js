@@ -4,7 +4,6 @@ this.textBarcode.focus();
 },
 "preferredDevice": "phone",
 serviceVarArticoloResult: function(inSender, inDeprecated) {
-console.log(this.serviceVarArticolo);
 if (this.serviceVarArticolo.data.sku === '') {
 this.notificationArticoloNonTrovato.update();
 };
@@ -25,6 +24,13 @@ this.textBarcode.setDataValue(row.BARCODE)
 else {
 this.textBarcode.setDataValue(this.serviceVarArticolo.data.parent_sku + "@" + row.VARIANTE)
 }
+this.textBarcode.focus();
+},
+button3Click1: function(inSender) {
+this.textBarcode.focus();
+},
+notificationArticoloNonTrovatoClose: function(inSender) {
+this.textBarcode.focus();
 },
 _end: 0
 });
@@ -42,7 +48,7 @@ binding: ["wm.Binding", {}, {}, {
 wire: ["wm.Wire", {"expression":undefined,"source":"fancyPanel1","targetProperty":"loadingDialog"}, {}]
 }]
 }],
-notificationArticoloNonTrovato: ["wm.NotificationCall", {}, {}, {
+notificationArticoloNonTrovato: ["wm.NotificationCall", {}, {"onClose":"notificationArticoloNonTrovatoClose"}, {
 input: ["wm.ServiceInput", {"type":"alertInputs"}, {}, {
 binding: ["wm.Binding", {}, {}, {
 wire: ["wm.Wire", {"expression":"\"Item not found\"","targetProperty":"text"}, {}]
@@ -89,7 +95,7 @@ wire: ["wm.Wire", {"expression":undefined,"source":"serviceVarStockTaglie","targ
 }]
 }],
 buttonBar: ["wm.ButtonBarPanel", {"border":"1,0,0,0","borderColor":"black","height":"41px","horizontalAlign":"center","mobileHeight":"41px"}, {}, {
-button3: ["wm.Button", {"border":"0","caption":"Close","height":"40px"}, {"onclick":"dialogGiacenzaTaglie.hide"}]
+button3: ["wm.Button", {"border":"0","caption":"Close","height":"40px"}, {"onclick":"dialogGiacenzaTaglie.hide","onclick1":"button3Click1"}]
 }]
 }],
 dialogSelectVariante: ["wm.DesignableDialog", {"buttonBarId":"buttonBar1","containerWidgetId":"containerWidget1","title":"Select variation"}, {}, {
