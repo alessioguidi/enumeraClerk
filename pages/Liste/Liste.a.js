@@ -58,6 +58,9 @@ wire1: ["wm.Wire", {"expression":undefined,"source":"textNome.dataValue","target
 wire2: ["wm.Wire", {"expression":undefined,"source":"textDocumento.dataValue","targetProperty":"documento"}, {}],
 wire3: ["wm.Wire", {"expression":undefined,"source":"app.varConfig.server","targetProperty":"server"}, {}]
 }]
+}],
+binding: ["wm.Binding", {}, {}, {
+wire: ["wm.Wire", {"expression":undefined,"source":"gridClienti","targetProperty":"loadingDialog"}, {}]
 }]
 }],
 serviceVarListe: ["wm.ServiceVariable", {"inFlightBehavior":"executeLast","operation":"liste","service":"xhrService","startUpdate":true}, {}, {
@@ -211,7 +214,7 @@ listaVendite: ["wm.DojoGrid", {"columns":[
 {"show":true,"field":"COGNOME","title":"Name","width":"100%","align":"left","formatFunc":"","mobileColumn":false},
 {"show":false,"field":"NOME","title":"NOME","width":"100%","align":"left","formatFunc":"","mobileColumn":false},
 {"show":true,"field":"NUMERODOC","title":"Passport","width":"100%","align":"left","formatFunc":"","mobileColumn":false}
-],"dsType":"listeResponse","height":"100%","localizationStructure":{},"margin":"4","minDesktopHeight":60,"noHeader":true,"primaryKeyFields":["IDPRELIEVO"],"styles":{}}, {"onSelect":"serviceVarRigheLista"}, {
+],"deviceType":["phone"],"dsType":"listeResponse","height":"100%","localizationStructure":{},"margin":"4","minDesktopHeight":60,"noHeader":true,"primaryKeyFields":["IDPRELIEVO"],"styles":{}}, {"onSelect":"serviceVarRigheLista"}, {
 binding: ["wm.Binding", {}, {}, {
 wire: ["wm.Wire", {"expression":undefined,"source":"serviceVarListe","targetProperty":"dataSet"}, {}],
 wire1: ["wm.Wire", {"expression":"${serviceVarListe.count} > 0","targetProperty":"showing"}, {}]
@@ -225,16 +228,16 @@ binding: ["wm.Binding", {}, {}, {
 wire: ["wm.Wire", {"expression":"${listaVendite.selectedItem.COGNOME} + \" \" +${listaVendite.selectedItem.DESC_AGENZIA} + \" \" +${listaVendite.selectedItem.DESC_LEADER}","targetProperty":"caption"}, {}]
 }]
 }],
-label2: ["wm.Label", {"height":"22px","padding":"4","width":"100%"}, {}, {
-binding: ["wm.Binding", {}, {}, {
-wire: ["wm.Wire", {"expression":"'Total qty: ' + parseInt(${serviceVarRigheLista.QTA_TOTALE}) + ' - Total amount: ' + parseFloat(${serviceVarRigheLista.VAL_TOTALE}).toFixed(2)","targetProperty":"caption"}, {}],
-wire1: ["wm.Wire", {"expression":"!${serviceVarRigheLista.isEmpty}","targetProperty":"showing"}, {}]
-}]
-}],
 panel6: ["wm.Panel", {"height":"40px","horizontalAlign":"left","layoutKind":"left-to-right","verticalAlign":"top","width":"100%"}, {}, {
 buttonBack: ["wm.Button", {"_classes":{"domNode":["buttonBack"]},"border":"0","caption":"Back","height":"40px","styles":{}}, {"onclick":"buttonBackClick","onclick1":"layerRicerca"}],
 buttonDelete: ["wm.Button", {"_classes":{"domNode":["buttonDelete"]},"border":"0","caption":"Delete","height":"40px","styles":{}}, {"onclick":"serviceVarElimina","onclick1":"serviceVarListe","onclick2":"layerRicerca"}],
 buttonCheckout: ["wm.Button", {"border":"0","caption":"Checkout","height":"40px"}, {"onclick":"notificationCallCheckOut"}]
+}],
+label2: ["wm.Label", {"align":"right","height":"22px","padding":"4","width":"100%"}, {}, {
+binding: ["wm.Binding", {}, {}, {
+wire: ["wm.Wire", {"expression":"'Total qty: ' + parseInt(${serviceVarRigheLista.QTA_TOTALE}) + ' - Total amount: ' + parseFloat(${serviceVarRigheLista.VAL_TOTALE}).toFixed(2)","targetProperty":"caption"}, {}],
+wire1: ["wm.Wire", {"expression":"!${serviceVarRigheLista.isEmpty}","targetProperty":"showing"}, {}]
+}]
 }]
 }],
 gridRighe: ["wm.DojoGrid", {"columns":[
@@ -287,7 +290,7 @@ gridRighe: ["wm.DojoGrid", {"columns":[
 {"show":false,"field":"QTA_ORI","title":"QTA_ORI","width":"100%","align":"left","formatFunc":"","mobileColumn":false},
 {"show":false,"field":"VAL_TOTALE_RIGA_ORI","title":"VAL_TOTALE_RIGA_ORI","width":"100%","align":"left","formatFunc":"","mobileColumn":false},
 {"show":false,"field":"NUM_DECIMALI","title":"NUM_DECIMALI","width":"100%","align":"left","formatFunc":"","mobileColumn":false}
-],"dsType":"righeListaResponse","height":"100%","localizationStructure":{},"margin":"4","minDesktopHeight":60,"primaryKeyFields":["ROWID"],"selectFirstRow":true,"singleClickEdit":true,"styles":{"fontSize":"11px"}}, {"onGridButtonClick":"notificationCallDelRiga","onRowDeleted":"notificationCallDelRiga"}, {
+],"deviceType":["phone"],"dsType":"righeListaResponse","height":"100%","localizationStructure":{},"margin":"4","minDesktopHeight":60,"primaryKeyFields":["ROWID"],"selectFirstRow":true,"singleClickEdit":true,"styles":{"fontSize":"11px"}}, {"onGridButtonClick":"notificationCallDelRiga","onRowDeleted":"notificationCallDelRiga"}, {
 binding: ["wm.Binding", {}, {}, {
 wire: ["wm.Wire", {"expression":undefined,"source":"serviceVarRigheLista","targetProperty":"dataSet"}, {}]
 }]
@@ -301,7 +304,7 @@ fancyPanel2: ["wm.FancyPanel", {"height":"160px","title":"Search customer"}, {},
 textNome: ["wm.Text", {"caption":"Name","dataValue":undefined,"desktopHeight":"35px","displayValue":"","height":"36px"}, {}],
 textDocumento: ["wm.Text", {"caption":"Document","dataValue":undefined,"desktopHeight":"35px","displayValue":"","height":"36px"}, {}],
 panel5: ["wm.Panel", {"height":"40px","horizontalAlign":"center","layoutKind":"left-to-right","verticalAlign":"top","width":"100%"}, {}, {
-buttonReset: ["wm.Button", {"border":"0","caption":"Reset","height":"40px"}, {"onclick":"buttonResetClick","onclick1":"serviceVarMembers"}],
+buttonReset: ["wm.Button", {"border":"0","caption":"Reset","height":"40px"}, {"onclick":"buttonResetClick"}],
 buttonRicerca: ["wm.Button", {"border":"0","caption":"Search","height":"40px"}, {"onclick":"serviceVarMembers"}]
 }]
 }],
@@ -322,7 +325,7 @@ gridClienti: ["wm.DojoGrid", {"columns":[
 {"show":false,"field":"ID_LEADER","title":"ID_LEADER","width":"100%","align":"left","formatFunc":"","mobileColumn":false},
 {"show":false,"field":"ID_TOUR_POINT","title":"ID_TOUR_POINT","width":"100%","align":"left","formatFunc":"","mobileColumn":false},
 {"show":true,"field":"ID_TOUR","title":"ID_TOUR","width":"100%","align":"left","formatFunc":"","mobileColumn":false}
-],"dsType":"tour_membersResponse","height":"100%","margin":"4","minDesktopHeight":60,"noHeader":true,"primaryKeyFields":["ROWID"]}, {}, {
+],"deviceType":["phone"],"dsType":"tour_membersResponse","height":"100%","margin":"4","minDesktopHeight":60,"noHeader":true,"singleClickEdit":true}, {}, {
 binding: ["wm.Binding", {}, {}, {
 wire: ["wm.Wire", {"expression":undefined,"source":"serviceVarMembers","targetProperty":"dataSet"}, {}]
 }]

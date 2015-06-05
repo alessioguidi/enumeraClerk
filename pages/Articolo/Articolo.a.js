@@ -69,7 +69,7 @@ wire4: ["wm.Wire", {"expression":undefined,"source":"app.varConfig.server","targ
 }]
 }]
 }],
-dialogGiacenzaTaglie: ["wm.DesignableDialog", {"buttonBarId":"buttonBar","containerWidgetId":"containerWidget","title":"Giacenza taglie"}, {}, {
+dialogGiacenzaTaglie: ["wm.DesignableDialog", {"buttonBarId":"buttonBar","containerWidgetId":"containerWidget","title":"Stock x size"}, {}, {
 containerWidget: ["wm.Container", {"_classes":{"domNode":["wmdialogcontainer","MainContent"]},"autoScroll":true,"height":"100%","horizontalAlign":"left","padding":"5","verticalAlign":"top","width":"100%"}, {}, {
 dojoGrid1: ["wm.DojoGrid", {"columns":[
 {"show":false,"field":"ROWID","title":"ROWID","width":"80px","align":"right","formatFunc":"","mobileColumn":false},
@@ -79,10 +79,10 @@ dojoGrid1: ["wm.DojoGrid", {"columns":[
 {"show":false,"field":"DEPOSITO","title":"DEPOSITO","width":"100%","align":"left","formatFunc":"","mobileColumn":false},
 {"show":false,"field":"ARTICOLO","title":"ARTICOLO","width":"100%","align":"left","formatFunc":"","mobileColumn":false},
 {"show":false,"field":"POSIZIONE","title":"POSIZIONE","width":"100%","align":"left","formatFunc":"","mobileColumn":false},
-{"show":true,"field":"VARIANTE","title":"VARIANTE","width":"100%","align":"left","formatFunc":"","mobileColumn":false},
-{"show":true,"field":"GIACENZA","title":"GIACENZA","width":"100%","align":"left","formatFunc":"","mobileColumn":false},
-{"show":false,"field":"PHONE COLUMN","title":"-","width":"100%","align":"left","expression":"\"<div class='MobileRowTitle'>\" +\n\"VARIANTE: \" + ${VARIANTE} +\n\"</div>\"\n\n+ \"<div class='MobileRow'>\" +\n\"GIACENZA: \" + ${GIACENZA}\n + \"</div>\"\n\n","mobileColumn":true}
-],"dsType":"giacenza_altre_taglieResponse","height":"100%","localizationStructure":{},"margin":"4","minDesktopHeight":60,"singleClickEdit":true}, {}, {
+{"show":true,"field":"VARIANTE","title":"Size","width":"100%","align":"left","formatFunc":"","mobileColumn":false},
+{"show":true,"field":"GIACENZA","title":"Qty","width":"100%","align":"left","formatFunc":"","mobileColumn":false},
+{"show":false,"field":"PHONE COLUMN","title":"-","width":"100%","align":"left","expression":"\"<div class='MobileRowTitle'>\" +\n\"Size: \" + ${VARIANTE} +\n\"</div>\"\n\n+ \"<div class='MobileRow'>\" +\n\"Qty: \" + ${GIACENZA}\n + \"</div>\"\n\n","mobileColumn":true}
+],"deviceType":["phone"],"dsType":"giacenza_altre_taglieResponse","height":"100%","localizationStructure":{},"margin":"4","minDesktopHeight":60,"noHeader":true,"singleClickEdit":true}, {}, {
 binding: ["wm.Binding", {}, {}, {
 wire: ["wm.Wire", {"expression":undefined,"source":"serviceVarStockTaglie","targetProperty":"dataSet"}, {}]
 }]
@@ -95,18 +95,18 @@ button3: ["wm.Button", {"border":"0","caption":"Close","height":"40px"}, {"oncli
 dialogSelectVariante: ["wm.DesignableDialog", {"buttonBarId":"buttonBar1","containerWidgetId":"containerWidget1","title":"Select variation"}, {}, {
 containerWidget1: ["wm.Container", {"_classes":{"domNode":["wmdialogcontainer","MainContent"]},"autoScroll":true,"height":"100%","horizontalAlign":"left","padding":"5","verticalAlign":"top","width":"100%"}, {}, {
 gridVarianti: ["wm.DojoGrid", {"columns":[
-{"show":false,"field":"PHONE COLUMN","title":"-","width":"100%","align":"left","expression":"\"<div class='MobileRowTitle'>\" +\n\"VARIANTE: \" + ${VARIANTE} +\n\"</div>\"\n\n+ \"<div class='MobileRow'>\" +\n\"DESCRIZIONE: \" + ${DESCRIZIONE}\n + \"</div>\"\n\n+ \"<div class='MobileRow'>\" +\n\"BARCODE: \" + ${BARCODE}\n + \"</div>\"\n\n","mobileColumn":true},
+{"show":false,"field":"PHONE COLUMN","title":"-","width":"100%","align":"left","expression":"\"<div class='MobileRowTitle'>\" +\n\"Variation: \" + ${VARIANTE} +\n\"</div>\"\n\n+ \"<div class='MobileRow'>\" +\n\"Description: \" + ${DESCRIZIONE}\n + \"</div>\"\n\n+ \"<div class='MobileRow'>\" +\n\"Barcode: \" + ${BARCODE}\n + \"</div>\"\n\n","mobileColumn":true},
 {"show":false,"field":"ROWID","title":"ROWID","width":"80px","align":"right","formatFunc":"","mobileColumn":false},
 {"show":false,"field":"PAGEID","title":"PAGEID","width":"80px","align":"right","formatFunc":"","mobileColumn":false},
 {"show":false,"field":"PAGECOUNT","title":"PAGECOUNT","width":"80px","align":"right","formatFunc":"","mobileColumn":false},
 {"show":false,"field":"O2ASPID","title":"O2ASPID","width":"100%","align":"left","formatFunc":"","mobileColumn":false},
 {"show":false,"field":"TIPOLOGIA","title":"TIPOLOGIA","width":"100%","align":"left","formatFunc":"","mobileColumn":false},
-{"show":true,"field":"VARIANTE","title":"VARIANTE","width":"100%","align":"left","formatFunc":"","mobileColumn":false},
+{"show":true,"field":"VARIANTE","title":"Variation","width":"100%","align":"left","formatFunc":"","mobileColumn":false},
 {"show":false,"field":"POSVARIANTE","title":"POSVARIANTE","width":"100%","align":"left","formatFunc":"","mobileColumn":false},
-{"show":true,"field":"DESCRIZIONE","title":"DESCRIZIONE","width":"100%","align":"left","formatFunc":"","mobileColumn":false},
+{"show":true,"field":"DESCRIZIONE","title":"Description","width":"100%","align":"left","formatFunc":"","mobileColumn":false},
 {"show":false,"field":"TAGLIA","title":"TAGLIA","width":"100%","align":"left","formatFunc":"","mobileColumn":false},
-{"show":true,"field":"BARCODE","title":"BARCODE","width":"100%","align":"left","formatFunc":"","mobileColumn":false}
-],"dsType":"varianti_articoloResponse","height":"100%","margin":"4","minDesktopHeight":60,"singleClickEdit":true}, {}, {
+{"show":true,"field":"BARCODE","title":"Barcode","width":"100%","align":"left","formatFunc":"","mobileColumn":false}
+],"deviceType":["phone"],"dsType":"varianti_articoloResponse","height":"100%","margin":"4","minDesktopHeight":60,"noHeader":true,"singleClickEdit":true}, {}, {
 binding: ["wm.Binding", {}, {}, {
 wire: ["wm.Wire", {"expression":undefined,"source":"serviceVarVariantiArticolo","targetProperty":"dataSet"}, {}]
 }]
@@ -116,12 +116,12 @@ buttonBar1: ["wm.ButtonBarPanel", {"border":"1,0,0,0","borderColor":"black","hei
 buttonSelect: ["wm.Button", {"border":"0","caption":"Select","height":"40px"}, {"onclick":"buttonSelectClick","onclick1":"dialogSelectVariante.hide"}]
 }]
 }],
-layoutBox1: ["wm.Layout", {"horizontalAlign":"left","verticalAlign":"top"}, {}, {
+layoutBox1: ["wm.Layout", {"horizontalAlign":"center","verticalAlign":"top"}, {}, {
 panelHeader: ["wm.Panel", {"border":"1","borderColor":"#2780e3","desktopHeight":"50px","enableTouchHeight":true,"height":"50px","horizontalAlign":"left","layoutKind":"left-to-right","mobileHeight":"50px","styles":{"backgroundColor":"#2780e3","color":"#ffffff"},"verticalAlign":"top","width":"100%"}, {}, {
 buttonMenu: ["wm.Button", {"_classes":{"domNode":["buttonMenu"]},"border":"0","borderColor":"","caption":"Menu","desktopHeight":"100px","height":"50px","imageIndex":0,"imageList":"app.cosmoBasic","mobileHeight":"50px","styles":{}}, {"onclick":"app.navigationCallMenu"}],
 labelTitolo: ["wm.Label", {"_classes":{"domNode":["labelTitolo"]},"align":"left","borderColor":"","caption":"Product search","height":"100%","margin":"0,6,0,0","padding":"4","styles":{"textAlign":"right"},"width":"100%"}, {}]
 }],
-textBarcode: ["wm.Text", {"caption":"Barcode","captionAlign":"left","dataValue":undefined,"desktopHeight":"35px","displayValue":"","height":"36px","styles":{},"width":"100%"}, {"onchange":"textBarcodeChange"}],
+textBarcode: ["wm.Text", {"caption":"Barcode","captionAlign":"left","captionSize":"80px","dataValue":undefined,"desktopHeight":"35px","displayValue":"","height":"36px","styles":{},"width":"90%"}, {"onchange":"textBarcodeChange"}],
 fancyPanel1: ["wm.FancyPanel", {"styles":{},"title":"Item details"}, {}, {
 dataForm1: ["wm.DataForm", {"captionAlign":"left","captionSize":"80px","desktopHeight":"566px","editorHeight":"25px","fitToContentHeight":true,"height":"256px","isCompositeKey":false,"mobileHeight":"566px","readonly":true,"type":"articoloResponse"}, {}, {
 binding: ["wm.Binding", {}, {}, {

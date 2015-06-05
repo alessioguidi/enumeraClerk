@@ -41,7 +41,7 @@ dojoGrid1: ["wm.DojoGrid", {"columns":[
 {"show":true,"field":"DESC_TOURLEADER","title":"Tour Leader","width":"100%","align":"left","formatFunc":"","mobileColumn":false},
 {"show":true,"field":"DESCR_NAZIONE","title":"Country","width":"100%","align":"left","formatFunc":"","mobileColumn":false},
 {"show":false,"field":"PHONE COLUMN","title":"-","width":"100%","align":"left","expression":"\"<div class='MobileRowTitle'>\" +\n\"Members: \" + ${NUM_PERSONE} +\n\"</div>\"\n\n+ \"<div class='MobileRow'>\" +\n\"Tour Operator: \" + ${DESC_AGENZIA}\n + \"</div>\"\n\n+ \"<div class='MobileRow'>\" +\n\"Tour Leader: \" + ${DESC_TOURLEADER}\n + \"</div>\"\n\n+ \"<div class='MobileRow'>\" +\n\"Country: \" + ${DESCR_NAZIONE}\n + \"</div>\"\n\n","mobileColumn":true}
-],"dsType":"tour_del_giornoResponse","height":"100%","localizationStructure":{},"margin":"4","minDesktopHeight":60,"noHeader":true,"singleClickEdit":true}, {}, {
+],"deviceType":["phone"],"dsType":"tour_del_giornoResponse","height":"100%","localizationStructure":{},"margin":"4","minDesktopHeight":60,"noHeader":true,"singleClickEdit":true}, {}, {
 binding: ["wm.Binding", {}, {}, {
 wire: ["wm.Wire", {"expression":undefined,"source":"serviceVarTours","targetProperty":"dataSet"}, {}]
 }]
