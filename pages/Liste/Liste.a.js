@@ -309,7 +309,7 @@ buttonRicerca: ["wm.Button", {"border":"0","caption":"Search","height":"40px"}, 
 }]
 }],
 gridClienti: ["wm.DojoGrid", {"columns":[
-{"show":true,"field":"PHONE COLUMN","title":"-","width":"100%","align":"left","expression":"\"<div class='MobileRowTitle'>\" +\n\"ID: \" + ${CODICE_PRELIEVO} +\n\"</div>\"\n\n+ \"<div class='MobileRow'>\" +\n\"Date: \" + ${DATA_LISTA}\n + \"</div>\"\n\n+ \"<div class='MobileRow'>\" +\n\"Tour Operator: \" + ${DESC_AGENZIA}\n + \"</div>\"\n\n+ \"<div class='MobileRow'>\" +\n\"Tour Leader: \" + ${DESC_LEADER}\n + \"</div>\"\n\n+ \"<div class='MobileRow'>\" +\n\"Name: \" + ${COGNOME}\n + \"</div>\"\n\n+ \"<div class='MobileRow'>\" +\n\"Passport: \" + ${NUMERODOC}\n + \"</div>\"\n\n","isCustomField":true,"mobileColumn":true},
+{"show":true,"field":"PHONE COLUMN","title":"-","width":"100%","align":"left","expression":"\"<div class='MobileRow'>\" +\n\"Tour Operator: \" + ${TOUROPERATOR}\n + \"</div>\"\n\n+ \"<div class='MobileRow'>\" +\n\"Tour Leader: \" + ${TOURLEADER}\n + \"</div>\"\n\n+ \"<div class='MobileRow'>\" +\n\"Name: \" + ${NOMINATIVO}\n + \"</div>\"\n\n+ \"<div class='MobileRow'>\" +\n\"Passport: \" + ${DOCUMENTO}\n + \"</div>\"\n\n","isCustomField":true,"mobileColumn":true},
 {"show":false,"field":"ROWID","title":"ROWID","width":"80px","align":"right","formatFunc":"","mobileColumn":false},
 {"show":false,"field":"PAGEID","title":"PAGEID","width":"80px","align":"right","formatFunc":"","mobileColumn":false},
 {"show":false,"field":"PAGECOUNT","title":"PAGECOUNT","width":"80px","align":"right","formatFunc":"","mobileColumn":false},
