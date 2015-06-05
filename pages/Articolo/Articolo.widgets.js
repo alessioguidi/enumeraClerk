@@ -109,12 +109,12 @@ Articolo.widgets = {
 				stockQtyEditor1: ["wm.Number", {"border":"0","caption":"StockQty","captionAlign":"left","captionSize":"80px","changeOnKey":true,"desktopHeight":"26px","emptyValue":"zero","formField":"stockQty","height":"25px","mobileHeight":"25px","readonly":true,"required":undefined,"width":"100%"}, {}]
 			}],
 			panel2: ["wm.Panel", {"desktopHeight":"50px","enableTouchHeight":true,"height":"50px","horizontalAlign":"left","layoutKind":"left-to-right","mobileHeight":"50px","verticalAlign":"top","width":"100%"}, {}, {
-				buttonStockTaglie: ["wm.Button", {"border":"0","caption":"Altre taglie","height":"50px","mobileHeight":"50px","width":"50%"}, {"onclick":"serviceVarStockTaglie"}, {
+				buttonStockTaglie: ["wm.Button", {"border":"0","caption":"Other sizes","height":"50px","mobileHeight":"50px","width":"50%"}, {"onclick":"serviceVarStockTaglie"}, {
 					binding: ["wm.Binding", {}, {}, {
 						wire: ["wm.Wire", {"expression":undefined,"source":"serviceVarArticolo.has_sizes","targetProperty":"showing"}, {}]
 					}]
 				}],
-				buttonVarianti: ["wm.Button", {"border":"0","caption":"Altre varianti","height":"50px","mobileHeight":"50px","width":"50%"}, {"onclick":"serviceVarVariantiArticolo"}, {
+				buttonVarianti: ["wm.Button", {"border":"0","caption":"Other variants","height":"50px","mobileHeight":"50px","width":"50%"}, {"onclick":"serviceVarVariantiArticolo"}, {
 					binding: ["wm.Binding", {}, {}, {
 						wire: ["wm.Wire", {"expression":undefined,"source":"serviceVarArticolo.has_variants","targetProperty":"showing"}, {}]
 					}]

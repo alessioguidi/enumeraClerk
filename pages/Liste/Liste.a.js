@@ -12,10 +12,8 @@ var item = this.serviceVarNuovaRiga.getData();
 if (item.errorCode != "") {
 app.toastError(item.message);
 //  app.phoneGapBeep.update();
-navigator.notification.beep(3);
+navigator.notification.beep(1);
 }
-this.textBarcode.setDataValue("");
-this.textBarcode.focus();
 },
 buttonBackClick: function(inSender) {
 this.listaVendite.deselectAll();
@@ -29,6 +27,10 @@ this.serviceVarNuovaRiga.update();
 }
 },
 serviceVarRigheListaSuccess1: function(inSender, inDeprecated) {
+this.textBarcode.focus();
+},
+serviceVarNuovaRigaInflightBacklogComplete: function(inSender) {
+this.textBarcode.setDataValue("");
 this.textBarcode.focus();
 },
 _end: 0
@@ -91,7 +93,7 @@ wire: ["wm.Wire", {"expression":undefined,"source":"serviceVarElimina.message","
 }]
 }]
 }],
-serviceVarNuovaRiga: ["wm.ServiceVariable", {"inFlightBehavior":"executeLast","operation":"nuovaRigaVendita","service":"xhrService"}, {"onResult":"serviceVarNuovaRigaResult","onResult1":"serviceVarRigheLista"}, {
+serviceVarNuovaRiga: ["wm.ServiceVariable", {"inFlightBehavior":"executeAll","operation":"nuovaRigaVendita","service":"xhrService"}, {"onInflightBacklogComplete":"serviceVarNuovaRigaInflightBacklogComplete","onResult":"serviceVarNuovaRigaResult","onResult1":"serviceVarRigheLista"}, {
 input: ["wm.ServiceInput", {"type":"nuovaRigaVenditaInputs"}, {}, {
 binding: ["wm.Binding", {}, {}, {
 wire: ["wm.Wire", {"expression":undefined,"source":"app.serviceApp.sessionName","targetProperty":"JXSESSNAME"}, {}],
@@ -129,15 +131,6 @@ wire4: ["wm.Wire", {"expression":undefined,"source":"app.varConfig.server","targ
 }]
 }]
 }],
-notificationCall3: ["wm.NotificationCall", {"operation":"confirm"}, {"onOk":"serviceVarEliminaRiga"}, {
-input: ["wm.ServiceInput", {"type":"confirmInputs"}, {}, {
-binding: ["wm.Binding", {}, {}, {
-wire: ["wm.Wire", {"expression":"\"Confirm delete line\"","targetProperty":"text"}, {}],
-wire1: ["wm.Wire", {"expression":"\"Yes\"","targetProperty":"OKButtonText"}, {}],
-wire2: ["wm.Wire", {"expression":"\"No\"","targetProperty":"CancelButtonText"}, {}]
-}]
-}]
-}],
 serviceVarCheckout: ["wm.ServiceVariable", {"operation":"updateStatoLista","service":"xhrService"}, {"onSuccess":"serviceVarListe","onSuccess1":"layerRicerca"}, {
 input: ["wm.ServiceInput", {"type":"updateStatoListaInputs"}, {}, {
 binding: ["wm.Binding", {}, {}, {
@@ -146,6 +139,22 @@ wire1: ["wm.Wire", {"expression":undefined,"source":"listaVendite.selectedItem.S
 wire2: ["wm.Wire", {"expression":undefined,"source":"listaVendite.selectedItem.IDPRELIEVO","targetProperty":"idprelievo"}, {}],
 wire3: ["wm.Wire", {"expression":"5","targetProperty":"stato_lista"}, {}],
 wire4: ["wm.Wire", {"expression":undefined,"source":"app.varConfig.server","targetProperty":"server"}, {}]
+}]
+}]
+}],
+notificationCallDelRiga: ["wm.NotificationCall", {"operation":"confirm"}, {"onOk":"serviceVarEliminaRiga"}, {
+input: ["wm.ServiceInput", {"type":"confirmInputs"}, {}, {
+binding: ["wm.Binding", {}, {}, {
+wire: ["wm.Wire", {"expression":"\"Confirm delete line\"","targetProperty":"text"}, {}],
+wire1: ["wm.Wire", {"expression":"\"Yes\"","targetProperty":"OKButtonText"}, {}],
+wire2: ["wm.Wire", {"expression":"\"No\"","targetProperty":"CancelButtonText"}, {}]
+}]
+}]
+}],
+notificationCallCheckOut: ["wm.NotificationCall", {"operation":"confirm"}, {"onOk":"serviceVarCheckout"}, {
+input: ["wm.ServiceInput", {"type":"confirmInputs"}, {}, {
+binding: ["wm.Binding", {}, {}, {
+wire: ["wm.Wire", {"expression":"\"Confirm check-out operation?\"","targetProperty":"text"}, {}]
 }]
 }]
 }],
@@ -225,7 +234,7 @@ wire1: ["wm.Wire", {"expression":"!${serviceVarRigheLista.isEmpty}","targetPrope
 panel6: ["wm.Panel", {"height":"40px","horizontalAlign":"left","layoutKind":"left-to-right","verticalAlign":"top","width":"100%"}, {}, {
 buttonBack: ["wm.Button", {"border":"0","caption":"Back","height":"40px"}, {"onclick":"buttonBackClick","onclick1":"layerRicerca"}],
 buttonDelete: ["wm.Button", {"border":"0","caption":"Delete","height":"40px"}, {"onclick":"serviceVarElimina","onclick1":"serviceVarListe","onclick2":"layerRicerca"}],
-buttonCheckout: ["wm.Button", {"border":"0","caption":"Checkout","height":"40px"}, {"onclick":"serviceVarCheckout"}]
+buttonCheckout: ["wm.Button", {"border":"0","caption":"Checkout","height":"40px"}, {"onclick":"notificationCallCheckOut"}]
 }]
 }],
 gridRighe: ["wm.DojoGrid", {"columns":[
@@ -278,7 +287,7 @@ gridRighe: ["wm.DojoGrid", {"columns":[
 {"show":false,"field":"QTA_ORI","title":"QTA_ORI","width":"100%","align":"left","formatFunc":"","mobileColumn":false},
 {"show":false,"field":"VAL_TOTALE_RIGA_ORI","title":"VAL_TOTALE_RIGA_ORI","width":"100%","align":"left","formatFunc":"","mobileColumn":false},
 {"show":false,"field":"NUM_DECIMALI","title":"NUM_DECIMALI","width":"100%","align":"left","formatFunc":"","mobileColumn":false}
-],"dsType":"righeListaResponse","height":"100%","localizationStructure":{},"margin":"4","minDesktopHeight":60,"selectFirstRow":true,"singleClickEdit":true,"styles":{"fontSize":"11px"}}, {"onGridButtonClick":"notificationCall3"}, {
+],"dsType":"righeListaResponse","height":"100%","localizationStructure":{},"margin":"4","minDesktopHeight":60,"primaryKeyFields":["ROWID"],"selectFirstRow":true,"singleClickEdit":true,"styles":{"fontSize":"11px"}}, {"onRowDeleted":"notificationCallDelRiga","onGridButtonClick":"notificationCallDelRiga"}, {
 binding: ["wm.Binding", {}, {}, {
 wire: ["wm.Wire", {"expression":undefined,"source":"serviceVarRigheLista","targetProperty":"dataSet"}, {}]
 }]
@@ -313,7 +322,7 @@ gridClienti: ["wm.DojoGrid", {"columns":[
 {"show":false,"field":"ID_LEADER","title":"ID_LEADER","width":"100%","align":"left","formatFunc":"","mobileColumn":false},
 {"show":false,"field":"ID_TOUR_POINT","title":"ID_TOUR_POINT","width":"100%","align":"left","formatFunc":"","mobileColumn":false},
 {"show":true,"field":"ID_TOUR","title":"ID_TOUR","width":"100%","align":"left","formatFunc":"","mobileColumn":false}
-],"dsType":"tour_membersResponse","height":"100%","margin":"4","minDesktopHeight":60,"noHeader":true,"singleClickEdit":true}, {}, {
+],"dsType":"tour_membersResponse","height":"100%","margin":"4","minDesktopHeight":60,"noHeader":true,"primaryKeyFields":["ROWID"]}, {}, {
 binding: ["wm.Binding", {}, {}, {
 wire: ["wm.Wire", {"expression":undefined,"source":"serviceVarMembers","targetProperty":"dataSet"}, {}]
 }]

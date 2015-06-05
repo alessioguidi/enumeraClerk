@@ -14,11 +14,10 @@ dojo.declare("Liste", wm.Page, {
         if (item.errorCode != "") {
             app.toastError(item.message);
           //  app.phoneGapBeep.update();
-            navigator.notification.beep(3);
+            navigator.notification.beep(1);
             
         }
-        this.textBarcode.setDataValue("");
-        this.textBarcode.focus();
+
 	},
     
 
@@ -37,6 +36,10 @@ dojo.declare("Liste", wm.Page, {
 
 	serviceVarRigheListaSuccess1: function(inSender, inDeprecated) {
 		this.textBarcode.focus();
+	},
+	serviceVarNuovaRigaInflightBacklogComplete: function(inSender) {
+		this.textBarcode.setDataValue("");
+        this.textBarcode.focus();
 	},
 	_end: 0
 });
