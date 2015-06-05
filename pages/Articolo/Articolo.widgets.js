@@ -48,10 +48,10 @@ Articolo.widgets = {
 {"show":false,"field":"DEPOSITO","title":"DEPOSITO","width":"100%","align":"left","formatFunc":"","mobileColumn":false},
 {"show":false,"field":"ARTICOLO","title":"ARTICOLO","width":"100%","align":"left","formatFunc":"","mobileColumn":false},
 {"show":false,"field":"POSIZIONE","title":"POSIZIONE","width":"100%","align":"left","formatFunc":"","mobileColumn":false},
-{"show":true,"field":"VARIANTE","title":"Size","width":"100%","align":"left","formatFunc":"","mobileColumn":false},
-{"show":true,"field":"GIACENZA","title":"Qty","width":"100%","align":"left","formatFunc":"","mobileColumn":false},
-{"show":false,"field":"PHONE COLUMN","title":"-","width":"100%","align":"left","expression":"\"<div class='MobileRowTitle'>\" +\n\"Size: \" + ${VARIANTE} +\n\"</div>\"\n\n+ \"<div class='MobileRow'>\" +\n\"Qty: \" + ${GIACENZA}\n + \"</div>\"\n\n","mobileColumn":true}
-],"deviceType":["phone"],"dsType":"giacenza_altre_taglieResponse","height":"100%","localizationStructure":{},"margin":"4","minDesktopHeight":60,"noHeader":true,"singleClickEdit":true}, {}, {
+{"show":false,"field":"VARIANTE","title":"Size","width":"100%","align":"left","formatFunc":"","mobileColumn":false},
+{"show":false,"field":"GIACENZA","title":"Qty","width":"100%","align":"left","formatFunc":"","mobileColumn":false},
+{"show":true,"field":"PHONE COLUMN","title":"-","width":"100%","align":"left","expression":"\"<div class='MobileRowTitle'>\" +\n\"Size: \" + ${VARIANTE} +\n\"</div>\"\n\n+ \"<div class='MobileRow'>\" +\n\"Qty: \" + ${GIACENZA}\n + \"</div>\"\n\n","isCustomField":true,"mobileColumn":true}
+],"deviceType":null,"dsType":"giacenza_altre_taglieResponse","height":"100%","localizationStructure":{},"margin":"4","minDesktopHeight":60,"noHeader":true,"singleClickEdit":true}, {}, {
 				binding: ["wm.Binding", {}, {}, {
 					wire: ["wm.Wire", {"expression":undefined,"source":"serviceVarStockTaglie","targetProperty":"dataSet"}, {}]
 				}]
@@ -64,18 +64,18 @@ Articolo.widgets = {
 	dialogSelectVariante: ["wm.DesignableDialog", {"buttonBarId":"buttonBar1","containerWidgetId":"containerWidget1","title":"Select variation"}, {}, {
 		containerWidget1: ["wm.Container", {"_classes":{"domNode":["wmdialogcontainer","MainContent"]},"autoScroll":true,"height":"100%","horizontalAlign":"left","padding":"5","verticalAlign":"top","width":"100%"}, {}, {
 			gridVarianti: ["wm.DojoGrid", {"columns":[
-{"show":false,"field":"PHONE COLUMN","title":"-","width":"100%","align":"left","expression":"\"<div class='MobileRowTitle'>\" +\n\"Variation: \" + ${VARIANTE} +\n\"</div>\"\n\n+ \"<div class='MobileRow'>\" +\n\"Description: \" + ${DESCRIZIONE}\n + \"</div>\"\n\n+ \"<div class='MobileRow'>\" +\n\"Barcode: \" + ${BARCODE}\n + \"</div>\"\n\n","mobileColumn":true},
+{"show":true,"field":"PHONE COLUMN","title":"-","width":"100%","align":"left","expression":"\"<div class='MobileRowTitle'>\" +\n\"Variation: \" + ${VARIANTE} +\n\"</div>\"\n\n+ \"<div class='MobileRow'>\" +\n\"Description: \" + ${DESCRIZIONE}\n + \"</div>\"\n\n+ \"<div class='MobileRow'>\" +\n\"Barcode: \" + ${BARCODE}\n + \"</div>\"\n\n","isCustomField":true,"mobileColumn":true},
 {"show":false,"field":"ROWID","title":"ROWID","width":"80px","align":"right","formatFunc":"","mobileColumn":false},
 {"show":false,"field":"PAGEID","title":"PAGEID","width":"80px","align":"right","formatFunc":"","mobileColumn":false},
 {"show":false,"field":"PAGECOUNT","title":"PAGECOUNT","width":"80px","align":"right","formatFunc":"","mobileColumn":false},
 {"show":false,"field":"O2ASPID","title":"O2ASPID","width":"100%","align":"left","formatFunc":"","mobileColumn":false},
 {"show":false,"field":"TIPOLOGIA","title":"TIPOLOGIA","width":"100%","align":"left","formatFunc":"","mobileColumn":false},
-{"show":true,"field":"VARIANTE","title":"Variation","width":"100%","align":"left","formatFunc":"","mobileColumn":false},
+{"show":false,"field":"VARIANTE","title":"Variation","width":"100%","align":"left","formatFunc":"","mobileColumn":false},
 {"show":false,"field":"POSVARIANTE","title":"POSVARIANTE","width":"100%","align":"left","formatFunc":"","mobileColumn":false},
-{"show":true,"field":"DESCRIZIONE","title":"Description","width":"100%","align":"left","formatFunc":"","mobileColumn":false},
+{"show":false,"field":"DESCRIZIONE","title":"Description","width":"100%","align":"left","formatFunc":"","mobileColumn":false},
 {"show":false,"field":"TAGLIA","title":"TAGLIA","width":"100%","align":"left","formatFunc":"","mobileColumn":false},
-{"show":true,"field":"BARCODE","title":"Barcode","width":"100%","align":"left","formatFunc":"","mobileColumn":false}
-],"deviceType":["phone"],"dsType":"varianti_articoloResponse","height":"100%","margin":"4","minDesktopHeight":60,"noHeader":true,"singleClickEdit":true}, {}, {
+{"show":false,"field":"BARCODE","title":"Barcode","width":"100%","align":"left","formatFunc":"","mobileColumn":false}
+],"deviceType":null,"dsType":"varianti_articoloResponse","height":"100%","margin":"4","minDesktopHeight":60,"noHeader":true,"singleClickEdit":true}, {}, {
 				binding: ["wm.Binding", {}, {}, {
 					wire: ["wm.Wire", {"expression":undefined,"source":"serviceVarVariantiArticolo","targetProperty":"dataSet"}, {}]
 				}]

@@ -178,12 +178,12 @@ listaVendite: ["wm.DojoGrid", {"columns":[
 {"show":false,"field":"O2ASPID","title":"O2ASPID","width":"100%","align":"left","formatFunc":"","mobileColumn":false},
 {"show":false,"field":"SERIE_PRELIEVO","title":"SERIE_PRELIEVO","width":"100%","align":"left","formatFunc":"","mobileColumn":false},
 {"show":false,"field":"IDPRELIEVO","title":"IDPRELIEVO","width":"100%","align":"left","formatFunc":"","mobileColumn":false},
-{"show":true,"field":"CODICE_PRELIEVO","title":"ID","width":"100%","align":"left","formatFunc":"","mobileColumn":false},
+{"show":false,"field":"CODICE_PRELIEVO","title":"ID","width":"100%","align":"left","formatFunc":"","mobileColumn":false},
 {"show":false,"field":"CLIENTE_FATTURAZIONE","title":"CLIENTE_FATTURAZIONE","width":"100%","align":"left","formatFunc":"","mobileColumn":false},
 {"show":false,"field":"CLIENTE","title":"CLIENTE","width":"100%","align":"left","formatFunc":"","mobileColumn":false},
 {"show":false,"field":"DESTINATARIO","title":"DESTINATARIO","width":"100%","align":"left","formatFunc":"","mobileColumn":false},
 {"show":false,"field":"VETTORE","title":"VETTORE","width":"100%","align":"left","formatFunc":"","mobileColumn":false},
-{"show":true,"field":"DATA_LISTA","title":"Date","width":"100%","align":"left","formatFunc":"","mobileColumn":false},
+{"show":false,"field":"DATA_LISTA","title":"Date","width":"100%","align":"left","formatFunc":"","mobileColumn":false},
 {"show":false,"field":"DATA_CONSEGNA","title":"DATA_CONSEGNA","width":"100%","align":"left","formatFunc":"","mobileColumn":false},
 {"show":false,"field":"OPERATORE","title":"OPERATORE","width":"100%","align":"left","formatFunc":"","mobileColumn":false},
 {"show":false,"field":"ID_DIPENDENTE","title":"ID_DIPENDENTE","width":"100%","align":"left","formatFunc":"","mobileColumn":false},
@@ -204,16 +204,16 @@ listaVendite: ["wm.DojoGrid", {"columns":[
 {"show":false,"field":"NUMDOC","title":"NUMDOC","width":"100%","align":"left","formatFunc":"","mobileColumn":false},
 {"show":false,"field":"DATADOC","title":"DATADOC","width":"100%","align":"left","formatFunc":"","mobileColumn":false},
 {"show":false,"field":"UBICAZ_TRANSITO","title":"UBICAZ_TRANSITO","width":"100%","align":"left","formatFunc":"","mobileColumn":false},
-{"show":false,"field":"PHONE COLUMN","title":"-","width":"100%","align":"left","expression":"\"<div class='MobileRowTitle'>\" +\n\"ID: \" + ${CODICE_PRELIEVO} +\n\"</div>\"\n\n+ \"<div class='MobileRow'>\" +\n\"Date: \" + ${DATA_LISTA}\n + \"</div>\"\n\n+ \"<div class='MobileRow'>\" +\n\"Tour Operator: \" + ${DESC_AGENZIA}\n + \"</div>\"\n\n+ \"<div class='MobileRow'>\" +\n\"Tour Leader: \" + ${DESC_LEADER}\n + \"</div>\"\n\n+ \"<div class='MobileRow'>\" +\n\"Name: \" + ${COGNOME}\n + \"</div>\"\n\n+ \"<div class='MobileRow'>\" +\n\"Passport: \" + ${NUMERODOC}\n + \"</div>\"\n\n","mobileColumn":true},
+{"show":true,"field":"PHONE COLUMN","title":"-","width":"100%","align":"left","expression":"\"<div class='MobileRowTitle'>\" +\n\"ID: \" + ${CODICE_PRELIEVO} +\n\"</div>\"\n\n+ \"<div class='MobileRow'>\" +\n\"Date: \" + ${DATA_LISTA}\n + \"</div>\"\n\n+ \"<div class='MobileRow'>\" +\n\"Tour Operator: \" + ${DESC_AGENZIA}\n + \"</div>\"\n\n+ \"<div class='MobileRow'>\" +\n\"Tour Leader: \" + ${DESC_LEADER}\n + \"</div>\"\n\n+ \"<div class='MobileRow'>\" +\n\"Name: \" + ${COGNOME}\n + \"</div>\"\n\n+ \"<div class='MobileRow'>\" +\n\"Passport: \" + ${NUMERODOC}\n + \"</div>\"\n\n","isCustomField":true,"mobileColumn":true},
 {"show":false,"field":"ID_TOUR","title":"ID_TOUR","width":"100%","align":"left","formatFunc":"","mobileColumn":false},
 {"show":false,"field":"ID_TESSERATO","title":"ID_TESSERATO","width":"100%","align":"left","formatFunc":"","mobileColumn":false},
 {"show":false,"field":"AGENZIA","title":"Tour Operator","width":"100%","align":"left","formatFunc":"","mobileColumn":false},
 {"show":false,"field":"TOUR_LEADER","title":"Tour Leader","width":"100%","align":"left","formatFunc":"","mobileColumn":false},
-{"show":true,"field":"DESC_AGENZIA","title":"Tour Operator","width":"100%","align":"left","formatFunc":"","mobileColumn":false},
-{"show":true,"field":"DESC_LEADER","title":"Tour Leader","width":"100%","align":"left","formatFunc":"","mobileColumn":false},
-{"show":true,"field":"COGNOME","title":"Name","width":"100%","align":"left","formatFunc":"","mobileColumn":false},
+{"show":false,"field":"DESC_AGENZIA","title":"Tour Operator","width":"100%","align":"left","formatFunc":"","mobileColumn":false},
+{"show":false,"field":"DESC_LEADER","title":"Tour Leader","width":"100%","align":"left","formatFunc":"","mobileColumn":false},
+{"show":false,"field":"COGNOME","title":"Name","width":"100%","align":"left","formatFunc":"","mobileColumn":false},
 {"show":false,"field":"NOME","title":"NOME","width":"100%","align":"left","formatFunc":"","mobileColumn":false},
-{"show":true,"field":"NUMERODOC","title":"Passport","width":"100%","align":"left","formatFunc":"","mobileColumn":false}
+{"show":false,"field":"NUMERODOC","title":"Passport","width":"100%","align":"left","formatFunc":"","mobileColumn":false}
 ],"deviceType":["phone"],"dsType":"listeResponse","height":"100%","localizationStructure":{},"margin":"4","minDesktopHeight":60,"noHeader":true,"primaryKeyFields":["IDPRELIEVO"],"styles":{}}, {"onSelect":"serviceVarRigheLista"}, {
 binding: ["wm.Binding", {}, {}, {
 wire: ["wm.Wire", {"expression":undefined,"source":"serviceVarListe","targetProperty":"dataSet"}, {}],
@@ -290,7 +290,7 @@ gridRighe: ["wm.DojoGrid", {"columns":[
 {"show":false,"field":"QTA_ORI","title":"QTA_ORI","width":"100%","align":"left","formatFunc":"","mobileColumn":false},
 {"show":false,"field":"VAL_TOTALE_RIGA_ORI","title":"VAL_TOTALE_RIGA_ORI","width":"100%","align":"left","formatFunc":"","mobileColumn":false},
 {"show":false,"field":"NUM_DECIMALI","title":"NUM_DECIMALI","width":"100%","align":"left","formatFunc":"","mobileColumn":false}
-],"deviceType":["phone"],"dsType":"righeListaResponse","height":"100%","localizationStructure":{},"margin":"4","minDesktopHeight":60,"primaryKeyFields":["ROWID"],"selectFirstRow":true,"singleClickEdit":true,"styles":{"fontSize":"11px"}}, {"onGridButtonClick":"notificationCallDelRiga","onRowDeleted":"notificationCallDelRiga"}, {
+],"deviceType":null,"dsType":"righeListaResponse","height":"100%","localizationStructure":{},"margin":"4","minDesktopHeight":60,"primaryKeyFields":["ROWID"],"selectFirstRow":true,"singleClickEdit":true,"styles":{"fontSize":"11px"}}, {"onGridButtonClick":"notificationCallDelRiga","onRowDeleted":"notificationCallDelRiga"}, {
 binding: ["wm.Binding", {}, {}, {
 wire: ["wm.Wire", {"expression":undefined,"source":"serviceVarRigheLista","targetProperty":"dataSet"}, {}]
 }]
@@ -309,23 +309,23 @@ buttonRicerca: ["wm.Button", {"border":"0","caption":"Search","height":"40px"}, 
 }]
 }],
 gridClienti: ["wm.DojoGrid", {"columns":[
-{"show":false,"field":"PHONE COLUMN","title":"-","width":"100%","align":"left","expression":"\"<div class='MobileRowTitle'>\" +\n\"Name: \" + ${NOMINATIVO} +\n\"</div>\"\n\n+ \"<div class='MobileRow'>\" +\n\"Document: \" + ${DOCUMENTO}\n + \"</div>\"\n\n+ \"<div class='MobileRow'>\" +\n\"Tour Operator: \" + ${TOUROPERATOR}\n + \"</div>\"\n\n+ \"<div class='MobileRow'>\" +\n\"Tour Leader: \" + ${TOURLEADER}\n + \"</div>\"\n\n+ \"<div class='MobileRow'>\" +\n\"ID_TOUR: \" + ${ID_TOUR}\n + \"</div>\"\n\n","mobileColumn":true},
+{"show":true,"field":"PHONE COLUMN","title":"-","width":"100%","align":"left","expression":"\"<div class='MobileRowTitle'>\" +\n\"ID: \" + ${CODICE_PRELIEVO} +\n\"</div>\"\n\n+ \"<div class='MobileRow'>\" +\n\"Date: \" + ${DATA_LISTA}\n + \"</div>\"\n\n+ \"<div class='MobileRow'>\" +\n\"Tour Operator: \" + ${DESC_AGENZIA}\n + \"</div>\"\n\n+ \"<div class='MobileRow'>\" +\n\"Tour Leader: \" + ${DESC_LEADER}\n + \"</div>\"\n\n+ \"<div class='MobileRow'>\" +\n\"Name: \" + ${COGNOME}\n + \"</div>\"\n\n+ \"<div class='MobileRow'>\" +\n\"Passport: \" + ${NUMERODOC}\n + \"</div>\"\n\n","isCustomField":true,"mobileColumn":true},
 {"show":false,"field":"ROWID","title":"ROWID","width":"80px","align":"right","formatFunc":"","mobileColumn":false},
 {"show":false,"field":"PAGEID","title":"PAGEID","width":"80px","align":"right","formatFunc":"","mobileColumn":false},
 {"show":false,"field":"PAGECOUNT","title":"PAGECOUNT","width":"80px","align":"right","formatFunc":"","mobileColumn":false},
 {"show":false,"field":"ID_SESSION","title":"ID_SESSION","width":"100%","align":"left","formatFunc":"","mobileColumn":false},
 {"show":false,"field":"PROGNAME","title":"PROGNAME","width":"100%","align":"left","formatFunc":"","mobileColumn":false},
 {"show":false,"field":"ID_RIGA_ORD","title":"ID_RIGA_ORD","width":"100%","align":"left","formatFunc":"","mobileColumn":false},
-{"show":true,"field":"NOMINATIVO","title":"Name","width":"100%","align":"left","formatFunc":"","mobileColumn":false},
-{"show":true,"field":"DOCUMENTO","title":"Document","width":"100%","align":"left","formatFunc":"","mobileColumn":false},
-{"show":true,"field":"TOUROPERATOR","title":"Tour Operator","width":"100%","align":"left","formatFunc":"","mobileColumn":false},
-{"show":true,"field":"TOURLEADER","title":"Tour Leader","width":"100%","align":"left","formatFunc":"","mobileColumn":false},
+{"show":false,"field":"NOMINATIVO","title":"Name","width":"100%","align":"left","formatFunc":"","mobileColumn":false},
+{"show":false,"field":"DOCUMENTO","title":"Document","width":"100%","align":"left","formatFunc":"","mobileColumn":false},
+{"show":false,"field":"TOUROPERATOR","title":"Tour Operator","width":"100%","align":"left","formatFunc":"","mobileColumn":false},
+{"show":false,"field":"TOURLEADER","title":"Tour Leader","width":"100%","align":"left","formatFunc":"","mobileColumn":false},
 {"show":false,"field":"ID_TESSERA","title":"ID_TESSERA","width":"100%","align":"left","formatFunc":"","mobileColumn":false},
 {"show":false,"field":"ID_OPERATOR","title":"ID_OPERATOR","width":"100%","align":"left","formatFunc":"","mobileColumn":false},
 {"show":false,"field":"ID_LEADER","title":"ID_LEADER","width":"100%","align":"left","formatFunc":"","mobileColumn":false},
 {"show":false,"field":"ID_TOUR_POINT","title":"ID_TOUR_POINT","width":"100%","align":"left","formatFunc":"","mobileColumn":false},
-{"show":true,"field":"ID_TOUR","title":"ID_TOUR","width":"100%","align":"left","formatFunc":"","mobileColumn":false}
-],"deviceType":["phone"],"dsType":"tour_membersResponse","height":"100%","margin":"4","minDesktopHeight":60,"noHeader":true,"singleClickEdit":true}, {}, {
+{"show":false,"field":"ID_TOUR","title":"ID_TOUR","width":"100%","align":"left","formatFunc":"","mobileColumn":false}
+],"deviceType":null,"dsType":"tour_membersResponse","height":"100%","margin":"4","minDesktopHeight":60,"noHeader":true,"singleClickEdit":true}, {}, {
 binding: ["wm.Binding", {}, {}, {
 wire: ["wm.Wire", {"expression":undefined,"source":"serviceVarMembers","targetProperty":"dataSet"}, {}]
 }]

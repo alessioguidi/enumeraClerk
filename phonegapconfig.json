@@ -6,7 +6,7 @@
 	], 
 	"appName": "enumeraClerk", 
 	"appId": "com.altamirasoftware.enumeraclerk", 
-	"appVersion": "1.26", 
+	"appVersion": "1.27", 
 	"xhrPath": "http://192.168.187.35:8094/enumeraClerk", 
 	"iosIconListVar": [
 		{
