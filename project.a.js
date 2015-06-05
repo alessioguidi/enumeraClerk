@@ -652,9 +652,10 @@ html.WMApp body .buttonMenu {\
 background-color: #2780e3;\
 }\
 html.WMApp body .buttonDelete {\
-background-color: red;\
+background-color: rgb(157, 14, 39);\
+color: #ffffff;\
 }\
 html.WMApp body .buttonBack {\
-background-image: linear-gradient(rgb(153, 84, 187), rgb(153, 84, 187) 60%, rgb(153, 84, 187));\
+background-color: rgb(153, 84, 187);\
 }\
 ';

@@ -653,8 +653,8 @@
 
 .wm_enumera .GridListStyle .wmlist-header .wmlist-cell,
 .wm_enumera .GridListStyle div.dojoxGridHeader .dojoxGridCell {
-	border-top: solid 0px #f0f0f0;
-	border-right: solid 1px #e9dede;
+	border-top: solid 0px rgb(240, 240, 240);
+	border-right: solid 1px rgb(233, 222, 222);
 	border-bottom: solid 1px rgb(102, 102, 102);
 	border-left: solid 0px rgb(251, 251, 251);
 }
@@ -663,11 +663,11 @@
 
 .wm_enumera .GridListStyle .wmlist-header,
 .wm_enumera .GridListStyle div.dojoxGridHeader {
-	background-image: -webkit-gradient(linear, center top, center bottom, from(#f0f0f0), color-stop(50%,#f0f0f0), to(#f0f0f0));
-	background-image: -moz-linear-gradient(top, #f0f0f0 0%,#f0f0f0 50%,#f0f0f0 100%);
-	background-image: -o-linear-gradient(top, #f0f0f0 0%,#f0f0f0 50%,#f0f0f0 100%);
-	background-image: -ms-linear-gradient(top, #f0f0f0 0%,#f0f0f0 50%,#f0f0f0 100%);
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f0f0f0', endColorstr='#f0f0f0',GradientType=0);
+	background-image: -webkit-gradient(linear, center top, center bottom, from(#ffffff), color-stop(92%,#e7e7e7), to(#e7e7e7));
+	background-image: -moz-linear-gradient(top, #ffffff 0%,#e7e7e7 92%,#e7e7e7 100%);
+	background-image: -o-linear-gradient(top, #ffffff 0%,#e7e7e7 92%,#e7e7e7 100%);
+	background-image: -ms-linear-gradient(top, #ffffff 0%,#e7e7e7 92%,#e7e7e7 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#e7e7e7',GradientType=0);
 }
 .wm_enumera .GridListStyle .wmlist-header th,
 .wm_enumera .GridListStyle div.dojoxGridHeader th.dojoxGridCell,
@@ -682,7 +682,7 @@
 /* GROUP: Grid Cells */
 .wm_enumera .GridListStyle .dojoxGridCell,
 .wm_enumera .GridListStyle .wmlist-cell {
-    padding: 4px 8px;
+	padding: 2px 3px;
 }
 
 /* GROUP: Focused Cell */

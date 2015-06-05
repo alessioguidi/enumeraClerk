@@ -266,7 +266,7 @@ gridRighe: ["wm.DojoGrid", {"columns":[
 {"show":false,"field":"COD_DEPOSITO","title":"COD_DEPOSITO","width":"100%","align":"left","formatFunc":"","mobileColumn":false},
 {"show":false,"field":"UBICAZIONE","title":"UBICAZIONE","width":"100%","align":"left","formatFunc":"","mobileColumn":false},
 {"show":false,"field":"UM","title":"UM","width":"100%","align":"left","formatFunc":"","mobileColumn":false},
-{"show":true,"field":"QTA","title":"Qty","width":"20px","align":"left","formatFunc":"","mobileColumn":true},
+{"show":true,"field":"QTA","title":"Q","width":"18px","align":"right","formatFunc":"","mobileColumn":true},
 {"show":false,"field":"QTAPRELEVATA","title":"QTAPRELEVATA","width":"100%","align":"left","formatFunc":"","mobileColumn":false},
 {"show":false,"field":"DATAINS","title":"DATAINS","width":"100%","align":"left","formatFunc":"","mobileColumn":false},
 {"show":false,"field":"ORAINS","title":"ORAINS","width":"100%","align":"left","formatFunc":"","mobileColumn":false},
@@ -290,17 +290,17 @@ gridRighe: ["wm.DojoGrid", {"columns":[
 {"show":false,"field":"SCONTOVALORE","title":"SCONTOVALORE","width":"100%","align":"left","formatFunc":"","mobileColumn":false},
 {"show":false,"field":"VAL_UNITARIO","title":"Amount","width":"62px","align":"left","formatFunc":"","mobileColumn":false},
 {"show":true,"field":"TAGLIA","width":"20px","align":"left","formatFunc":"","editorProps":null,"mobileColumn":true},
-{"show":true,"field":"VAL_TOTALE_RIGA","title":"€","width":"45px","align":"left","formatFunc":"","editorProps":null,"mobileColumn":true},
+{"show":true,"field":"VAL_TOTALE_RIGA","title":"€","width":"45px","align":"right","formatFunc":"","editorProps":null,"mobileColumn":true},
 {"show":false,"field":"VAL_TOTALE_PREL","title":"VAL_TOTALE_PREL","width":"100%","align":"left","formatFunc":"","mobileColumn":false},
 {"show":false,"field":"NUOVO_RRP","title":"NUOVO_RRP","width":"100%","align":"left","formatFunc":"","mobileColumn":false},
 {"show":false,"field":"NOTE_RIGA","title":"NOTE_RIGA","width":"100%","align":"left","formatFunc":"","mobileColumn":false},
 {"show":false,"field":"QTA_TOTALE","title":"QTA_TOTALE","width":"100%","align":"left","formatFunc":"","mobileColumn":false},
 {"show":false,"field":"VAL_TOTALE","title":"VAL_TOTALE","width":"100%","align":"left","formatFunc":"","mobileColumn":false},
-{"show":true,"field":"buttonDelete","width":"30px","align":"left","formatFunc":"wm_button_formatter","formatProps":{"buttonclass":"buttonDelete"},"expression":"\"x\"","isCustomField":true,"cssClass":"\"buttonIngrid\"","mobileColumn":true},
+{"show":true,"field":"buttonDelete","width":"24px","align":"center","formatFunc":"wm_button_formatter","formatProps":{"buttonclass":"buttonDelete"},"expression":"\"X\"","isCustomField":true,"cssClass":"height: 20px;","mobileColumn":true},
 {"show":false,"field":"QTA_ORI","title":"QTA_ORI","width":"100%","align":"left","formatFunc":"","mobileColumn":false},
 {"show":false,"field":"VAL_TOTALE_RIGA_ORI","title":"VAL_TOTALE_RIGA_ORI","width":"100%","align":"left","formatFunc":"","mobileColumn":false},
 {"show":false,"field":"NUM_DECIMALI","title":"NUM_DECIMALI","width":"100%","align":"left","formatFunc":"","mobileColumn":false}
-],"deviceType":null,"dsType":"righeListaResponse","height":"100%","localizationStructure":{},"margin":"4","minDesktopHeight":60,"selectFirstRow":true,"singleClickEdit":true,"styles":{"fontSize":"11px"}}, {"onGridButtonClick":"notificationCallDelRiga","onRowDeleted":"notificationCallDelRiga"}, {
+],"deviceType":null,"dsType":"righeListaResponse","height":"100%","localizationStructure":{},"margin":"2","minDesktopHeight":60,"selectFirstRow":true,"singleClickEdit":true,"styles":{"fontSize":"11px"}}, {"onGridButtonClick":"notificationCallDelRiga","onRowDeleted":"notificationCallDelRiga"}, {
 binding: ["wm.Binding", {}, {}, {
 wire: ["wm.Wire", {"expression":undefined,"source":"serviceVarRigheLista","targetProperty":"dataSet"}, {}]
 }]
