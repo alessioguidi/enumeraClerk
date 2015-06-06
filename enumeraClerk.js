@@ -10,7 +10,7 @@ dojo.declare("enumeraClerk", wm.Application, {
 	"name": "", 
 	"phoneGapLoginPage": "Login", 
 	"phoneMain": "", 
-	"projectSubVersion": 28, 
+	"projectSubVersion": 29, 
 	"projectVersion": 1, 
 	"sessionExpirationHandler": "navigateToLogin", 
 	"studioVersion": "6.7.0.RELEASE", 
@@ -230,14 +230,16 @@ dojo.declare("enumeraClerk", wm.Application, {
 			POSVARIANTE: ["wm.TypeDefinitionField", {"fieldName":"POSVARIANTE"}, {}],
 			DESCRIZIONE: ["wm.TypeDefinitionField", {"fieldName":"DESCRIZIONE"}, {}],
 			TAGLIA: ["wm.TypeDefinitionField", {"fieldName":"TAGLIA"}, {}],
-			BARCODE: ["wm.TypeDefinitionField", {"fieldName":"BARCODE"}, {}]
+			BARCODE: ["wm.TypeDefinitionField", {"fieldName":"BARCODE"}, {}],
+			GIACENZA_TAGLIA: ["wm.TypeDefinitionField", {"fieldName":"GIACENZA_TAGLIA"}, {}],
+			GIACENZA_ARTICOLO: ["wm.TypeDefinitionField", {"fieldName":"GIACENZA_ARTICOLO"}, {}]
 		}], 
 		agenteProvvigioni: ["wm.XhrDefinition", {"parameters":{"server":{"transmitType":"path","type":"String","defaultValue":"localhost/enumera"},"JXSESSNAME":{"transmitType":"queryString","type":"String","defaultValue":"","hidden":false,"noEscape":false},"rpc_program":{"transmitType":"queryString","type":"String","defaultValue":"rpc_tot_provvigioni_agente","hidden":true,"noEscape":false},"da_data":{"transmitType":"queryString","type":"String","defaultValue":"","hidden":false,"noEscape":false},"a_data":{"transmitType":"queryString","type":"String","defaultValue":"","hidden":false,"noEscape":false}},"returnType":"agenteProvvigioniResponse","url":"http://${server}/enumerarpc.php"}, {}], 
 		articolo: ["wm.XhrDefinition", {"parameters":{"server":{"transmitType":"path","type":"String","defaultValue":"localhost/enumera"},"JXSESSNAME":{"transmitType":"queryString","type":"String","defaultValue":"","hidden":false,"noEscape":false},"rpc_program":{"transmitType":"queryString","type":"String","defaultValue":"rpc_product","hidden":true,"noEscape":false},"barcodeSearch":{"transmitType":"queryString","type":"String","defaultValue":"","hidden":false,"noEscape":false}},"returnType":"articoloResponse","url":"http://${server}/enumerarpc.php"}, {}], 
 		confirmExit: ["wm.NotificationCall", {"operation":"confirm"}, {"onOk":"confirmExitOk"}, {
 			input: ["wm.ServiceInput", {"type":"confirmInputs"}, {}]
 		}], 
-		dummy: ["wm.XhrDefinition", {"parameters":{},"returnType":"Boolean","url":"http://192.168.187.101/enumerarpc.php"}, {}], 
+		dummy: ["wm.XhrDefinition", {"parameters":{},"returnType":"Boolean","url":"http://localhost/enumera/enumerarpc.php"}, {}], 
 		eliminaRigaVendita: ["wm.XhrDefinition", {"parameters":{"server":{"transmitType":"path","type":"String","defaultValue":"localhost/enumera"},"JXSESSNAME":{"transmitType":"queryString","type":"String","defaultValue":"","hidden":false,"noEscape":false},"rpc_program":{"transmitType":"queryString","type":"String","defaultValue":"rpc_liste_prel_corpo_D","hidden":true,"noEscape":false},"serie_lista":{"transmitType":"queryString","type":"String","defaultValue":"","hidden":false,"noEscape":true},"id_lista":{"transmitType":"queryString","type":"String","defaultValue":"","hidden":false,"noEscape":true},"id_riga_lista":{"transmitType":"queryString","type":"String","defaultValue":"","hidden":false,"noEscape":true}},"returnType":"jxResponse","url":"http://${server}/enumerarpc.php"}, {}], 
 		eliminaVendita: ["wm.XhrDefinition", {"parameters":{"server":{"transmitType":"path","type":"String","defaultValue":"localhost/enumera"},"JXSESSNAME":{"transmitType":"queryString","type":"String","defaultValue":"","hidden":false,"noEscape":false},"rpc_program":{"transmitType":"queryString","type":"String","defaultValue":"rpc_tcrm_eliminalista","hidden":true,"noEscape":false},"serie_lista":{"transmitType":"queryString","type":"String","defaultValue":"","hidden":false,"noEscape":true},"id_lista":{"transmitType":"queryString","type":"String","defaultValue":"","hidden":false,"noEscape":true}},"returnType":"jxResponse","url":"http://${server}/enumerarpc.php"}, {}], 
 		giacenza_altre_taglie: ["wm.XhrDefinition", {"parameters":{"server":{"transmitType":"path","type":"String","defaultValue":"localhost/enumera"},"JXSESSNAME":{"transmitType":"queryString","type":"String","defaultValue":"","hidden":false,"noEscape":false},"rpc_program":{"transmitType":"queryString","type":"String","defaultValue":"rpc_stock_x_size","hidden":true,"noEscape":false},"articolo":{"transmitType":"queryString","type":"String","defaultValue":"","hidden":false,"noEscape":true}},"returnType":"giacenza_altre_taglieResponse","url":"http://${server}/enumerarpc.php"}, {}], 

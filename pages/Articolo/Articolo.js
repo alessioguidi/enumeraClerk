@@ -25,7 +25,8 @@ dojo.declare("Articolo", wm.Page, {
             this.textBarcode.setDataValue(row.BARCODE) 
         }
         else {
-            this.textBarcode.setDataValue(this.serviceVarArticolo.data.parent_sku + "@" + row.VARIANTE)
+            app.toastInfo("Barcode not available for this variation");
+            //this.textBarcode.setDataValue(this.serviceVarArticolo.data.parent_sku + "@" + row.VARIANTE)
         }
         this.textBarcode.focus();
     },

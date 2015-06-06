@@ -1,10 +1,18 @@
 dojo.declare("Commissions", wm.Page, {
 start: function() {
+$( '[type=date], .datepicker' ).pickadate({max: oggi, format: 'd mmmm, yyyy'});
 var oggi = new Date();
-this.date1.setDataValue(oggi);
-this.date2.setDataValue(oggi);
+$( '[type=date], .datepicker' ).val(oggi.toDateString('d mmmm, yyyy'));
 },
 "preferredDevice": "phone",
+button1Click: function(inSender) {
+varDadata = new Date(dadata.value);
+varAdata = new Date (adata.value);
+//this.serviceVarProvvigioni.update();
+this.serviceVarProvvigioni.input.setValue("da_data", varDadata);
+this.serviceVarProvvigioni.input.setValue("a_data", varAdata);
+this.serviceVarProvvigioni.update();
+},
 _end: 0
 });
 
@@ -13,8 +21,6 @@ serviceVarProvvigioni: ["wm.ServiceVariable", {"operation":"agenteProvvigioni","
 input: ["wm.ServiceInput", {"type":"agenteProvvigioniInputs"}, {}, {
 binding: ["wm.Binding", {}, {}, {
 wire: ["wm.Wire", {"expression":undefined,"source":"app.serviceApp.sessionName","targetProperty":"JXSESSNAME"}, {}],
-wire1: ["wm.Wire", {"expression":undefined,"source":"date1.dataValue","targetProperty":"da_data"}, {}],
-wire2: ["wm.Wire", {"expression":undefined,"source":"date2.dataValue","targetProperty":"a_data"}, {}],
 wire3: ["wm.Wire", {"expression":undefined,"source":"app.varConfig.server","targetProperty":"server"}, {}]
 }]
 }]
@@ -25,9 +31,16 @@ buttonMenu: ["wm.Button", {"_classes":{"domNode":["buttonMenu"]},"border":"0","b
 labelTitolo: ["wm.Label", {"_classes":{"domNode":["labelTitolo"]},"align":"left","borderColor":"","caption":"Commissions","height":"100%","margin":"0,6,0,0","padding":"4","styles":{"textAlign":"right"},"width":"100%"}, {}]
 }],
 fancyPanel1: ["wm.FancyPanel", {"height":"165px","innerHorizontalAlign":"center","title":"Filters"}, {}, {
-date1: ["wm.Date", {"border":"0","caption":"From date","dataValue":undefined,"desktopHeight":"35px","displayValue":"","height":"36px","width":"90%"}, {}],
-date2: ["wm.Date", {"border":"0","caption":"To date","dataValue":undefined,"desktopHeight":"35px","displayValue":"","height":"36px","width":"90%"}, {}],
-button1: ["wm.Button", {"border":"0","caption":"Refresh","height":"40px","width":"80%"}, {"onclick":"serviceVarProvvigioni"}]
+spacer1: ["wm.Spacer", {"height":"15px","width":"96px"}, {}],
+panel1: ["wm.Panel", {"height":"30px","horizontalAlign":"left","layoutKind":"left-to-right","styles":{},"verticalAlign":"top","width":"100%"}, {}, {
+label1: ["wm.Label", {"caption":"From date","padding":"4","width":"100px"}, {}],
+html1: ["wm.Html", {"height":"24px","html":"<input id=\"dadata\" class=\"datepicker\" type=\"text\">\n\n","minDesktopHeight":15,"styles":{},"width":"90%"}, {}]
+}],
+panel2: ["wm.Panel", {"height":"30px","horizontalAlign":"left","layoutKind":"left-to-right","styles":{},"verticalAlign":"top","width":"100%"}, {}, {
+label2: ["wm.Label", {"caption":"To date","padding":"4","width":"100px"}, {}],
+html2: ["wm.Html", {"height":"24px","html":"<input tabindex=\"0\" id=\"adata\" class=\"datepicker\" type=\"text\">\n","minDesktopHeight":15,"styles":{},"width":"90%"}, {}]
+}],
+button1: ["wm.Button", {"border":"0","caption":"Refresh","height":"40px","width":"80%"}, {"onclick":"button1Click"}]
 }],
 dataForm1: ["wm.DataForm", {"desktopHeight":"181px","fitToContentHeight":true,"height":"186px","isCompositeKey":false,"mobileHeight":"186px","readonly":true,"styles":{},"type":"agenteProvvigioniResponse","width":"98%"}, {}, {
 binding: ["wm.Binding", {}, {}, {

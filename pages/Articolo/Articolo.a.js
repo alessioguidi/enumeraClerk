@@ -22,7 +22,8 @@ if (row.BARCODE != ''){
 this.textBarcode.setDataValue(row.BARCODE)
 }
 else {
-this.textBarcode.setDataValue(this.serviceVarArticolo.data.parent_sku + "@" + row.VARIANTE)
+app.toastInfo("Barcode not available for this variation");
+//this.textBarcode.setDataValue(this.serviceVarArticolo.data.parent_sku + "@" + row.VARIANTE)
 }
 this.textBarcode.focus();
 },
@@ -101,25 +102,32 @@ button3: ["wm.Button", {"border":"0","caption":"Close","height":"40px"}, {"oncli
 dialogSelectVariante: ["wm.DesignableDialog", {"buttonBarId":"buttonBar1","containerWidgetId":"containerWidget1","title":"Select variation"}, {}, {
 containerWidget1: ["wm.Container", {"_classes":{"domNode":["wmdialogcontainer","MainContent"]},"autoScroll":true,"height":"100%","horizontalAlign":"left","padding":"5","verticalAlign":"top","width":"100%"}, {}, {
 gridVarianti: ["wm.DojoGrid", {"columns":[
-{"show":true,"field":"PHONE COLUMN","title":"-","width":"100%","align":"left","expression":"\"<div class='MobileRowTitle'>\" +\n\"Variation: \" + ${VARIANTE} +\n\"</div>\"\n\n+ \"<div class='MobileRow'>\" +\n\"Description: \" + ${DESCRIZIONE}\n + \"</div>\"\n\n+ \"<div class='MobileRow'>\" +\n\"Barcode: \" + ${BARCODE}\n + \"</div>\"\n\n","isCustomField":true,"mobileColumn":true},
+{"show":true,"field":"PHONE COLUMN","title":"-","width":"100%","align":"left","expression":"\"<div class='MobileRowTitle'>\" +\n\"Variation: \" + ${VARIANTE} +\n\"</div>\"\n\n+ \"<div class='MobileRow'>\" +\n\"Description: \" + ${DESCRIZIONE}\n + \"</div>\"\n\n+ \"<div class='MobileRow'>\" +\n\"Barcode: \" + ${BARCODE}\n + \"</div>\"\n\n+ \"<div class='MobileRow'>\" +\n\"Size Stock: \" + ${GIACENZA_TAGLIA}\n + \"</div>\"\n\n+ \"<div class='MobileRow'>\" +\n\"Item Stock: \" + parseInt(${GIACENZA_ARTICOLO})\n + \"</div>\"\n","isCustomField":true,"mobileColumn":true},
 {"show":false,"field":"ROWID","title":"ROWID","width":"80px","align":"right","formatFunc":"","mobileColumn":false},
 {"show":false,"field":"PAGEID","title":"PAGEID","width":"80px","align":"right","formatFunc":"","mobileColumn":false},
 {"show":false,"field":"PAGECOUNT","title":"PAGECOUNT","width":"80px","align":"right","formatFunc":"","mobileColumn":false},
 {"show":false,"field":"O2ASPID","title":"O2ASPID","width":"100%","align":"left","formatFunc":"","mobileColumn":false},
 {"show":false,"field":"TIPOLOGIA","title":"TIPOLOGIA","width":"100%","align":"left","formatFunc":"","mobileColumn":false},
-{"show":false,"field":"VARIANTE","title":"Variation","width":"100%","align":"left","formatFunc":"","mobileColumn":false},
+{"show":false,"field":"VARIANTE","title":"VARIANTE","width":"100%","align":"left","formatFunc":"","mobileColumn":false},
 {"show":false,"field":"POSVARIANTE","title":"POSVARIANTE","width":"100%","align":"left","formatFunc":"","mobileColumn":false},
-{"show":false,"field":"DESCRIZIONE","title":"Description","width":"100%","align":"left","formatFunc":"","mobileColumn":false},
+{"show":false,"field":"DESCRIZIONE","title":"DESCRIZIONE","width":"100%","align":"left","formatFunc":"","mobileColumn":false},
 {"show":false,"field":"TAGLIA","title":"TAGLIA","width":"100%","align":"left","formatFunc":"","mobileColumn":false},
-{"show":false,"field":"BARCODE","title":"Barcode","width":"100%","align":"left","formatFunc":"","mobileColumn":false}
+{"show":false,"field":"BARCODE","title":"BARCODE","width":"100%","align":"left","formatFunc":"","mobileColumn":false},
+{"show":false,"field":"GIACENZA_TAGLIA","title":"GIACENZA_TAGLIA","width":"100%","align":"left","formatFunc":"","mobileColumn":false},
+{"show":false,"field":"GIACENZA_ARTICOLO","title":"GIACENZA_ARTICOLO","width":"100%","align":"left","formatFunc":"","mobileColumn":false}
 ],"deviceType":null,"dsType":"varianti_articoloResponse","height":"100%","margin":"4","minDesktopHeight":60,"noHeader":true,"singleClickEdit":true}, {}, {
 binding: ["wm.Binding", {}, {}, {
 wire: ["wm.Wire", {"expression":undefined,"source":"serviceVarVariantiArticolo","targetProperty":"dataSet"}, {}]
 }]
 }]
 }],
-buttonBar1: ["wm.ButtonBarPanel", {"border":"1,0,0,0","borderColor":"black","height":"41px","mobileHeight":"41px"}, {}, {
-buttonSelect: ["wm.Button", {"border":"0","caption":"Select","height":"40px"}, {"onclick":"buttonSelectClick","onclick1":"dialogSelectVariante.hide"}]
+buttonBar1: ["wm.ButtonBarPanel", {"border":"1,0,0,0","borderColor":"black","height":"41px","horizontalAlign":"center","mobileHeight":"41px"}, {}, {
+buttonClose: ["wm.Button", {"border":"0","caption":"Close","height":"40px"}, {"onclick":"dialogSelectVariante.hide"}],
+buttonSelect: ["wm.Button", {"border":"0","caption":"Select","height":"40px"}, {"onclick":"buttonSelectClick","onclick1":"dialogSelectVariante.hide"}, {
+binding: ["wm.Binding", {}, {}, {
+wire: ["wm.Wire", {"expression":"${gridVarianti.selectedItem.BARCODE} == \"\"","targetProperty":"disabled"}, {}]
+}]
+}]
 }]
 }],
 layoutBox1: ["wm.Layout", {"horizontalAlign":"center","verticalAlign":"top"}, {}, {
@@ -142,8 +150,8 @@ taxRateEditor1: ["wm.Text", {"caption":"TaxRate","captionAlign":"left","captionS
 barcodeEditor1: ["wm.Text", {"caption":"Barcode","captionAlign":"left","captionSize":"80px","changeOnKey":true,"desktopHeight":"26px","emptyValue":"emptyString","formField":"barcode","height":"25px","mobileHeight":"25px","readonly":true,"required":undefined,"width":"100%"}, {}],
 mainSupplierEditor1: ["wm.Text", {"caption":"Supplier","captionAlign":"left","captionSize":"80px","changeOnKey":true,"desktopHeight":"26px","emptyValue":"emptyString","formField":"mainSupplier","height":"25px","mobileHeight":"25px","readonly":true,"required":undefined,"width":"100%"}, {}],
 supplierProductCodeEditor1: ["wm.Text", {"caption":"Suppl.Code","captionAlign":"left","captionSize":"80px","changeOnKey":true,"desktopHeight":"26px","emptyValue":"emptyString","formField":"supplierProductCode","height":"25px","mobileHeight":"25px","readonly":true,"required":undefined,"width":"100%"}, {}],
-salePriceEditor1: ["wm.Number", {"border":"0","caption":"SalePrice","captionAlign":"left","captionSize":"80px","changeOnKey":true,"desktopHeight":"26px","emptyValue":"zero","formField":"salePrice","height":"25px","mobileHeight":"25px","readonly":true,"required":undefined,"width":"100%"}, {}],
-stockQtyEditor1: ["wm.Number", {"border":"0","caption":"StockQty","captionAlign":"left","captionSize":"80px","changeOnKey":true,"desktopHeight":"26px","emptyValue":"zero","formField":"stockQty","height":"25px","mobileHeight":"25px","readonly":true,"required":undefined,"width":"100%"}, {}]
+salePriceEditor1: ["wm.Number", {"caption":"SalePrice","captionAlign":"left","captionSize":"80px","changeOnKey":true,"desktopHeight":"26px","emptyValue":"zero","formField":"salePrice","height":"25px","mobileHeight":"25px","readonly":true,"required":undefined,"width":"100%"}, {}],
+stockQtyEditor1: ["wm.Number", {"caption":"StockQty","captionAlign":"left","captionSize":"80px","changeOnKey":true,"desktopHeight":"26px","emptyValue":"zero","formField":"stockQty","height":"25px","mobileHeight":"25px","readonly":true,"required":undefined,"width":"100%"}, {}]
 }],
 panel2: ["wm.Panel", {"desktopHeight":"50px","enableTouchHeight":true,"height":"50px","horizontalAlign":"left","layoutKind":"left-to-right","mobileHeight":"50px","verticalAlign":"top","width":"100%"}, {}, {
 buttonStockTaglie: ["wm.Button", {"border":"0","caption":"Other sizes","height":"50px","mobileHeight":"50px","width":"50%"}, {"onclick":"serviceVarStockTaglie"}, {
