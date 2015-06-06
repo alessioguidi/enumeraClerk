@@ -1,8 +1,15 @@
 dojo.declare("Commissions", wm.Page, {
 	start: function() {
-        $( '[type=date], .datepicker' ).pickadate({max: oggi, format: 'd mmmm, yyyy'});
         var oggi = new Date();
-        $( '[type=date], .datepicker' ).val(oggi.toDateString('d mmmm, yyyy'));
+        $( '[type=date], .datepicker' ).pickadate({max: oggi, format: 'd mmmm, yyyy'});
+/*
+        $( '[type=date]' ).datepicker({readonly: false})
+        .on('change', function() {
+          alert($(this).val());
+        })
+        .trigger('change');
+  */
+        $( '[type=date], .datepicker' ).val(oggi.toDateString());
          
         
 	},
