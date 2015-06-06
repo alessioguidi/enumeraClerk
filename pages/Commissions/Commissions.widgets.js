@@ -21,7 +21,7 @@ Commissions.widgets = {
 			buttonMenu: ["wm.Button", {"_classes":{"domNode":["buttonMenu"]},"border":"0","borderColor":"","caption":"Menu","desktopHeight":"100px","height":"50px","imageIndex":0,"imageList":"app.cosmoBasic","mobileHeight":"50px","styles":{}}, {"onclick":"app.navigationCallMenu"}],
 			labelTitolo: ["wm.Label", {"_classes":{"domNode":["labelTitolo"]},"align":"left","borderColor":"","caption":"Commissions","height":"100%","margin":"0,6,0,0","padding":"4","styles":{"textAlign":"right"},"width":"100%"}, {}]
 		}],
-		fancyPanel1: ["wm.FancyPanel", {"height":"165px","innerHorizontalAlign":"center","title":"Filters"}, {}, {
+		fancyPanel1: ["wm.FancyPanel", {"height":"200px","innerHorizontalAlign":"center","title":"Filters"}, {}, {
 			spacer1: ["wm.Spacer", {"height":"15px","width":"96px"}, {}],
 			panel1: ["wm.Panel", {"autoScroll":true,"height":"30px","horizontalAlign":"left","layoutKind":"left-to-right","styles":{},"verticalAlign":"top","width":"100%"}, {}, {
 				label1: ["wm.Label", {"caption":"From date","padding":"4","width":"100px"}, {}]
@@ -30,6 +30,7 @@ Commissions.widgets = {
 				label2: ["wm.Label", {"caption":"To date","padding":"4","width":"100px"}, {}],
 				html2: ["wm.Html", {"height":"24px","html":"<input tabindex=\"999\" id=\"adata\" class=\"datepicker\" type=\"text\">\n","minDesktopHeight":15,"styles":{},"width":"90%"}, {}]
 			}],
+			text1: ["wm.Text", {"caption":"text1","dataValue":undefined,"displayValue":"","height":"36px"}, {}],
 			button1: ["wm.Button", {"border":"0","caption":"Refresh","height":"40px","width":"80%"}, {"onclick":"button1Click"}]
 		}],
 		dataForm1: ["wm.DataForm", {"desktopHeight":"181px","fitToContentHeight":true,"height":"186px","isCompositeKey":false,"mobileHeight":"186px","readonly":true,"styles":{},"type":"agenteProvvigioniResponse","width":"98%"}, {}, {

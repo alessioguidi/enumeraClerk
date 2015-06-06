@@ -1,7 +1,7 @@
 dojo.declare("Commissions", wm.Page, {
 	start: function() {
         var oggi = new Date();
-        $( '[type=date], .datepicker' ).pickadate({max: oggi, format: 'd mmmm, yyyy'});
+        $( '[type=text], .dijitReset dijitInputInner' ).pickadate({max: oggi, format: 'd mmmm, yyyy'});
 /*
         $( '[type=date]' ).datepicker({readonly: false})
         .on('change', function() {
@@ -9,7 +9,7 @@ dojo.declare("Commissions", wm.Page, {
         })
         .trigger('change');
   */
-        $( '[type=date], .datepicker' ).val(oggi.toDateString());
+        $( '[type=text], .dijitReset dijitInputInner' ).val(oggi.toDateString());
          
         
 	},

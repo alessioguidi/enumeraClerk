@@ -26,7 +26,7 @@
 	<icon src="resources/images/logos/Other/wavemaker_64x64.png" width="64" height="64"/>
 
      <preference name="orientation" value="default"/>
-     <preference name="fullscreen" value="true"/>
+     <preference name="fullscreen" value="false"/>
      <preference name="prerendered-icon" value="false"/>
      <preference name="ios-statusbarstyle" value="default"/>
      <feature name="http://api.phonegap.com/1.0/network"/>
