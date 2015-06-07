@@ -1,21 +1,15 @@
 dojo.declare("Commissions", wm.Page, {
 start: function() {
 var oggi = new Date();
-$( '[type=text], .dijitReset dijitInputInner' ).pickadate({max: oggi, format: 'd mmmm, yyyy'});
-/*
-$( '[type=date]' ).datepicker({readonly: false})
-.on('change', function() {
-alert($(this).val());
-})
-.trigger('change');
-*/
-$( '[type=text], .dijitReset dijitInputInner' ).val(oggi.toDateString());
+document.getElementById("dadata").valueAsDate = oggi;
+document.getElementById("adata").valueAsDate = oggi;
 },
 "preferredDevice": "phone",
 button1Click: function(inSender) {
-varDadata = new Date(dadata.value);
-varAdata = new Date (adata.value);
-//this.serviceVarProvvigioni.update();
+var dateString = $("#dadata").val().replace(/-/g, "/");
+var varDadata = new Date(dateString);
+var dateString = $("#adata").val().replace(/-/g, "/");
+var varAdata = new Date(dateString);
 this.serviceVarProvvigioni.input.setValue("da_data", varDadata);
 this.serviceVarProvvigioni.input.setValue("a_data", varAdata);
 this.serviceVarProvvigioni.update();
@@ -46,16 +40,16 @@ panelHeader: ["wm.Panel", {"border":"1","borderColor":"#2780e3","desktopHeight":
 buttonMenu: ["wm.Button", {"_classes":{"domNode":["buttonMenu"]},"border":"0","borderColor":"","caption":"Menu","desktopHeight":"100px","height":"50px","imageIndex":0,"imageList":"app.cosmoBasic","mobileHeight":"50px","styles":{}}, {"onclick":"app.navigationCallMenu"}],
 labelTitolo: ["wm.Label", {"_classes":{"domNode":["labelTitolo"]},"align":"left","borderColor":"","caption":"Commissions","height":"100%","margin":"0,6,0,0","padding":"4","styles":{"textAlign":"right"},"width":"100%"}, {}]
 }],
-fancyPanel1: ["wm.FancyPanel", {"height":"200px","innerHorizontalAlign":"center","title":"Filters"}, {}, {
+fancyPanel1: ["wm.FancyPanel", {"height":"160px","innerHorizontalAlign":"center","title":"Filters"}, {}, {
 spacer1: ["wm.Spacer", {"height":"15px","width":"96px"}, {}],
 panel1: ["wm.Panel", {"autoScroll":true,"height":"30px","horizontalAlign":"left","layoutKind":"left-to-right","styles":{},"verticalAlign":"top","width":"100%"}, {}, {
-label1: ["wm.Label", {"caption":"From date","padding":"4","width":"100px"}, {}]
+label1: ["wm.Label", {"caption":"From date","padding":"4","width":"100px"}, {}],
+html4: ["wm.Html", {"height":"24px","html":"<input id=\"dadata\" type=\"date\">\n","minDesktopHeight":15,"styles":{},"width":"90%"}, {}]
 }],
 panel2: ["wm.Panel", {"height":"30px","horizontalAlign":"left","layoutKind":"left-to-right","styles":{},"verticalAlign":"top","width":"100%"}, {}, {
 label2: ["wm.Label", {"caption":"To date","padding":"4","width":"100px"}, {}],
-html2: ["wm.Html", {"height":"24px","html":"<input tabindex=\"999\" id=\"adata\" class=\"datepicker\" type=\"text\">\n","minDesktopHeight":15,"styles":{},"width":"90%"}, {}]
+html2: ["wm.Html", {"height":"24px","html":"<input id=\"adata\" type=\"date\">\n","minDesktopHeight":15,"styles":{},"width":"90%"}, {}]
 }],
-html1: ["wm.Html", {"height":"30px","html":"<input type=\"date\" >","minDesktopHeight":15}, {}],
 button1: ["wm.Button", {"border":"0","caption":"Refresh","height":"40px","width":"80%"}, {"onclick":"button1Click"}]
 }],
 dataForm1: ["wm.DataForm", {"desktopHeight":"181px","fitToContentHeight":true,"height":"186px","isCompositeKey":false,"mobileHeight":"186px","readonly":true,"styles":{},"type":"agenteProvvigioniResponse","width":"98%"}, {}, {

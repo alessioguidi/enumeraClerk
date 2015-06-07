@@ -1,25 +1,19 @@
 dojo.declare("Commissions", wm.Page, {
 	start: function() {
         var oggi = new Date();
-        $( '[type=text], .dijitReset dijitInputInner' ).pickadate({max: oggi, format: 'd mmmm, yyyy'});
-/*
-        $( '[type=date]' ).datepicker({readonly: false})
-        .on('change', function() {
-          alert($(this).val());
-        })
-        .trigger('change');
-  */
-        $( '[type=text], .dijitReset dijitInputInner' ).val(oggi.toDateString());
-         
+        document.getElementById("dadata").valueAsDate = oggi;
+        document.getElementById("adata").valueAsDate = oggi;
         
 	},
 	"preferredDevice": "phone",
 
 	button1Click: function(inSender) {
-		varDadata = new Date(dadata.value);
-        varAdata = new Date (adata.value);
-        //this.serviceVarProvvigioni.update();
-        
+
+        var dateString = $("#dadata").val().replace(/-/g, "/");
+    	var varDadata = new Date(dateString);
+        var dateString = $("#adata").val().replace(/-/g, "/");
+        var varAdata = new Date(dateString);
+
         this.serviceVarProvvigioni.input.setValue("da_data", varDadata);
         this.serviceVarProvvigioni.input.setValue("a_data", varAdata);
         this.serviceVarProvvigioni.update();
