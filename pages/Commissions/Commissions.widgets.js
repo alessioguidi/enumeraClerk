@@ -30,7 +30,7 @@ Commissions.widgets = {
 				label2: ["wm.Label", {"caption":"To date","padding":"4","width":"100px"}, {}],
 				html2: ["wm.Html", {"height":"24px","html":"<input tabindex=\"999\" id=\"adata\" class=\"datepicker\" type=\"text\">\n","minDesktopHeight":15,"styles":{},"width":"90%"}, {}]
 			}],
-			text1: ["wm.Text", {"caption":"text1","dataValue":undefined,"displayValue":"","height":"36px"}, {}],
+			html1: ["wm.Html", {"height":"30px","html":"<input type=\"date\" >","minDesktopHeight":15}, {}],
 			button1: ["wm.Button", {"border":"0","caption":"Refresh","height":"40px","width":"80%"}, {"onclick":"button1Click"}]
 		}],
 		dataForm1: ["wm.DataForm", {"desktopHeight":"181px","fitToContentHeight":true,"height":"186px","isCompositeKey":false,"mobileHeight":"186px","readonly":true,"styles":{},"type":"agenteProvvigioniResponse","width":"98%"}, {}, {
