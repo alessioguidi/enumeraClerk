@@ -110,7 +110,7 @@ Liste.widgets = {
 			}]
 		}]
 	}],
-	notificationCallDelRiga: ["wm.NotificationCall", {"operation":"confirm"}, {"onOk":"serviceVarEliminaRiga"}, {
+	notificationCallDelRiga: ["wm.NotificationCall", {"operation":"confirm"}, {"onOk":"serviceVarEliminaRiga","onOk1":"dialogModificaRiga.hide"}, {
 		input: ["wm.ServiceInput", {"type":"confirmInputs"}, {}, {
 			binding: ["wm.Binding", {}, {}, {
 				wire: ["wm.Wire", {"expression":"\"Confirm delete line\"","targetProperty":"text"}, {}],
@@ -131,6 +131,26 @@ Liste.widgets = {
 			binding: ["wm.Binding", {}, {}, {
 				wire: ["wm.Wire", {"expression":"\"Confirm delete operation?\"","targetProperty":"text"}, {}]
 			}]
+		}]
+	}],
+	dialogModificaRiga: ["wm.DesignableDialog", {"buttonBarId":"buttonBar","containerWidgetId":"containerWidget","title":"Edit row"}, {}, {
+		containerWidget: ["wm.Container", {"_classes":{"domNode":["wmdialogcontainer","MainContent"]},"autoScroll":true,"height":"100%","horizontalAlign":"left","padding":"5","verticalAlign":"top","width":"100%"}, {}, {
+			dataForm1: ["wm.DataForm", {"desktopHeight":"222px","fitToContentHeight":true,"height":"222px","isCompositeKey":false,"mobileHeight":"222px","readonly":true,"type":"righeListaResponse"}, {}, {
+				binding: ["wm.Binding", {}, {}, {
+					wire: ["wm.Wire", {"expression":undefined,"source":"gridRighe.selectedItem","targetProperty":"dataSet"}, {}]
+				}],
+				QTAEditor1: ["wm.Text", {"caption":"Qty","captionAlign":"left","captionSize":"90px","changeOnKey":true,"desktopHeight":"26px","emptyValue":"emptyString","formField":"QTA","height":"36px","readonly":true,"required":undefined,"width":"100%"}, {}],
+				PREZZOEditor1: ["wm.Text", {"caption":"Price","captionAlign":"left","captionSize":"90px","changeOnKey":true,"desktopHeight":"26px","emptyValue":"emptyString","formField":"PREZZO","height":"36px","readonly":true,"required":undefined,"width":"100%"}, {}],
+				STR_SCONTIEditor1: ["wm.Text", {"caption":"Discount %","captionAlign":"left","captionSize":"90px","changeOnKey":true,"desktopHeight":"26px","emptyValue":"emptyString","formField":"STR_SCONTI","height":"36px","readonly":true,"required":undefined,"width":"100%"}, {}],
+				SCONTOVALOREEditor1: ["wm.Text", {"caption":"Discount €","captionAlign":"left","captionSize":"90px","changeOnKey":true,"desktopHeight":"26px","emptyValue":"emptyString","formField":"SCONTOVALORE","height":"36px","readonly":true,"required":undefined,"width":"100%"}, {}],
+				VAL_UNITARIOEditor1: ["wm.Text", {"caption":"Unit Value","captionAlign":"left","captionSize":"90px","changeOnKey":true,"desktopHeight":"26px","emptyValue":"emptyString","formField":"VAL_UNITARIO","height":"36px","readonly":true,"required":undefined,"width":"100%"}, {}],
+				NOTE_RIGAEditor1: ["wm.Text", {"caption":"Notes","captionAlign":"left","captionSize":"90px","changeOnKey":true,"desktopHeight":"26px","emptyValue":"emptyString","formField":"NOTE_RIGA","height":"36px","readonly":true,"required":undefined,"width":"100%"}, {}]
+			}]
+		}],
+		buttonBar: ["wm.ButtonBarPanel", {"border":"1,0,0,0","borderColor":"#dddddd","height":"41px","horizontalAlign":"center","mobileHeight":"41px"}, {}, {
+			buttonDeleteRiga: ["wm.Button", {"_classes":{"domNode":["buttonDelete"]},"border":"0","caption":"Delete","height":"40px","styles":{},"width":"80px"}, {"onclick":"notificationCallDelRiga"}],
+			buttonCloseRiga: ["wm.Button", {"_classes":{"domNode":["buttonBack"]},"border":"0","caption":"Close","height":"40px","styles":{},"width":"80px"}, {"onclick":"dialogModificaRiga.hide"}],
+			buttonSalvaRiga: ["wm.Button", {"border":"0","caption":"Save","height":"40px","showing":false,"width":"80px"}, {}]
 		}]
 	}],
 	layoutBox1: ["wm.Layout", {"horizontalAlign":"left","styles":{},"verticalAlign":"top"}, {}, {
@@ -188,8 +208,7 @@ Liste.widgets = {
 {"show":false,"field":"NUMERODOC","title":"Passport","width":"100%","align":"left","formatFunc":"","mobileColumn":false}
 ],"deviceType":null,"dsType":"listeResponse","height":"100%","localizationStructure":{},"margin":"4","minDesktopHeight":60,"noHeader":true,"primaryKeyFields":["IDPRELIEVO"],"styles":{}}, {"onSelect":"serviceVarRigheLista"}, {
 					binding: ["wm.Binding", {}, {}, {
-						wire: ["wm.Wire", {"expression":undefined,"source":"serviceVarListe","targetProperty":"dataSet"}, {}],
-						wire1: ["wm.Wire", {"expression":"${serviceVarListe.count} > 0","targetProperty":"showing"}, {}]
+						wire: ["wm.Wire", {"expression":undefined,"source":"serviceVarListe","targetProperty":"dataSet"}, {}]
 					}]
 				}]
 			}],
@@ -213,7 +232,7 @@ Liste.widgets = {
 					}]
 				}],
 				gridRighe: ["wm.DojoGrid", {"columns":[
-{"show":false,"field":"PHONE COLUMN","title":"-","width":"100%","align":"left","expression":"","mobileColumn":false},
+{"show":false,"field":"PHONE COLUMN","title":"-","width":"100%","align":"left","expression":"\"<div class='MobileRowTitle'>\" +\n${DESCRIZIONE} + \" Size: \" + ${TAGLIA} + \n\"</div>\"\n\n+ \"<div class='MobileRow'>\" +\n\"Qty: \" + ${QTA} + \" Total Amount: \" + ${VAL_TOTALE_RIGA}\n + \"</div>\"\n\n\n","isCustomField":true,"mobileColumn":true},
 {"show":false,"field":"ROWID","title":"ROWID","width":"80px","align":"right","formatFunc":"","mobileColumn":false},
 {"show":false,"field":"PAGECOUNT","title":"PAGECOUNT","width":"80px","align":"right","formatFunc":"","editorProps":null,"mobileColumn":false},
 {"show":false,"field":"PAGEID","title":"PAGEID","width":"80px","align":"right","formatFunc":"","mobileColumn":false},
@@ -228,7 +247,7 @@ Liste.widgets = {
 {"show":false,"field":"COD_DEPOSITO","title":"COD_DEPOSITO","width":"100%","align":"left","formatFunc":"","mobileColumn":false},
 {"show":false,"field":"UBICAZIONE","title":"UBICAZIONE","width":"100%","align":"left","formatFunc":"","mobileColumn":false},
 {"show":false,"field":"UM","title":"UM","width":"100%","align":"left","formatFunc":"","mobileColumn":false},
-{"show":true,"field":"QTA","title":"Q","width":"18px","align":"right","formatFunc":"","mobileColumn":true},
+{"show":true,"field":"QTA","title":"Q","width":"18px","align":"right","formatFunc":"","mobileColumn":false},
 {"show":false,"field":"QTAPRELEVATA","title":"QTAPRELEVATA","width":"100%","align":"left","formatFunc":"","mobileColumn":false},
 {"show":false,"field":"DATAINS","title":"DATAINS","width":"100%","align":"left","formatFunc":"","mobileColumn":false},
 {"show":false,"field":"ORAINS","title":"ORAINS","width":"100%","align":"left","formatFunc":"","mobileColumn":false},
@@ -246,23 +265,23 @@ Liste.widgets = {
 {"show":false,"field":"SERIE_GROUPAGE","title":"SERIE_GROUPAGE","width":"100%","align":"left","formatFunc":"","mobileColumn":false},
 {"show":false,"field":"IDTESTA_GROUPAGE","title":"IDTESTA_GROUPAGE","width":"100%","align":"left","formatFunc":"","mobileColumn":false},
 {"show":false,"field":"IDRIGA_GROUPAGE","title":"IDRIGA_GROUPAGE","width":"100%","align":"left","formatFunc":"","mobileColumn":false},
-{"show":true,"field":"DESCRIZIONE","title":"Description","width":"100%","align":"left","formatFunc":"","editorProps":null,"mobileColumn":true},
+{"show":true,"field":"DESCRIZIONE","title":"Description","width":"100%","align":"left","formatFunc":"","editorProps":null,"mobileColumn":false},
 {"show":false,"field":"PREZZO","title":"PREZZO","width":"100%","align":"left","formatFunc":"","mobileColumn":false},
 {"show":false,"field":"STR_SCONTI","title":"STR_SCONTI","width":"100%","align":"left","formatFunc":"","mobileColumn":false},
 {"show":false,"field":"SCONTOVALORE","title":"SCONTOVALORE","width":"100%","align":"left","formatFunc":"","mobileColumn":false},
 {"show":false,"field":"VAL_UNITARIO","title":"Amount","width":"62px","align":"left","formatFunc":"","mobileColumn":false},
-{"show":true,"field":"TAGLIA","width":"20px","align":"left","formatFunc":"","editorProps":null,"mobileColumn":true},
-{"show":true,"field":"VAL_TOTALE_RIGA","title":"€","width":"45px","align":"right","formatFunc":"","editorProps":null,"mobileColumn":true},
+{"show":true,"field":"TAGLIA","width":"20px","align":"left","formatFunc":"","editorProps":null,"mobileColumn":false},
+{"show":true,"field":"VAL_TOTALE_RIGA","title":"€","width":"45px","align":"right","formatFunc":"","editorProps":null,"mobileColumn":false},
 {"show":false,"field":"VAL_TOTALE_PREL","title":"VAL_TOTALE_PREL","width":"100%","align":"left","formatFunc":"","mobileColumn":false},
 {"show":false,"field":"NUOVO_RRP","title":"NUOVO_RRP","width":"100%","align":"left","formatFunc":"","mobileColumn":false},
 {"show":false,"field":"NOTE_RIGA","title":"NOTE_RIGA","width":"100%","align":"left","formatFunc":"","mobileColumn":false},
 {"show":false,"field":"QTA_TOTALE","title":"QTA_TOTALE","width":"100%","align":"left","formatFunc":"","mobileColumn":false},
 {"show":false,"field":"VAL_TOTALE","title":"VAL_TOTALE","width":"100%","align":"left","formatFunc":"","mobileColumn":false},
-{"show":true,"field":"buttonDelete","width":"24px","align":"center","formatFunc":"wm_button_formatter","formatProps":{"buttonclass":"buttonDelete"},"expression":"\"X\"","isCustomField":true,"cssClass":"height: 20px;","mobileColumn":true},
+{"show":true,"field":"buttonDelete","width":"24px","align":"center","formatFunc":"wm_button_formatter","formatProps":{"buttonclass":"buttonDelete"},"expression":"\"X\"","isCustomField":true,"cssClass":"height: 20px;","mobileColumn":false},
 {"show":false,"field":"QTA_ORI","title":"QTA_ORI","width":"100%","align":"left","formatFunc":"","mobileColumn":false},
 {"show":false,"field":"VAL_TOTALE_RIGA_ORI","title":"VAL_TOTALE_RIGA_ORI","width":"100%","align":"left","formatFunc":"","mobileColumn":false},
 {"show":false,"field":"NUM_DECIMALI","title":"NUM_DECIMALI","width":"100%","align":"left","formatFunc":"","mobileColumn":false}
-],"deviceType":null,"dsType":"righeListaResponse","height":"100%","localizationStructure":{},"margin":"2","minDesktopHeight":60,"selectFirstRow":true,"singleClickEdit":true,"styles":{"fontSize":"11px"}}, {"onGridButtonClick":"notificationCallDelRiga","onRowDeleted":"notificationCallDelRiga"}, {
+],"deviceType":null,"dsType":"righeListaResponse","height":"100%","localizationStructure":{},"margin":"2","minDesktopHeight":60,"noHeader":true,"singleClickEdit":true,"styles":{"fontSize":"11px"}}, {"onRowDeleted":"notificationCallDelRiga","onSelect":"dialogModificaRiga.show"}, {
 					binding: ["wm.Binding", {}, {}, {
 						wire: ["wm.Wire", {"expression":undefined,"source":"serviceVarRigheLista","targetProperty":"dataSet"}, {}]
 					}]

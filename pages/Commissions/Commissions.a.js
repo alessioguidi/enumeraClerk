@@ -26,7 +26,7 @@ wire3: ["wm.Wire", {"expression":undefined,"source":"app.varConfig.server","targ
 }]
 }]
 }],
-designableDialog1: ["wm.DesignableDialog", {"containerWidgetId":"containerWidget","buttonBarId":"buttonBar"}, {}, {
+designableDialog1: ["wm.DesignableDialog", {"buttonBarId":"buttonBar","containerWidgetId":"containerWidget"}, {}, {
 containerWidget: ["wm.Container", {"_classes":{"domNode":["wmdialogcontainer","MainContent"]},"autoScroll":true,"height":"100%","horizontalAlign":"left","padding":"5","verticalAlign":"top","width":"100%"}, {}, {
 panel3: ["wm.Panel", {"autoScroll":true,"height":"100%","horizontalAlign":"left","layoutKind":"left-to-right","styles":{},"verticalAlign":"top","width":"100%"}, {}, {
 label3: ["wm.Label", {"caption":"From date","padding":"4","width":"100px"}, {}],
@@ -43,12 +43,12 @@ labelTitolo: ["wm.Label", {"_classes":{"domNode":["labelTitolo"]},"align":"left"
 fancyPanel1: ["wm.FancyPanel", {"height":"160px","innerHorizontalAlign":"center","title":"Filters"}, {}, {
 spacer1: ["wm.Spacer", {"height":"15px","width":"96px"}, {}],
 panel1: ["wm.Panel", {"autoScroll":true,"height":"30px","horizontalAlign":"left","layoutKind":"left-to-right","styles":{},"verticalAlign":"top","width":"100%"}, {}, {
-label1: ["wm.Label", {"caption":"From date","padding":"4","width":"100px"}, {}],
-html4: ["wm.Html", {"height":"24px","html":"<input id=\"dadata\" type=\"date\">\n","minDesktopHeight":15,"styles":{},"width":"90%"}, {}]
+label1: ["wm.Label", {"caption":"From date","height":"30px","padding":"4","width":"100px"}, {}],
+html4: ["wm.Html", {"height":"30px","html":"<input id=\"dadata\" type=\"date\">\n","minDesktopHeight":15,"styles":{},"width":"90%"}, {}]
 }],
 panel2: ["wm.Panel", {"height":"30px","horizontalAlign":"left","layoutKind":"left-to-right","styles":{},"verticalAlign":"top","width":"100%"}, {}, {
-label2: ["wm.Label", {"caption":"To date","padding":"4","width":"100px"}, {}],
-html2: ["wm.Html", {"height":"24px","html":"<input id=\"adata\" type=\"date\">\n","minDesktopHeight":15,"styles":{},"width":"90%"}, {}]
+label2: ["wm.Label", {"caption":"To date","height":"30px","padding":"4","width":"100px"}, {}],
+html2: ["wm.Html", {"height":"30px","html":"<input id=\"adata\" type=\"date\">\n","minDesktopHeight":15,"styles":{},"width":"90%"}, {}]
 }],
 button1: ["wm.Button", {"border":"0","caption":"Refresh","height":"40px","width":"80%"}, {"onclick":"button1Click"}]
 }],

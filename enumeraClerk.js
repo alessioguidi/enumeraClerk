@@ -240,6 +240,7 @@ dojo.declare("enumeraClerk", wm.Application, {
 			input: ["wm.ServiceInput", {"type":"confirmInputs"}, {}]
 		}], 
 		dummy: ["wm.XhrDefinition", {"parameters":{},"returnType":"Boolean","url":"http://localhost/enumera/enumerarpc.php"}, {}], 
+		dummySession: ["wm.XhrDefinition", {"parameters":{"server":{"transmitType":"path","type":"String","defaultValue":"localhost/enumera"},"JXSESSNAME":{"transmitType":"queryString","type":"String","defaultValue":"","hidden":false,"noEscape":false},"rpc_program":{"transmitType":"queryString","type":"String","defaultValue":"rpc_dummy_session","hidden":true,"noEscape":false}},"returnType":"jxResponse","url":"http://${server}/enumerarpc.php"}, {}], 
 		eliminaRigaVendita: ["wm.XhrDefinition", {"parameters":{"server":{"transmitType":"path","type":"String","defaultValue":"localhost/enumera"},"JXSESSNAME":{"transmitType":"queryString","type":"String","defaultValue":"","hidden":false,"noEscape":false},"rpc_program":{"transmitType":"queryString","type":"String","defaultValue":"rpc_liste_prel_corpo_D","hidden":true,"noEscape":false},"serie_lista":{"transmitType":"queryString","type":"String","defaultValue":"","hidden":false,"noEscape":true},"id_lista":{"transmitType":"queryString","type":"String","defaultValue":"","hidden":false,"noEscape":true},"id_riga_lista":{"transmitType":"queryString","type":"String","defaultValue":"","hidden":false,"noEscape":true}},"returnType":"jxResponse","url":"http://${server}/enumerarpc.php"}, {}], 
 		eliminaVendita: ["wm.XhrDefinition", {"parameters":{"server":{"transmitType":"path","type":"String","defaultValue":"localhost/enumera"},"JXSESSNAME":{"transmitType":"queryString","type":"String","defaultValue":"","hidden":false,"noEscape":false},"rpc_program":{"transmitType":"queryString","type":"String","defaultValue":"rpc_tcrm_eliminalista","hidden":true,"noEscape":false},"serie_lista":{"transmitType":"queryString","type":"String","defaultValue":"","hidden":false,"noEscape":true},"id_lista":{"transmitType":"queryString","type":"String","defaultValue":"","hidden":false,"noEscape":true}},"returnType":"jxResponse","url":"http://${server}/enumerarpc.php"}, {}], 
 		giacenza_altre_taglie: ["wm.XhrDefinition", {"parameters":{"server":{"transmitType":"path","type":"String","defaultValue":"localhost/enumera"},"JXSESSNAME":{"transmitType":"queryString","type":"String","defaultValue":"","hidden":false,"noEscape":false},"rpc_program":{"transmitType":"queryString","type":"String","defaultValue":"rpc_stock_x_size","hidden":true,"noEscape":false},"articolo":{"transmitType":"queryString","type":"String","defaultValue":"","hidden":false,"noEscape":true}},"returnType":"giacenza_altre_taglieResponse","url":"http://${server}/enumerarpc.php"}, {}], 
@@ -277,6 +278,14 @@ dojo.declare("enumeraClerk", wm.Application, {
 					wire1: ["wm.Wire", {"expression":undefined,"source":"[login].textPassword.dataValue","targetProperty":"password"}, {}],
 					wire2: ["wm.Wire", {"expression":undefined,"source":"app.varConfig.server","targetProperty":"server"}, {}],
 					wire3: ["wm.Wire", {"expression":undefined,"source":"app.varConfig.db","targetProperty":"db"}, {}]
+				}]
+			}]
+		}], 
+		serviceVarSessionAlive: ["wm.ServiceVariable", {"inFlightBehavior":"executeLast","operation":"dummySession","service":"xhrService"}, {}, {
+			input: ["wm.ServiceInput", {"type":"dummySessionInputs"}, {}, {
+				binding: ["wm.Binding", {}, {}, {
+					wire: ["wm.Wire", {"expression":undefined,"source":"app.varConfig.server","targetProperty":"server"}, {}],
+					wire1: ["wm.Wire", {"expression":undefined,"source":"app.serviceApp.sessionName","targetProperty":"JXSESSNAME"}, {}]
 				}]
 			}]
 		}], 

@@ -1,8 +1,8 @@
 {
 	"xhrpaths": [
+		null, 
 		"http://192.168.187.35:8094/enumeraClerk", 
 		"http://192.168.126.1:8094/enumeraClerk", 
-		null, 
 		"http://enumeraClerk.cloudfoundry.com"
 	], 
 	"appName": "enumeraClerk", 
