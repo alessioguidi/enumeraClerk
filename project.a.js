@@ -341,13 +341,13 @@ dojo.declare("enumeraClerk", wm.Application, {
 	"name": "", 
 	"phoneGapLoginPage": "Login", 
 	"phoneMain": "", 
-	"projectSubVersion": 29, 
+	"projectSubVersion": 30, 
 	"projectVersion": 1, 
 	"sessionExpirationHandler": "navigateToLogin", 
 	"studioVersion": "6.7.0.RELEASE", 
 	"tabletMain": "", 
 	"theme": "common.themes.wm_enumera", 
-	"toastPosition": "cc", 
+	"toastPosition": "bc", 
 	"touchToClickDelay": 500, 
 	"touchToRightClickDelay": 1500,
 	"widgets": {
@@ -658,6 +658,7 @@ enumeraClerk.prototype._css = 'html.WMApp body .MenuButton {\
 }\
 html.WMApp body .labelTitolo {\
 font-size: 20px;\
+text-align: left;\
 }\
 html.WMApp body .buttonMenu {\
 background-color: #2780e3;\

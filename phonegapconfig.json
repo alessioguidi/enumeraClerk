@@ -1,13 +1,13 @@
 {
 	"xhrpaths": [
-		null, 
 		"http://192.168.187.35:8094/enumeraClerk", 
+		null, 
 		"http://192.168.126.1:8094/enumeraClerk", 
 		"http://enumeraClerk.cloudfoundry.com"
 	], 
 	"appName": "enumeraClerk", 
 	"appId": "com.altamirasoftware.enumeraclerk", 
-	"appVersion": "1.29", 
+	"appVersion": "1.30", 
 	"xhrPath": "http://192.168.187.35:8094/enumeraClerk", 
 	"iosIconListVar": [
 		{

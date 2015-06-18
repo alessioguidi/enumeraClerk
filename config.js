@@ -35,7 +35,7 @@ wm.relativeLibPath = "lib/";
 wm.images = wm.libPath + "wm/base/widget/themes/default/images/";
 wm.logging = (location.search.indexOf("logging") >= 0);
 wm.checkGoogleFrame = false;
-wm.xhrPath = 'null/';
+wm.xhrPath = 'http://192.168.187.35:8094/enumeraClerk/';
 wm.useProxyJsonServices = false;
 wm.isPhonegap = true;
 /*

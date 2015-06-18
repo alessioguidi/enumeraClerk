@@ -18,7 +18,7 @@ wire: ["wm.Wire", {"expression":"\"Configurazione\"","targetProperty":"pageName"
 }]
 }]
 }],
-layoutBox1: ["wm.Layout", {"horizontalAlign":"center","verticalAlign":"top"}, {}, {
+layoutBox1: ["wm.Layout", {"horizontalAlign":"center","styles":{},"verticalAlign":"top"}, {}, {
 panel1: ["wm.Panel", {"enableTouchHeight":true,"height":"100%","horizontalAlign":"center","styles":{},"verticalAlign":"middle","width":"100%"}, {}, {
 textUser: ["wm.Text", {"caption":"User","desktopHeight":"35px","displayValue":"root","height":"36px","required":true,"width":"90%"}, {}, {
 binding: ["wm.Binding", {}, {}, {

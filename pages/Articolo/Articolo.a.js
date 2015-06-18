@@ -130,10 +130,10 @@ wire: ["wm.Wire", {"expression":"${gridVarianti.selectedItem.BARCODE} == \"\"","
 }]
 }]
 }],
-layoutBox1: ["wm.Layout", {"horizontalAlign":"center","verticalAlign":"top"}, {}, {
+layoutBox1: ["wm.Layout", {"horizontalAlign":"center","styles":{},"verticalAlign":"top"}, {}, {
 panelHeader: ["wm.Panel", {"border":"1","borderColor":"#2780e3","desktopHeight":"50px","enableTouchHeight":true,"height":"50px","horizontalAlign":"left","layoutKind":"left-to-right","mobileHeight":"50px","styles":{"backgroundColor":"#2780e3","color":"#ffffff"},"verticalAlign":"top","width":"100%"}, {}, {
-buttonMenu: ["wm.Button", {"_classes":{"domNode":["buttonMenu"]},"border":"0","borderColor":"","caption":"Menu","desktopHeight":"100px","height":"50px","imageIndex":0,"imageList":"app.cosmoBasic","mobileHeight":"50px","styles":{}}, {"onclick":"app.navigationCallMenu"}],
-labelTitolo: ["wm.Label", {"_classes":{"domNode":["labelTitolo"]},"align":"left","borderColor":"","caption":"Product search","height":"100%","margin":"0,6,0,0","padding":"4","styles":{"textAlign":"right"},"width":"100%"}, {}]
+labelTitolo: ["wm.Label", {"_classes":{"domNode":["labelTitolo"]},"align":"left","borderColor":"","caption":"Product search","height":"100%","margin":"0,6,0,0","padding":"4","styles":{},"width":"100%"}, {}],
+buttonMenu: ["wm.Button", {"_classes":{"domNode":["buttonMenu"]},"border":"0","borderColor":"","caption":"Menu","desktopHeight":"100px","height":"50px","imageIndex":0,"imageList":"app.cosmoBasic","mobileHeight":"50px","styles":{}}, {"onclick":"app.navigationCallMenu"}]
 }],
 textBarcode: ["wm.Text", {"caption":"Barcode","captionAlign":"left","captionSize":"80px","dataValue":undefined,"desktopHeight":"35px","displayValue":"","height":"36px","styles":{},"width":"90%"}, {"onchange":"textBarcodeChange"}],
 fancyPanel1: ["wm.FancyPanel", {"styles":{},"title":"Item details"}, {}, {
@@ -150,8 +150,8 @@ taxRateEditor1: ["wm.Text", {"caption":"TaxRate","captionAlign":"left","captionS
 barcodeEditor1: ["wm.Text", {"caption":"Barcode","captionAlign":"left","captionSize":"80px","changeOnKey":true,"desktopHeight":"26px","emptyValue":"emptyString","formField":"barcode","height":"25px","mobileHeight":"25px","readonly":true,"required":undefined,"width":"100%"}, {}],
 mainSupplierEditor1: ["wm.Text", {"caption":"Supplier","captionAlign":"left","captionSize":"80px","changeOnKey":true,"desktopHeight":"26px","emptyValue":"emptyString","formField":"mainSupplier","height":"25px","mobileHeight":"25px","readonly":true,"required":undefined,"width":"100%"}, {}],
 supplierProductCodeEditor1: ["wm.Text", {"caption":"Suppl.Code","captionAlign":"left","captionSize":"80px","changeOnKey":true,"desktopHeight":"26px","emptyValue":"emptyString","formField":"supplierProductCode","height":"25px","mobileHeight":"25px","readonly":true,"required":undefined,"width":"100%"}, {}],
-salePriceEditor1: ["wm.Number", {"caption":"SalePrice","captionAlign":"left","captionSize":"80px","changeOnKey":true,"desktopHeight":"26px","emptyValue":"zero","formField":"salePrice","height":"25px","mobileHeight":"25px","readonly":true,"required":undefined,"width":"100%"}, {}],
-stockQtyEditor1: ["wm.Number", {"caption":"StockQty","captionAlign":"left","captionSize":"80px","changeOnKey":true,"desktopHeight":"26px","emptyValue":"zero","formField":"stockQty","height":"25px","mobileHeight":"25px","readonly":true,"required":undefined,"width":"100%"}, {}]
+salePriceEditor1: ["wm.Number", {"border":"0","caption":"SalePrice","captionAlign":"left","captionSize":"80px","changeOnKey":true,"desktopHeight":"26px","emptyValue":"zero","formField":"salePrice","height":"25px","mobileHeight":"25px","readonly":true,"required":undefined,"width":"100%"}, {}],
+stockQtyEditor1: ["wm.Number", {"border":"0","caption":"StockQty","captionAlign":"left","captionSize":"80px","changeOnKey":true,"desktopHeight":"26px","emptyValue":"zero","formField":"stockQty","height":"25px","mobileHeight":"25px","readonly":true,"required":undefined,"width":"100%"}, {}]
 }],
 panel2: ["wm.Panel", {"desktopHeight":"50px","enableTouchHeight":true,"height":"50px","horizontalAlign":"left","layoutKind":"left-to-right","mobileHeight":"50px","verticalAlign":"top","width":"100%"}, {}, {
 buttonStockTaglie: ["wm.Button", {"border":"0","caption":"Other sizes","height":"50px","mobileHeight":"50px","width":"50%"}, {"onclick":"serviceVarStockTaglie"}, {

@@ -100,9 +100,16 @@ wire: ["wm.Wire", {"expression":"\"Configurazione\"","targetProperty":"pageName"
 }]
 }]
 }],
+navigationCall1: ["wm.NavigationCall", {"operation":"gotoPage"}, {}, {
+input: ["wm.ServiceInput", {"type":"gotoPageInputs"}, {}, {
+binding: ["wm.Binding", {}, {}, {
+wire: ["wm.Wire", {"expression":"\"TestScan\"","targetProperty":"pageName"}, {}]
+}]
+}]
+}],
 layoutBox1: ["wm.Layout", {"horizontalAlign":"left","styles":{},"verticalAlign":"top"}, {}, {
 panel2: ["wm.Panel", {"height":"200px","horizontalAlign":"center","verticalAlign":"top","width":"100%"}, {}, {
-pictureLogo: ["wm.Picture", {"height":"220px","imageList":"imageList1","source":"resources/images/logos/logo3.png","width":"300px"}, {}]
+pictureLogo: ["wm.Picture", {"height":"220px","imageList":"imageList1","source":"resources/images/logos/logo3.png","width":"300px"}, {"onLongTouch":"navigationCall1"}]
 }],
 panel1: ["wm.Panel", {"enableTouchHeight":true,"height":"100%","horizontalAlign":"center","layoutKind":"left-to-right","styles":{},"verticalAlign":"middle","width":"100%"}, {}, {
 buttonTours: ["wm.Button", {"_classes":{"domNode":["MenuButton"]},"border":"0","caption":"Tours","desktopHeight":"100px","height":"100px","imageIndex":9,"imageList":"imageList1","mobileHeight":"100px","styles":{"backgroundColor":"#ffffff","color":"#0c0303"}}, {"onclick":"navigationCallTours"}],

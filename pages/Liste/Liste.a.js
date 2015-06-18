@@ -75,10 +75,12 @@ binding: ["wm.Binding", {}, {}, {
 wire: ["wm.Wire", {"expression":undefined,"source":"listaVendite","targetProperty":"loadingDialog"}, {}]
 }]
 }],
-notificationCall1: ["wm.NotificationCall", {}, {}, {
-input: ["wm.ServiceInput", {"type":"alertInputs"}, {}, {
+notificationCall1: ["wm.NotificationCall", {"operation":"toast"}, {}, {
+input: ["wm.ServiceInput", {"type":"toastInputs"}, {}, {
 binding: ["wm.Binding", {}, {}, {
-wire: ["wm.Wire", {"expression":undefined,"source":"serviceVarNuovaVendita.message","targetProperty":"text"}, {}]
+wire: ["wm.Wire", {"expression":undefined,"source":"serviceVarNuovaVendita.message","targetProperty":"text"}, {}],
+wire2: ["wm.Wire", {"expression":"\"bottom center\"","targetProperty":"dialogPosition"}, {}],
+wire3: ["wm.Wire", {"expression":"\"Success\"","targetProperty":"cssClasses"}, {}]
 }]
 }]
 }],
@@ -193,8 +195,8 @@ buttonSalvaRiga: ["wm.Button", {"border":"0","caption":"Save","height":"40px","s
 }],
 layoutBox1: ["wm.Layout", {"horizontalAlign":"left","styles":{},"verticalAlign":"top"}, {}, {
 panelHeader: ["wm.Panel", {"border":"1","borderColor":"#2780e3","desktopHeight":"50px","enableTouchHeight":true,"height":"50px","horizontalAlign":"left","layoutKind":"left-to-right","mobileHeight":"50px","styles":{"backgroundColor":"#2780e3","color":"#ffffff"},"verticalAlign":"top","width":"100%"}, {}, {
-buttonMenu: ["wm.Button", {"_classes":{"domNode":["buttonMenu"]},"border":"0","borderColor":"","caption":"Menu","desktopHeight":"100px","height":"50px","imageIndex":0,"imageList":"app.cosmoBasic","mobileHeight":"50px","styles":{}}, {"onclick":"app.navigationCallMenu"}],
-labelTitolo: ["wm.Label", {"_classes":{"domNode":["labelTitolo"]},"align":"left","borderColor":"","caption":"Sales","height":"100%","margin":"0,6,0,0","padding":"4","styles":{"textAlign":"right"},"width":"100%"}, {}]
+labelTitolo: ["wm.Label", {"_classes":{"domNode":["labelTitolo"]},"align":"left","borderColor":"","caption":"Sales","height":"100%","margin":"0,6,0,0","padding":"4","styles":{},"width":"100%"}, {}],
+buttonMenu: ["wm.Button", {"_classes":{"domNode":["buttonMenu"]},"border":"0","borderColor":"","caption":"Menu","desktopHeight":"100px","height":"50px","imageIndex":0,"imageList":"app.cosmoBasic","mobileHeight":"50px","styles":{}}, {"onclick":"app.navigationCallMenu"}]
 }],
 layers1: ["wm.Layers", {"defaultLayer":0,"transition":"fade"}, {}, {
 layerRicerca: ["wm.Layer", {"borderColor":"","caption":"layer1","horizontalAlign":"left","themeStyleType":"","verticalAlign":"top"}, {}, {
@@ -270,7 +272,7 @@ wire: ["wm.Wire", {"expression":"'Total qty: ' + parseInt(${serviceVarRigheLista
 }]
 }],
 gridRighe: ["wm.DojoGrid", {"columns":[
-{"show":false,"field":"PHONE COLUMN","title":"-","width":"100%","align":"left","expression":"\"<div class='MobileRowTitle'>\" +\n${DESCRIZIONE} + \" Size: \" + ${TAGLIA} + \n\"</div>\"\n\n+ \"<div class='MobileRow'>\" +\n\"Qty: \" + ${QTA} + \" Total Amount: \" + ${VAL_TOTALE_RIGA}\n + \"</div>\"\n\n\n","isCustomField":true,"mobileColumn":true},
+{"show":true,"field":"PHONE COLUMN","title":"-","width":"100%","align":"left","expression":"\"<div class='MobileRowTitle'>\" +\n${DESCRIZIONE} + \" Size: \" + ${TAGLIA} + \n\"</div>\"\n\n+ \"<div class='MobileRow'>\" +\n\"Qty: \" + ${QTA} + \" Total Amount: \" + ${VAL_TOTALE_RIGA}\n + \"</div>\"\n\n\n","isCustomField":true,"mobileColumn":true},
 {"show":false,"field":"ROWID","title":"ROWID","width":"80px","align":"right","formatFunc":"","mobileColumn":false},
 {"show":false,"field":"PAGECOUNT","title":"PAGECOUNT","width":"80px","align":"right","formatFunc":"","editorProps":null,"mobileColumn":false},
 {"show":false,"field":"PAGEID","title":"PAGEID","width":"80px","align":"right","formatFunc":"","mobileColumn":false},
@@ -285,7 +287,7 @@ gridRighe: ["wm.DojoGrid", {"columns":[
 {"show":false,"field":"COD_DEPOSITO","title":"COD_DEPOSITO","width":"100%","align":"left","formatFunc":"","mobileColumn":false},
 {"show":false,"field":"UBICAZIONE","title":"UBICAZIONE","width":"100%","align":"left","formatFunc":"","mobileColumn":false},
 {"show":false,"field":"UM","title":"UM","width":"100%","align":"left","formatFunc":"","mobileColumn":false},
-{"show":true,"field":"QTA","title":"Q","width":"18px","align":"right","formatFunc":"","mobileColumn":false},
+{"show":false,"field":"QTA","title":"Q","width":"18px","align":"right","formatFunc":"","mobileColumn":false},
 {"show":false,"field":"QTAPRELEVATA","title":"QTAPRELEVATA","width":"100%","align":"left","formatFunc":"","mobileColumn":false},
 {"show":false,"field":"DATAINS","title":"DATAINS","width":"100%","align":"left","formatFunc":"","mobileColumn":false},
 {"show":false,"field":"ORAINS","title":"ORAINS","width":"100%","align":"left","formatFunc":"","mobileColumn":false},
@@ -303,19 +305,19 @@ gridRighe: ["wm.DojoGrid", {"columns":[
 {"show":false,"field":"SERIE_GROUPAGE","title":"SERIE_GROUPAGE","width":"100%","align":"left","formatFunc":"","mobileColumn":false},
 {"show":false,"field":"IDTESTA_GROUPAGE","title":"IDTESTA_GROUPAGE","width":"100%","align":"left","formatFunc":"","mobileColumn":false},
 {"show":false,"field":"IDRIGA_GROUPAGE","title":"IDRIGA_GROUPAGE","width":"100%","align":"left","formatFunc":"","mobileColumn":false},
-{"show":true,"field":"DESCRIZIONE","title":"Description","width":"100%","align":"left","formatFunc":"","editorProps":null,"mobileColumn":false},
+{"show":false,"field":"DESCRIZIONE","title":"Description","width":"100%","align":"left","formatFunc":"","editorProps":null,"mobileColumn":false},
 {"show":false,"field":"PREZZO","title":"PREZZO","width":"100%","align":"left","formatFunc":"","mobileColumn":false},
 {"show":false,"field":"STR_SCONTI","title":"STR_SCONTI","width":"100%","align":"left","formatFunc":"","mobileColumn":false},
 {"show":false,"field":"SCONTOVALORE","title":"SCONTOVALORE","width":"100%","align":"left","formatFunc":"","mobileColumn":false},
 {"show":false,"field":"VAL_UNITARIO","title":"Amount","width":"62px","align":"left","formatFunc":"","mobileColumn":false},
-{"show":true,"field":"TAGLIA","width":"20px","align":"left","formatFunc":"","editorProps":null,"mobileColumn":false},
-{"show":true,"field":"VAL_TOTALE_RIGA","title":"€","width":"45px","align":"right","formatFunc":"","editorProps":null,"mobileColumn":false},
+{"show":false,"field":"TAGLIA","width":"20px","align":"left","formatFunc":"","editorProps":null,"mobileColumn":false},
+{"show":false,"field":"VAL_TOTALE_RIGA","title":"€","width":"45px","align":"right","formatFunc":"","editorProps":null,"mobileColumn":false},
 {"show":false,"field":"VAL_TOTALE_PREL","title":"VAL_TOTALE_PREL","width":"100%","align":"left","formatFunc":"","mobileColumn":false},
 {"show":false,"field":"NUOVO_RRP","title":"NUOVO_RRP","width":"100%","align":"left","formatFunc":"","mobileColumn":false},
 {"show":false,"field":"NOTE_RIGA","title":"NOTE_RIGA","width":"100%","align":"left","formatFunc":"","mobileColumn":false},
 {"show":false,"field":"QTA_TOTALE","title":"QTA_TOTALE","width":"100%","align":"left","formatFunc":"","mobileColumn":false},
 {"show":false,"field":"VAL_TOTALE","title":"VAL_TOTALE","width":"100%","align":"left","formatFunc":"","mobileColumn":false},
-{"show":true,"field":"buttonDelete","width":"24px","align":"center","formatFunc":"wm_button_formatter","formatProps":{"buttonclass":"buttonDelete"},"expression":"\"X\"","isCustomField":true,"cssClass":"height: 20px;","mobileColumn":false},
+{"show":false,"field":"buttonDelete","width":"24px","align":"center","formatFunc":"wm_button_formatter","formatProps":{"buttonclass":"buttonDelete"},"expression":"\"X\"","isCustomField":true,"cssClass":"height: 20px;","mobileColumn":false},
 {"show":false,"field":"QTA_ORI","title":"QTA_ORI","width":"100%","align":"left","formatFunc":"","mobileColumn":false},
 {"show":false,"field":"VAL_TOTALE_RIGA_ORI","title":"VAL_TOTALE_RIGA_ORI","width":"100%","align":"left","formatFunc":"","mobileColumn":false},
 {"show":false,"field":"NUM_DECIMALI","title":"NUM_DECIMALI","width":"100%","align":"left","formatFunc":"","mobileColumn":false}
@@ -360,7 +362,7 @@ wire: ["wm.Wire", {"expression":undefined,"source":"serviceVarMembers","targetPr
 }]
 }],
 panel4: ["wm.Panel", {"height":"48px","horizontalAlign":"left","layoutKind":"left-to-right","verticalAlign":"top","width":"100%"}, {}, {
-buttonSelect: ["wm.Button", {"border":"0","caption":"Select customer","height":"40px","width":"100%"}, {"onclick":"serviceVarNuovaVendita"}, {
+buttonSelect: ["wm.Button", {"border":"0","caption":"Select customer","height":"40px","styles":{},"width":"100%"}, {"onclick":"serviceVarNuovaVendita"}, {
 binding: ["wm.Binding", {}, {}, {
 wire: ["wm.Wire", {"expression":undefined,"source":"gridClienti.emptySelection","targetProperty":"disabled"}, {}]
 }]
