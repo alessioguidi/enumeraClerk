@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><widget xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0" id="com.altamirasoftware.enumeraclerk" version="2.9">
+<?xml version="1.0" encoding="UTF-8"?><widget xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0" id="com.altamirasoftware.enumeraclerk" version="3.0">
      <name>Enumera Clerk</name>     <description/>
      <author href="http://www.altamirasoftware.com" email="a.guidi@altamirasoftware.com">Alessio Guidi</author>
      	<icon src="resources/images/logos/IOS/wavemaker_57x57.png" width="57" height="57"/>
