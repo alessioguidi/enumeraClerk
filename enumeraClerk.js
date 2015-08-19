@@ -10,7 +10,7 @@ dojo.declare("enumeraClerk", wm.Application, {
 	"name": "", 
 	"phoneGapLoginPage": "Login", 
 	"phoneMain": "", 
-	"projectSubVersion": 30, 
+	"projectSubVersion": 32, 
 	"projectVersion": 1, 
 	"sessionExpirationHandler": "navigateToLogin", 
 	"studioVersion": "6.7.0.RELEASE", 

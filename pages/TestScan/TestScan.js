@@ -6,6 +6,7 @@ dojo.declare("TestScan", wm.Page, {
 
 	button1Click: function(inSender) {
         console.log('scanning');
+        wm.Page.getPage("TestScan").text1.setDataValue("prova");
         
         var scanner = cordova.require("cordova/plugin/BarcodeScanner");
 

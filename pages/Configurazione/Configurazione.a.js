@@ -25,13 +25,7 @@ dbEditor1: ["wm.Text", {"caption":"Db","captionSize":"120px","changeOnKey":true,
 userEditor1: ["wm.Text", {"caption":"User","captionSize":"120px","changeOnKey":true,"desktopHeight":"26px","emptyValue":"emptyString","formField":"user","height":"36px","required":undefined,"width":"100%"}, {}],
 passwordEditor1: ["wm.Text", {"caption":"Password","captionSize":"120px","changeOnKey":true,"desktopHeight":"26px","emptyValue":"emptyString","formField":"password","height":"36px","password":true,"required":undefined,"width":"100%"}, {}]
 }],
-buttonSalva: ["wm.Button", {"border":"1","caption":"Salva","height":"40px","width":"80px"}, {"onclick":"buttonSalvaClick"}],
-spacer1: ["wm.Spacer", {"height":"28px","width":"96px"}, {}],
-labelDownload: ["wm.Label", {"align":"center","caption":"Download the latest APK","padding":"4","width":"300px"}, {}, {
-binding: ["wm.Binding", {}, {}, {
-wire: ["wm.Wire", {"expression":"\"https://build.phonegap.com/apps/1490170/download/android/?qr_key=qKzZu7JTzvQ94-DJUWKj\"","targetProperty":"link"}, {}]
-}]
-}]
+buttonSalva: ["wm.Button", {"border":"1","caption":"Salva","height":"40px","width":"80px"}, {"onclick":"buttonSalvaClick"}]
 }]
 };
 

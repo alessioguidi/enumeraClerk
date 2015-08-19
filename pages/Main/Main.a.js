@@ -124,7 +124,7 @@ wire: ["wm.Wire", {"expression":"\"Configurazione\"","targetProperty":"pageName"
 }]
 }],
 timerSessionAlive: ["wm.Timer", {"autoStart":true,"delay":900000}, {"onTimerFire":"app.serviceVarSessionAlive"}],
-loginPage: ["wm.PageDialog", {"border":"2","desktopHeight":"300px","height":"350px","hideControls":true,"mobileHeight":"350px","pageName":"Login","title":"Login"}, {}],
+loginPage: ["wm.PageDialog", {"border":"2","height":"90%","hideControls":true,"pageName":"Login","title":"Login","width":"90%"}, {}],
 layoutBox1: ["wm.Layout", {"horizontalAlign":"left","styles":{},"verticalAlign":"top"}, {}, {
 toggleButtonPanel1: ["wm.ToggleButtonPanel", {"horizontalAlign":"left","padding":"undefined","showing":false,"verticalAlign":"top"}, {}, {
 toggleButtonVendite: ["wm.ToggleButton", {"border":"0,1,0,0","borderColor":"#2087fc","captionDown":"Sales","captionUp":"Sales","height":"100%","margin":"0","width":"34%"}, {"onclick":"navigationCallListe"}],

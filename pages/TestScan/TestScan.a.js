@@ -4,6 +4,7 @@ start: function() {
 "preferredDevice": "phone",
 button1Click: function(inSender) {
 console.log('scanning');
+wm.Page.getPage("TestScan").text1.setDataValue("prova");
 var scanner = cordova.require("cordova/plugin/BarcodeScanner");
 scanner.scan( function (result) {
 this.text1.setDataValue(result.text);
@@ -31,7 +32,7 @@ _end: 0
 
 TestScan.widgets = {
 layoutBox1: ["wm.Layout", {"horizontalAlign":"left","verticalAlign":"top"}, {}, {
-text1: ["wm.Text", {"caption":"text1","dataValue":undefined,"displayValue":"","height":"36px"}, {}],
+text1: ["wm.Text", {"caption":"text1","dataValue":undefined,"desktopHeight":"36px","displayValue":"","height":"36px"}, {}],
 button1: ["wm.Button", {"border":"0","caption":"Scan","height":"40px","width":"80px"}, {"onclick":"button1Click"}]
 }]
 };
