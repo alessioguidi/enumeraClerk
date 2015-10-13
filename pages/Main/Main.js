@@ -71,5 +71,6 @@ dojo.declare("Main", wm.Page, {
         app.varConfig.setData(JSON.parse(window.localStorage.getItem("EnumeraClerk")));
         
     },
+
 	_end: 0
 });

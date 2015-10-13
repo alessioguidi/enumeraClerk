@@ -1,6 +1,10 @@
 dojo.declare("Menu", wm.Page, {
 	start: function() {
-		this.serviceCountNewDeals.update();
+	    //	this.serviceCountNewDeals.update();
+        this.labelRelease.setCaption("Release:" + app.getFullVersionNumber());
+        var settings = app.varConfig.getItem(0);
+        this.layers.setLayer(this.layers.getLayerByCaption(settings.data.Menu));
+
 	},
 	"preferredDevice": "phone",
 
@@ -44,6 +48,10 @@ dojo.declare("Menu", wm.Page, {
         else {
             $(menu_corner).hide();
         }
+	},
+	label3Click: function(inSender, inEvent) {
+        
+		console.log(app.getFullVersionNumber());
 	},
 	_end: 0
 });

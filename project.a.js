@@ -341,7 +341,7 @@ dojo.declare("enumeraClerk", wm.Application, {
 	"name": "", 
 	"phoneGapLoginPage": "Login", 
 	"phoneMain": "", 
-	"projectSubVersion": 31, 
+	"projectSubVersion": 34, 
 	"projectVersion": 1, 
 	"sessionExpirationHandler": "navigateToLogin", 
 	"studioVersion": "6.7.0.RELEASE", 
@@ -364,7 +364,8 @@ dojo.declare("enumeraClerk", wm.Application, {
 			server: ["wm.TypeDefinitionField", {"fieldName":"server"}, {}],
 			db: ["wm.TypeDefinitionField", {"fieldName":"db"}, {}],
 			user: ["wm.TypeDefinitionField", {"fieldName":"user"}, {}],
-			password: ["wm.TypeDefinitionField", {"fieldName":"password"}, {}]
+			password: ["wm.TypeDefinitionField", {"fieldName":"password"}, {}],
+			field1: ["wm.TypeDefinitionField", {"fieldName":"Menu"}, {}]
 		}], 
 		agenteProvvigioniResponse: ["wm.TypeDefinition", {}, {}, {
 			ROWID: ["wm.TypeDefinitionField", {"fieldName":"ROWID","fieldType":"Number"}, {}],
@@ -423,10 +424,10 @@ dojo.declare("enumeraClerk", wm.Application, {
 			SERIE_PRELIEVO: ["wm.TypeDefinitionField", {"fieldName":"SERIE_PRELIEVO"}, {}],
 			IDPRELIEVO: ["wm.TypeDefinitionField", {"fieldName":"IDPRELIEVO"}, {}],
 			CODICE_PRELIEVO: ["wm.TypeDefinitionField", {"fieldName":"CODICE_PRELIEVO"}, {}],
-			CLIENTE_FATTURAZIONE: ["wm.TypeDefinitionField", {"fieldName":"CLIENTE_FATTURAZIONE"}, {}],
-			CLIENTE: ["wm.TypeDefinitionField", {"fieldName":"CLIENTE"}, {}],
+			CLIENTE_FATTURAZIONE: ["wm.TypeDefinitionField", {"fieldName":"CLIENTE_FATTURAZIONE","fieldType":"Number"}, {}],
+			CLIENTE: ["wm.TypeDefinitionField", {"fieldName":"CLIENTE","fieldType":"Number"}, {}],
 			DESTINATARIO: ["wm.TypeDefinitionField", {"fieldName":"DESTINATARIO"}, {}],
-			VETTORE: ["wm.TypeDefinitionField", {"fieldName":"VETTORE"}, {}],
+			VETTORE: ["wm.TypeDefinitionField", {"fieldName":"VETTORE","fieldType":"Number"}, {}],
 			DATA_LISTA: ["wm.TypeDefinitionField", {"fieldName":"DATA_LISTA"}, {}],
 			DATA_CONSEGNA: ["wm.TypeDefinitionField", {"fieldName":"DATA_CONSEGNA"}, {}],
 			OPERATORE: ["wm.TypeDefinitionField", {"fieldName":"OPERATORE"}, {}],
@@ -450,13 +451,13 @@ dojo.declare("enumeraClerk", wm.Application, {
 			UBICAZ_TRANSITO: ["wm.TypeDefinitionField", {"fieldName":"UBICAZ_TRANSITO"}, {}],
 			ID_TOUR: ["wm.TypeDefinitionField", {"fieldName":"ID_TOUR"}, {}],
 			ID_TESSERATO: ["wm.TypeDefinitionField", {"fieldName":"ID_TESSERATO"}, {}],
-			AGENZIA: ["wm.TypeDefinitionField", {"fieldName":"AGENZIA"}, {}],
-			TOUR_LEADER: ["wm.TypeDefinitionField", {"fieldName":"TOUR_LEADER"}, {}],
-			DESC_AGENZIA: ["wm.TypeDefinitionField", {"fieldName":"DESC_AGENZIA"}, {}],
-			DESC_LEADER: ["wm.TypeDefinitionField", {"fieldName":"DESC_LEADER"}, {}],
-			COGNOME: ["wm.TypeDefinitionField", {"fieldName":"COGNOME"}, {}],
-			NOME: ["wm.TypeDefinitionField", {"fieldName":"NOME"}, {}],
-			NUMERODOC: ["wm.TypeDefinitionField", {"fieldName":"NUMERODOC"}, {}]
+			AGENZIA: ["wm.TypeDefinitionField", {"fieldName":"AGENZIA","fieldType":"Number"}, {}],
+			TOUR_LEADER: ["wm.TypeDefinitionField", {"fieldName":"TOUR_LEADER","fieldType":"Number"}, {}],
+			RAGIONE_SOCIALE_CLIENTE: ["wm.TypeDefinitionField", {"fieldName":"RAGIONE_SOCIALE_CLIENTE"}, {}],
+			DESCRIZIONE_DESTINATARIO: ["wm.TypeDefinitionField", {"fieldName":"DESCRIZIONE_DESTINATARIO"}, {}],
+			COMUNE_DESTINATARIO: ["wm.TypeDefinitionField", {"fieldName":"COMUNE_DESTINATARIO"}, {}],
+			PROVINCIA_DESTINATARIO: ["wm.TypeDefinitionField", {"fieldName":"PROVINCIA_DESTINATARIO"}, {}],
+			DESCRIZIONE_VETTORE: ["wm.TypeDefinitionField", {"fieldName":"DESCRIZIONE_VETTORE"}, {}]
 		}], 
 		loginResponse: ["wm.TypeDefinition", {}, {}, {
 			sessionName: ["wm.TypeDefinitionField", {"fieldName":"sessionName"}, {}],
@@ -592,6 +593,7 @@ dojo.declare("enumeraClerk", wm.Application, {
 				}]
 			}]
 		}], 
+		nuovaLista: ["wm.XhrDefinition", {"parameters":{"server":{"transmitType":"path","type":"String","defaultValue":"server"},"JXSESSNAME":{"transmitType":"queryString","type":"String","defaultValue":"","hidden":false,"noEscape":false},"rpc_program":{"transmitType":"queryString","type":"String","defaultValue":"rpc_nuovalistamaga","hidden":true,"noEscape":false},"serielista":{"transmitType":"queryString","type":"String","defaultValue":"","hidden":false,"noEscape":true},"cliente":{"transmitType":"queryString","type":"String","defaultValue":"","hidden":false,"noEscape":true},"destinatario":{"transmitType":"queryString","type":"String","defaultValue":"","hidden":false,"noEscape":true}},"returnType":"jxResponse","url":"http://${server}/enumerarpc.php"}, {}], 
 		nuovaRigaVendita: ["wm.XhrDefinition", {"parameters":{"server":{"transmitType":"path","type":"String","defaultValue":"localhost/enumera"},"JXSESSNAME":{"transmitType":"queryString","type":"String","defaultValue":"","hidden":false,"noEscape":false},"rpc_program":{"transmitType":"queryString","type":"String","defaultValue":"rpc_tcrm_nuovarigalista","hidden":true,"noEscape":false},"serie_lista":{"transmitType":"queryString","type":"String","defaultValue":"","hidden":false,"noEscape":true},"id_lista":{"transmitType":"queryString","type":"String","defaultValue":"","hidden":false,"noEscape":true},"barcode":{"transmitType":"queryString","type":"String","defaultValue":"","hidden":false,"noEscape":true}},"returnType":"jxResponse","url":"http://${server}/enumerarpc.php"}, {}], 
 		nuovaVendita: ["wm.XhrDefinition", {"parameters":{"server":{"transmitType":"path","type":"String","defaultValue":"localhost/enumera"},"JXSESSNAME":{"transmitType":"queryString","type":"String","defaultValue":"","hidden":false,"noEscape":false},"rpc_program":{"transmitType":"queryString","type":"String","defaultValue":"rpc_tcrm_nuovalista","hidden":true,"noEscape":false},"tour_id":{"transmitType":"queryString","type":"String","defaultValue":"","hidden":false,"noEscape":true},"tour_member":{"transmitType":"queryString","type":"String","defaultValue":"","hidden":false,"noEscape":true}},"returnType":"jxResponse","url":"http://${server}/enumerarpc.php"}, {}], 
 		phoneGapBeep: ["wm.PhoneGapCall", {"inFlightBehavior":"executeLast","operation":"notification_beep"}, {}, {
@@ -623,8 +625,9 @@ dojo.declare("enumeraClerk", wm.Application, {
 		tour_del_giorno: ["wm.XhrDefinition", {"parameters":{"server":{"transmitType":"path","type":"String","defaultValue":"localhost/enumera"},"JXSESSNAME":{"transmitType":"queryString","type":"String","defaultValue":"","hidden":false,"noEscape":false},"rpc_program":{"transmitType":"queryString","type":"String","defaultValue":"rpc_tcrm_tour","hidden":true,"noEscape":false}},"returnType":"tour_del_giornoResponse","url":"http://${server}/enumerarpc.php"}, {}], 
 		tour_members: ["wm.XhrDefinition", {"parameters":{"server":{"transmitType":"path","type":"String","defaultValue":"localhost/enumera"},"JXSESSNAME":{"transmitType":"queryString","type":"String","defaultValue":"","hidden":false,"noEscape":false},"rpc_program":{"transmitType":"queryString","type":"String","defaultValue":"rpc_tcrm_members","hidden":true,"noEscape":false},"nominativo":{"transmitType":"queryString","type":"String","defaultValue":"","hidden":false,"noEscape":false},"documento":{"transmitType":"queryString","type":"String","defaultValue":"","hidden":false,"noEscape":false},"tour_leader":{"transmitType":"queryString","type":"String","defaultValue":"","hidden":false,"noEscape":false},"tour_operator":{"transmitType":"queryString","type":"String","defaultValue":"","hidden":false,"noEscape":false}},"returnType":"tour_membersResponse","url":"http://${server}/enumerarpc.php"}, {}], 
 		updateStatoLista: ["wm.XhrDefinition", {"parameters":{"server":{"transmitType":"path","type":"String","defaultValue":"localhost/enumera"},"JXSESSNAME":{"transmitType":"queryString","type":"String","defaultValue":"","hidden":false,"noEscape":false},"rpc_program":{"transmitType":"queryString","type":"String","defaultValue":"rpc_liste_prel_testa_U","hidden":true,"noEscape":false},"serie_prelievo":{"transmitType":"queryString","type":"String","defaultValue":"","hidden":false,"noEscape":true},"idprelievo":{"transmitType":"queryString","type":"String","defaultValue":"","hidden":false,"noEscape":true},"stato_lista":{"transmitType":"queryString","type":"String","defaultValue":"","hidden":false,"noEscape":true}},"returnType":"jxResponse","url":"http://${server}/enumerarpc.php"}, {}], 
-		varConfig: ["wm.Variable", {"json":"{\"server\":\"192.168.187.101/enumera\",\"user\":\"root\",\"password\":\"alta@2015\"}","type":"Configurazione"}, {}], 
-		varianti_articolo: ["wm.XhrDefinition", {"parameters":{"server":{"transmitType":"path","type":"String","defaultValue":"localhost/enumera"},"JXSESSNAME":{"transmitType":"queryString","type":"String","defaultValue":"","hidden":false,"noEscape":false},"rpc_program":{"transmitType":"queryString","type":"String","defaultValue":"rpc_varianti_articolo","hidden":true,"noEscape":false},"articolo":{"transmitType":"queryString","type":"String","defaultValue":"","hidden":false,"noEscape":true},"numtip":{"transmitType":"queryString","type":"Number","defaultValue":"1","hidden":false,"noEscape":true},"taglia":{"transmitType":"queryString","type":"String","defaultValue":"","hidden":false,"noEscape":true}},"returnType":"varianti_articoloResponse","url":"http://${server}/enumerarpc.php"}, {}]
+		varConfig: ["wm.Variable", {"json":"{\"server\":\"localhost/enumera\",\"user\":\"root\",\"password\":\"alta@2015\",\"field1\":\"MenuMagazzino\"}","type":"Configurazione"}, {}], 
+		varianti_articolo: ["wm.XhrDefinition", {"parameters":{"server":{"transmitType":"path","type":"String","defaultValue":"localhost/enumera"},"JXSESSNAME":{"transmitType":"queryString","type":"String","defaultValue":"","hidden":false,"noEscape":false},"rpc_program":{"transmitType":"queryString","type":"String","defaultValue":"rpc_varianti_articolo","hidden":true,"noEscape":false},"articolo":{"transmitType":"queryString","type":"String","defaultValue":"","hidden":false,"noEscape":true},"numtip":{"transmitType":"queryString","type":"Number","defaultValue":"1","hidden":false,"noEscape":true},"taglia":{"transmitType":"queryString","type":"String","defaultValue":"","hidden":false,"noEscape":true}},"returnType":"varianti_articoloResponse","url":"http://${server}/enumerarpc.php"}, {}], 
+		versionNumber: ["wm.Variable", {"type":"StringData"}, {}]
 	},
 	_end: 0
 });
@@ -669,5 +672,8 @@ color: #ffffff;\
 }\
 html.WMApp body .buttonBack {\
 background-color: rgb(153, 84, 187);\
+}\
+html.WMApp body .smallLabel {\
+font-size: 9px;\
 }\
 ';

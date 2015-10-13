@@ -1,4 +1,4 @@
-dojo.declare("Liste", wm.Page, {
+dojo.declare("Vendite", wm.Page, {
 start: function() {
 this.textBarcode.focus();
 },
@@ -12,16 +12,13 @@ var item = this.serviceVarNuovaRiga.getData();
 if (item.errorCode != "") {
 app.toastError(item.message);
 //  app.phoneGapBeep.update();
-document.getElementById('errorebarcode').play();
 navigator.notification.beep(1);
 }
 },
 buttonBackClick: function(inSender) {
-this.listaListe.deselectAll();
-this.gridRighe.deselectAll();
+this.listaVendite.deselectAll();
 },
 layerDettaglioShow: function(inSender) {
-this.gridRighe.deselectAll();
 this.textBarcode.focus();
 },
 textBarcodeChange: function(inSender, inDisplayValue, inDataValue, inSetByCode) {
@@ -36,19 +33,23 @@ serviceVarNuovaRigaInflightBacklogComplete: function(inSender) {
 this.textBarcode.setDataValue("");
 this.textBarcode.focus();
 },
-dialogModificaRigaClose: function(inSender, inWhy) {
-this.textBarcode.focus();
-},
-gridRigheSelect: function(inSender) {
-if (this.gridRighe.selectedItem != null){
-//console.log(this.gridRighe.selectedItem);
-//this.dialogModificaRiga.update();
-}
-},
 _end: 0
 });
 
-Liste.widgets = {
+Vendite.widgets = {
+serviceVarNuovaVendita: ["wm.ServiceVariable", {"inFlightBehavior":"executeLast","operation":"nuovaVendita","service":"xhrService"}, {"onResult":"notificationCall1","onResult1":"serviceVarListe","onResult2":"layerRicerca"}, {
+input: ["wm.ServiceInput", {"type":"nuovaVenditaInputs"}, {}, {
+binding: ["wm.Binding", {}, {}, {
+wire: ["wm.Wire", {"expression":undefined,"source":"app.serviceApp.sessionName","targetProperty":"JXSESSNAME"}, {}],
+wire2: ["wm.Wire", {"expression":undefined,"source":"gridClienti.selectedItem.ID_TESSERA","targetProperty":"tour_member"}, {}],
+wire1: ["wm.Wire", {"expression":undefined,"source":"gridClienti.selectedItem.ID_TOUR","targetProperty":"tour_id"}, {}],
+wire3: ["wm.Wire", {"expression":undefined,"source":"app.varConfig.server","targetProperty":"server"}, {}]
+}]
+}],
+binding: ["wm.Binding", {}, {}, {
+wire: ["wm.Wire", {"expression":undefined,"source":"app.varConfig.server","targetProperty":"server"}, {}]
+}]
+}],
 serviceVarMembers: ["wm.ServiceVariable", {"inFlightBehavior":"executeLast","operation":"tour_members","service":"xhrService"}, {}, {
 input: ["wm.ServiceInput", {"type":"tour_membersInputs"}, {}, {
 binding: ["wm.Binding", {}, {}, {
@@ -71,13 +72,13 @@ wire2: ["wm.Wire", {"expression":undefined,"source":"app.varConfig.server","targ
 }]
 }],
 binding: ["wm.Binding", {}, {}, {
-wire: ["wm.Wire", {"expression":undefined,"source":"listaListe","targetProperty":"loadingDialog"}, {}]
+wire: ["wm.Wire", {"expression":undefined,"source":"listaVendite","targetProperty":"loadingDialog"}, {}]
 }]
 }],
 notificationCall1: ["wm.NotificationCall", {"operation":"toast"}, {}, {
 input: ["wm.ServiceInput", {"type":"toastInputs"}, {}, {
 binding: ["wm.Binding", {}, {}, {
-wire: ["wm.Wire", {"expression":undefined,"source":"serviceVarNuovaLista.message","targetProperty":"text"}, {}],
+wire: ["wm.Wire", {"expression":undefined,"source":"serviceVarNuovaVendita.message","targetProperty":"text"}, {}],
 wire2: ["wm.Wire", {"expression":"\"bottom center\"","targetProperty":"dialogPosition"}, {}],
 wire3: ["wm.Wire", {"expression":"\"Success\"","targetProperty":"cssClasses"}, {}]
 }]
@@ -87,8 +88,8 @@ serviceVarElimina: ["wm.ServiceVariable", {"inFlightBehavior":"executeLast","ope
 input: ["wm.ServiceInput", {"type":"eliminaVenditaInputs"}, {}, {
 binding: ["wm.Binding", {}, {}, {
 wire: ["wm.Wire", {"expression":undefined,"source":"app.serviceApp.sessionName","targetProperty":"JXSESSNAME"}, {}],
-wire1: ["wm.Wire", {"expression":undefined,"source":"listaListe.selectedItem.SERIE_PRELIEVO","targetProperty":"serie_lista"}, {}],
-wire2: ["wm.Wire", {"expression":undefined,"source":"listaListe.selectedItem.IDPRELIEVO","targetProperty":"id_lista"}, {}],
+wire1: ["wm.Wire", {"expression":undefined,"source":"listaVendite.selectedItem.SERIE_PRELIEVO","targetProperty":"serie_lista"}, {}],
+wire2: ["wm.Wire", {"expression":undefined,"source":"listaVendite.selectedItem.IDPRELIEVO","targetProperty":"id_lista"}, {}],
 wire3: ["wm.Wire", {"expression":undefined,"source":"app.varConfig.server","targetProperty":"server"}, {}]
 }]
 }]
@@ -104,8 +105,8 @@ serviceVarNuovaRiga: ["wm.ServiceVariable", {"inFlightBehavior":"executeAll","op
 input: ["wm.ServiceInput", {"type":"nuovaRigaVenditaInputs"}, {}, {
 binding: ["wm.Binding", {}, {}, {
 wire: ["wm.Wire", {"expression":undefined,"source":"app.serviceApp.sessionName","targetProperty":"JXSESSNAME"}, {}],
-wire1: ["wm.Wire", {"expression":undefined,"source":"listaListe.selectedItem.SERIE_PRELIEVO","targetProperty":"serie_lista"}, {}],
-wire2: ["wm.Wire", {"expression":undefined,"source":"listaListe.selectedItem.IDPRELIEVO","targetProperty":"id_lista"}, {}],
+wire1: ["wm.Wire", {"expression":undefined,"source":"listaVendite.selectedItem.SERIE_PRELIEVO","targetProperty":"serie_lista"}, {}],
+wire2: ["wm.Wire", {"expression":undefined,"source":"listaVendite.selectedItem.IDPRELIEVO","targetProperty":"id_lista"}, {}],
 wire3: ["wm.Wire", {"expression":undefined,"source":"textBarcode.dataValue","targetProperty":"barcode"}, {}],
 wire4: ["wm.Wire", {"expression":undefined,"source":"app.varConfig.server","targetProperty":"server"}, {}]
 }]
@@ -114,15 +115,15 @@ binding: ["wm.Binding", {}, {}, {
 wire: ["wm.Wire", {"expression":undefined,"source":"app.varConfig.server","targetProperty":"server"}, {}]
 }]
 }],
-serviceVarRigheLista: ["wm.ServiceVariable", {"inFlightBehavior":"executeLast","operation":"righeLista","service":"xhrService"}, {"onResult":"serviceVarRigheListaResult","onSuccess":"layerDettaglio","onSuccess1":"serviceVarRigheListaSuccess1"}, {
+serviceVarRigheLista: ["wm.ServiceVariable", {"inFlightBehavior":"executeLast","operation":"righeLista","service":"xhrService"}, {"onSuccess":"layerDettaglio","onSuccess1":"serviceVarRigheListaSuccess1"}, {
 binding: ["wm.Binding", {}, {}, {
 wire: ["wm.Wire", {"expression":undefined,"source":"gridRighe","targetProperty":"loadingDialog"}, {}]
 }],
 input: ["wm.ServiceInput", {"type":"righeListaInputs"}, {}, {
 binding: ["wm.Binding", {}, {}, {
 wire: ["wm.Wire", {"expression":undefined,"source":"app.serviceApp.sessionName","targetProperty":"JXSESSNAME"}, {}],
-wire1: ["wm.Wire", {"expression":undefined,"source":"listaListe.selectedItem.SERIE_PRELIEVO","targetProperty":"serie_prelievo"}, {}],
-wire2: ["wm.Wire", {"expression":undefined,"source":"listaListe.selectedItem.IDPRELIEVO","targetProperty":"idprelievo"}, {}],
+wire1: ["wm.Wire", {"expression":undefined,"source":"listaVendite.selectedItem.SERIE_PRELIEVO","targetProperty":"serie_prelievo"}, {}],
+wire2: ["wm.Wire", {"expression":undefined,"source":"listaVendite.selectedItem.IDPRELIEVO","targetProperty":"idprelievo"}, {}],
 wire3: ["wm.Wire", {"expression":undefined,"source":"app.varConfig.server","targetProperty":"server"}, {}]
 }]
 }]
@@ -142,8 +143,8 @@ serviceVarCheckout: ["wm.ServiceVariable", {"operation":"updateStatoLista","serv
 input: ["wm.ServiceInput", {"type":"updateStatoListaInputs"}, {}, {
 binding: ["wm.Binding", {}, {}, {
 wire: ["wm.Wire", {"expression":undefined,"source":"app.serviceApp.sessionName","targetProperty":"JXSESSNAME"}, {}],
-wire1: ["wm.Wire", {"expression":undefined,"source":"listaListe.selectedItem.SERIE_PRELIEVO","targetProperty":"serie_prelievo"}, {}],
-wire2: ["wm.Wire", {"expression":undefined,"source":"listaListe.selectedItem.IDPRELIEVO","targetProperty":"idprelievo"}, {}],
+wire1: ["wm.Wire", {"expression":undefined,"source":"listaVendite.selectedItem.SERIE_PRELIEVO","targetProperty":"serie_prelievo"}, {}],
+wire2: ["wm.Wire", {"expression":undefined,"source":"listaVendite.selectedItem.IDPRELIEVO","targetProperty":"idprelievo"}, {}],
 wire3: ["wm.Wire", {"expression":"5","targetProperty":"stato_lista"}, {}],
 wire4: ["wm.Wire", {"expression":undefined,"source":"app.varConfig.server","targetProperty":"server"}, {}]
 }]
@@ -172,49 +173,37 @@ wire: ["wm.Wire", {"expression":"\"Confirm delete operation?\"","targetProperty"
 }]
 }]
 }],
-serviceVarNuovaLista: ["wm.ServiceVariable", {"inFlightBehavior":"executeLast","operation":"nuovaVendita","service":"xhrService"}, {"onResult":"notificationCall1","onResult1":"serviceVarListe","onResult2":"layerRicerca"}, {
-input: ["wm.ServiceInput", {"type":"nuovaVenditaInputs"}, {}, {
-binding: ["wm.Binding", {}, {}, {
-wire: ["wm.Wire", {"expression":undefined,"source":"app.serviceApp.sessionName","targetProperty":"JXSESSNAME"}, {}],
-wire2: ["wm.Wire", {"expression":undefined,"source":"gridClienti.selectedItem.ID_TESSERA","targetProperty":"tour_member"}, {}],
-wire1: ["wm.Wire", {"expression":undefined,"source":"gridClienti.selectedItem.ID_TOUR","targetProperty":"tour_id"}, {}],
-wire3: ["wm.Wire", {"expression":undefined,"source":"app.varConfig.server","targetProperty":"server"}, {}]
-}]
-}],
-binding: ["wm.Binding", {}, {}, {
-wire: ["wm.Wire", {"expression":undefined,"source":"app.varConfig.server","targetProperty":"server"}, {}]
-}]
-}],
-serviceVariable1: ["wm.ServiceVariable", {"operation":"agenteProvvigioni","service":"xhrService"}, {}, {
-input: ["wm.ServiceInput", {"type":"agenteProvvigioniInputs"}, {}]
-}],
-dialogModificaRiga: ["wm.DesignableDialog", {"buttonBarId":"buttonBar","containerWidgetId":"containerWidget","title":"Edit row"}, {"onClose":"dialogModificaRigaClose"}, {
+dialogModificaRiga: ["wm.DesignableDialog", {"buttonBarId":"buttonBar","containerWidgetId":"containerWidget","title":"Edit row"}, {}, {
 containerWidget: ["wm.Container", {"_classes":{"domNode":["wmdialogcontainer","MainContent"]},"autoScroll":true,"height":"100%","horizontalAlign":"left","padding":"5","verticalAlign":"top","width":"100%"}, {}, {
-dataForm1: ["wm.DataForm", {"desktopHeight":"222px","fitToContentHeight":true,"height":"78px","isCompositeKey":false,"mobileHeight":"222px","type":"righeListaResponse"}, {}, {
+dataForm1: ["wm.DataForm", {"desktopHeight":"222px","fitToContentHeight":true,"height":"222px","isCompositeKey":false,"mobileHeight":"222px","readonly":true,"type":"righeListaResponse"}, {}, {
 binding: ["wm.Binding", {}, {}, {
 wire: ["wm.Wire", {"expression":undefined,"source":"gridRighe.selectedItem","targetProperty":"dataSet"}, {}]
 }],
-QTAEditor1: ["wm.Text", {"caption":"Qta","captionAlign":"left","captionSize":"90px","changeOnKey":true,"desktopHeight":"26px","emptyValue":"emptyString","formField":"QTA","height":"36px","required":undefined,"width":"100%"}, {}],
-NOTE_RIGAEditor1: ["wm.Text", {"caption":"Note","captionAlign":"left","captionSize":"90px","changeOnKey":true,"desktopHeight":"26px","emptyValue":"emptyString","formField":"NOTE_RIGA","height":"36px","required":undefined,"width":"100%"}, {}]
+QTAEditor1: ["wm.Text", {"caption":"Qty","captionAlign":"left","captionSize":"90px","changeOnKey":true,"desktopHeight":"26px","emptyValue":"emptyString","formField":"QTA","height":"36px","readonly":true,"required":undefined,"width":"100%"}, {}],
+PREZZOEditor1: ["wm.Text", {"caption":"Price","captionAlign":"left","captionSize":"90px","changeOnKey":true,"desktopHeight":"26px","emptyValue":"emptyString","formField":"PREZZO","height":"36px","readonly":true,"required":undefined,"width":"100%"}, {}],
+STR_SCONTIEditor1: ["wm.Text", {"caption":"Discount %","captionAlign":"left","captionSize":"90px","changeOnKey":true,"desktopHeight":"26px","emptyValue":"emptyString","formField":"STR_SCONTI","height":"36px","readonly":true,"required":undefined,"width":"100%"}, {}],
+SCONTOVALOREEditor1: ["wm.Text", {"caption":"Discount €","captionAlign":"left","captionSize":"90px","changeOnKey":true,"desktopHeight":"26px","emptyValue":"emptyString","formField":"SCONTOVALORE","height":"36px","readonly":true,"required":undefined,"width":"100%"}, {}],
+VAL_UNITARIOEditor1: ["wm.Text", {"caption":"Unit Value","captionAlign":"left","captionSize":"90px","changeOnKey":true,"desktopHeight":"26px","emptyValue":"emptyString","formField":"VAL_UNITARIO","height":"36px","readonly":true,"required":undefined,"width":"100%"}, {}],
+NOTE_RIGAEditor1: ["wm.Text", {"caption":"Notes","captionAlign":"left","captionSize":"90px","changeOnKey":true,"desktopHeight":"26px","emptyValue":"emptyString","formField":"NOTE_RIGA","height":"36px","readonly":true,"required":undefined,"width":"100%"}, {}]
 }]
 }],
 buttonBar: ["wm.ButtonBarPanel", {"border":"1,0,0,0","borderColor":"#dddddd","height":"41px","horizontalAlign":"center","mobileHeight":"41px"}, {}, {
-buttonDeleteRiga: ["wm.Button", {"_classes":{"domNode":["buttonDelete"]},"border":"0","caption":"Elimina","height":"40px","styles":{},"width":"80px"}, {"onclick":"notificationCallDelRiga"}],
-buttonCloseRiga: ["wm.Button", {"_classes":{"domNode":["buttonBack"]},"border":"0","caption":"Chiudi","height":"40px","styles":{},"width":"80px"}, {"onclick":"dialogModificaRiga.hide","onclick1":"serviceVariable1"}],
+buttonDeleteRiga: ["wm.Button", {"_classes":{"domNode":["buttonDelete"]},"border":"0","caption":"Delete","height":"40px","styles":{},"width":"80px"}, {"onclick":"notificationCallDelRiga"}],
+buttonCloseRiga: ["wm.Button", {"_classes":{"domNode":["buttonBack"]},"border":"0","caption":"Close","height":"40px","styles":{},"width":"80px"}, {"onclick":"dialogModificaRiga.hide"}],
 buttonSalvaRiga: ["wm.Button", {"border":"0","caption":"Save","height":"40px","showing":false,"width":"80px"}, {}]
 }]
 }],
 layoutBox1: ["wm.Layout", {"horizontalAlign":"left","styles":{},"verticalAlign":"top"}, {}, {
 panelHeader: ["wm.Panel", {"border":"1","borderColor":"#2780e3","desktopHeight":"50px","enableTouchHeight":true,"height":"50px","horizontalAlign":"left","layoutKind":"left-to-right","mobileHeight":"50px","styles":{"backgroundColor":"#2780e3","color":"#ffffff"},"verticalAlign":"top","width":"100%"}, {}, {
-labelTitolo: ["wm.Label", {"_classes":{"domNode":["labelTitolo"]},"align":"left","borderColor":"","caption":"Liste prodotti","height":"100%","margin":"0,6,0,0","padding":"4","styles":{},"width":"100%"}, {}],
+labelTitolo: ["wm.Label", {"_classes":{"domNode":["labelTitolo"]},"align":"left","borderColor":"","caption":"Sales","height":"100%","margin":"0,6,0,0","padding":"4","styles":{},"width":"100%"}, {}],
 buttonMenu: ["wm.Button", {"_classes":{"domNode":["buttonMenu"]},"border":"0","borderColor":"","caption":"Menu","height":"100%","imageIndex":0,"imageList":"app.cosmoBasic","styles":{}}, {"onclick":"app.navigationCallMenu"}]
 }],
 layers1: ["wm.Layers", {"defaultLayer":0,"transition":"fade"}, {}, {
 layerRicerca: ["wm.Layer", {"borderColor":"","caption":"layer1","horizontalAlign":"left","themeStyleType":"","verticalAlign":"top"}, {}, {
 panel1: ["wm.Panel", {"desktopHeight":"30px","enableTouchHeight":true,"height":"40px","horizontalAlign":"left","layoutKind":"left-to-right","mobileHeight":"40px","verticalAlign":"top","width":"100%"}, {}, {
-buttonNuovo: ["wm.Button", {"border":"0","caption":"Nuova Lista","height":"100%","showing":false,"width":"100%"}, {"onclick":"layerNuovo"}]
+buttonNuovo: ["wm.Button", {"border":"0","caption":"New Sale","height":"100%","width":"100%"}, {"onclick":"layerNuovo"}]
 }],
-listaListe: ["wm.DojoGrid", {"columns":[
+listaVendite: ["wm.DojoGrid", {"columns":[
 {"show":false,"field":"ROWID","title":"ROWID","width":"80px","align":"right","formatFunc":"","mobileColumn":false},
 {"show":false,"field":"PAGEID","title":"PAGEID","width":"80px","align":"right","formatFunc":"","mobileColumn":false},
 {"show":false,"field":"PAGECOUNT","title":"PAGECOUNT","width":"80px","align":"right","formatFunc":"","mobileColumn":false},
@@ -247,16 +236,16 @@ listaListe: ["wm.DojoGrid", {"columns":[
 {"show":false,"field":"NUMDOC","title":"NUMDOC","width":"100%","align":"left","formatFunc":"","mobileColumn":false},
 {"show":false,"field":"DATADOC","title":"DATADOC","width":"100%","align":"left","formatFunc":"","mobileColumn":false},
 {"show":false,"field":"UBICAZ_TRANSITO","title":"UBICAZ_TRANSITO","width":"100%","align":"left","formatFunc":"","mobileColumn":false},
-{"show":true,"field":"PHONE COLUMN","title":"-","width":"100%","align":"left","expression":"\"<div class='MobileRowTitle'>\" +\n\"ID: \" + ${CODICE_PRELIEVO} +\n\"</div>\"\n\n+ \"<div class='MobileRow'>\" +\n\"Data: \" + ${DATA_LISTA}\n + \"</div>\"\n\n+ \"<div class='MobileRow'>\" +\n\"Anagrafica: \" + ${CLIENTE} + \" \" +${RAGIONE_SOCIALE_CLIENTE}\n + \"</div>\"\n\n+ \"<div class='MobileRow'>\" +\n\"Destinatario: \" + ${DESTINATARIO} +  \" \" + ${DESCRIZIONE_DESTINATARIO} +  \" \" + ${COMUNE_DESTINATARIO} +  \" \" + ${PROVINCIA_DESTINATARIO}\n + \"</div>\"\n\n+ \"<div class='MobileRow'>\" +\n\"Vettore: \" + ${VETTORE} +\" \" + ${DESCRIZIONE_VETTORE}\n + \"</div>\"\n\n\n","isCustomField":true,"mobileColumn":true},
+{"show":true,"field":"PHONE COLUMN","title":"-","width":"100%","align":"left","expression":"\"<div class='MobileRowTitle'>\" +\n\"ID: \" + ${CODICE_PRELIEVO} +\n\"</div>\"\n\n+ \"<div class='MobileRow'>\" +\n\"Date: \" + ${DATA_LISTA}\n + \"</div>\"\n\n+ \"<div class='MobileRow'>\" +\n\"Tour Operator: \" + ${DESC_AGENZIA}\n + \"</div>\"\n\n+ \"<div class='MobileRow'>\" +\n\"Tour Leader: \" + ${DESC_LEADER}\n + \"</div>\"\n\n+ \"<div class='MobileRow'>\" +\n\"Name: \" + ${COGNOME}\n + \"</div>\"\n\n+ \"<div class='MobileRow'>\" +\n\"Passport: \" + ${NUMERODOC}\n + \"</div>\"\n\n","isCustomField":true,"mobileColumn":true},
 {"show":false,"field":"ID_TOUR","title":"ID_TOUR","width":"100%","align":"left","formatFunc":"","mobileColumn":false},
 {"show":false,"field":"ID_TESSERATO","title":"ID_TESSERATO","width":"100%","align":"left","formatFunc":"","mobileColumn":false},
 {"show":false,"field":"AGENZIA","title":"Tour Operator","width":"100%","align":"left","formatFunc":"","mobileColumn":false},
 {"show":false,"field":"TOUR_LEADER","title":"Tour Leader","width":"100%","align":"left","formatFunc":"","mobileColumn":false},
-{"show":false,"field":"RAGIONE_SOCIALE_CLIENTE","title":"RAGIONE_SOCIALE_CLIENTE","width":"100%","align":"left","formatFunc":"","mobileColumn":false},
-{"show":false,"field":"DESCRIZIONE_DESTINATARIO","title":"DESCRIZIONE_DESTINATARIO","width":"100%","align":"left","formatFunc":"","mobileColumn":false},
-{"show":false,"field":"COMUNE_DESTINATARIO","title":"COMUNE_DESTINATARIO","width":"100%","align":"left","formatFunc":"","mobileColumn":false},
-{"show":false,"field":"PROVINCIA_DESTINATARIO","title":"PROVINCIA_DESTINATARIO","width":"100%","align":"left","formatFunc":"","mobileColumn":false},
-{"show":false,"field":"DESCRIZIONE_VETTORE","title":"DESCRIZIONE_VETTORE","width":"100%","align":"left","formatFunc":"","mobileColumn":false}
+{"show":false,"field":"RAGIONE_SOCIALE_CLIENTE","title":"RAGIONE_SOCIALE_CLIENTE","width":"100%","displayType":"String","align":"left","formatFunc":""},
+{"show":false,"field":"DESCRIZIONE_DESTINATARIO","title":"DESCRIZIONE_DESTINATARIO","width":"100%","displayType":"String","align":"left","formatFunc":""},
+{"show":false,"field":"COMUNE_DESTINATARIO","title":"COMUNE_DESTINATARIO","width":"100%","displayType":"String","align":"left","formatFunc":""},
+{"show":false,"field":"PROVINCIA_DESTINATARIO","title":"PROVINCIA_DESTINATARIO","width":"100%","displayType":"String","align":"left","formatFunc":""},
+{"show":false,"field":"DESCRIZIONE_VETTORE","title":"DESCRIZIONE_VETTORE","width":"100%","displayType":"String","align":"left","formatFunc":""}
 ],"deviceType":null,"dsType":"listeResponse","height":"100%","localizationStructure":{},"margin":"4","minDesktopHeight":60,"noHeader":true,"primaryKeyFields":["IDPRELIEVO"],"styles":{}}, {"onSelect":"serviceVarRigheLista"}, {
 binding: ["wm.Binding", {}, {}, {
 wire: ["wm.Wire", {"expression":undefined,"source":"serviceVarListe","targetProperty":"dataSet"}, {}]
@@ -264,26 +253,26 @@ wire: ["wm.Wire", {"expression":undefined,"source":"serviceVarListe","targetProp
 }]
 }],
 layerDettaglio: ["wm.Layer", {"borderColor":"","caption":"layer1","horizontalAlign":"left","themeStyleType":"","verticalAlign":"top"}, {"onShow":"layerDettaglioShow"}, {
-fancyPanel1: ["wm.FancyPanel", {"height":"120px","labelHeight":"20","title":"Riepilogo"}, {}, {
+fancyPanel1: ["wm.FancyPanel", {"height":"120px","labelHeight":"20","title":"Summary"}, {}, {
 label1: ["wm.Label", {"height":"22px","padding":"4","width":"100%"}, {}, {
 binding: ["wm.Binding", {}, {}, {
-wire: ["wm.Wire", {"expression":"${listaListe.selectedItem.COGNOME} + \" \" +${listaListe.selectedItem.DESC_AGENZIA} + \" \" +${listaListe.selectedItem.DESC_LEADER}","targetProperty":"caption"}, {}]
+wire: ["wm.Wire", {"expression":"${listaVendite.selectedItem.COGNOME} + \" \" +${listaVendite.selectedItem.DESC_AGENZIA} + \" \" +${listaVendite.selectedItem.DESC_LEADER}","targetProperty":"caption"}, {}]
 }]
 }],
 panel6: ["wm.Panel", {"height":"40px","horizontalAlign":"left","layoutKind":"left-to-right","styles":{},"verticalAlign":"top","width":"100%"}, {}, {
 buttonBack: ["wm.Button", {"_classes":{"domNode":["buttonBack"]},"border":"0","caption":"Back","height":"40px","styles":{}}, {"onclick":"buttonBackClick","onclick1":"layerRicerca"}],
-buttonDelete: ["wm.Button", {"_classes":{"domNode":["buttonDelete"]},"border":"0","caption":"Elimina","height":"40px","styles":{}}, {"onclick":"notificationDeleteLista"}],
-buttonCheckout: ["wm.Button", {"border":"0","caption":"Completata","height":"40px","styles":{}}, {"onclick":"notificationCallCheckOut"}]
+buttonDelete: ["wm.Button", {"_classes":{"domNode":["buttonDelete"]},"border":"0","caption":"Delete","height":"40px","styles":{}}, {"onclick":"notificationDeleteLista"}],
+buttonCheckout: ["wm.Button", {"border":"0","caption":"Checkout","height":"40px","styles":{}}, {"onclick":"notificationCallCheckOut"}]
 }],
 label2: ["wm.Label", {"align":"right","height":"22px","padding":"4","width":"100%"}, {}, {
 binding: ["wm.Binding", {}, {}, {
 wire1: ["wm.Wire", {"expression":"!${serviceVarRigheLista.isEmpty}","targetProperty":"showing"}, {}],
-wire: ["wm.Wire", {"expression":"'Totale qtà: ' + parseInt(${serviceVarRigheLista.QTA_TOTALE}) + ' - Totale valore: ' + parseFloat(${serviceVarRigheLista.VAL_TOTALE}).toFixed(2)","targetProperty":"caption"}, {}]
+wire: ["wm.Wire", {"expression":"'Total qty: ' + parseInt(${serviceVarRigheLista.QTA_TOTALE}) + ' - Total amount: ' + parseFloat(${serviceVarRigheLista.VAL_TOTALE}).toFixed(2)","targetProperty":"caption"}, {}]
 }]
 }]
 }],
 gridRighe: ["wm.DojoGrid", {"columns":[
-{"show":true,"field":"PHONE COLUMN","title":"-","width":"100%","align":"left","expression":"\"<div class='MobileRowTitle'>\" +\n${CODART} + \" \"+ ${DESCRIZIONE} + \" Size: \" + ${TAGLIA} + \n\"</div>\"\n\n+ \"<div class='MobileRow'>\" +\n\"Qty: \" + ${QTA} + \" Total Amount: \" + ${VAL_TOTALE_RIGA}\n + \"</div>\"\n\n\n","isCustomField":true,"mobileColumn":true},
+{"show":true,"field":"PHONE COLUMN","title":"-","width":"100%","align":"left","expression":"\"<div class='MobileRowTitle'>\" +\n${DESCRIZIONE} + \" Size: \" + ${TAGLIA} + \n\"</div>\"\n\n+ \"<div class='MobileRow'>\" +\n\"Qty: \" + ${QTA} + \" Total Amount: \" + ${VAL_TOTALE_RIGA}\n + \"</div>\"\n\n\n","isCustomField":true,"mobileColumn":true},
 {"show":false,"field":"ROWID","title":"ROWID","width":"80px","align":"right","formatFunc":"","mobileColumn":false},
 {"show":false,"field":"PAGECOUNT","title":"PAGECOUNT","width":"80px","align":"right","formatFunc":"","editorProps":null,"mobileColumn":false},
 {"show":false,"field":"PAGEID","title":"PAGEID","width":"80px","align":"right","formatFunc":"","mobileColumn":false},
@@ -332,13 +321,13 @@ gridRighe: ["wm.DojoGrid", {"columns":[
 {"show":false,"field":"QTA_ORI","title":"QTA_ORI","width":"100%","align":"left","formatFunc":"","mobileColumn":false},
 {"show":false,"field":"VAL_TOTALE_RIGA_ORI","title":"VAL_TOTALE_RIGA_ORI","width":"100%","align":"left","formatFunc":"","mobileColumn":false},
 {"show":false,"field":"NUM_DECIMALI","title":"NUM_DECIMALI","width":"100%","align":"left","formatFunc":"","mobileColumn":false}
-],"deviceType":null,"dsType":"righeListaResponse","height":"100%","localizationStructure":{},"margin":"2","minDesktopHeight":60,"noHeader":true,"styles":{"fontSize":"11px"}}, {"onRowDeleted":"notificationCallDelRiga","onSelect":"gridRigheSelect"}, {
+],"deviceType":null,"dsType":"righeListaResponse","height":"100%","localizationStructure":{},"margin":"2","minDesktopHeight":60,"noHeader":true,"singleClickEdit":true,"styles":{"fontSize":"11px"}}, {"onRowDeleted":"notificationCallDelRiga","onSelect":"dialogModificaRiga.show"}, {
 binding: ["wm.Binding", {}, {}, {
 wire: ["wm.Wire", {"expression":undefined,"source":"serviceVarRigheLista","targetProperty":"dataSet"}, {}]
 }]
 }],
 panel3: ["wm.Panel", {"desktopHeight":"30px","enableTouchHeight":true,"height":"36px","horizontalAlign":"center","layoutKind":"left-to-right","mobileHeight":"36px","verticalAlign":"top","width":"100%"}, {}, {
-textBarcode: ["wm.Text", {"caption":"Barcode","captionAlign":"left","captionSize":"70px","dataValue":undefined,"desktopHeight":"35px","displayValue":"","height":"30px","mobileHeight":"30px","width":"98%"}, {"onchange":"textBarcodeChange"}]
+textBarcode: ["wm.Text", {"caption":"Barcode","captionAlign":"left","captionSize":"70px","dataValue":undefined,"desktopHeight":"35px","displayValue":"","height":"30px","mobileHeight":"30px","width":"90%"}, {"onchange":"textBarcodeChange"}]
 }]
 }],
 layerNuovo: ["wm.Layer", {"borderColor":"","caption":"layer1","horizontalAlign":"left","themeStyleType":"","verticalAlign":"top"}, {}, {
@@ -373,17 +362,16 @@ wire: ["wm.Wire", {"expression":undefined,"source":"serviceVarMembers","targetPr
 }]
 }],
 panel4: ["wm.Panel", {"height":"48px","horizontalAlign":"left","layoutKind":"left-to-right","verticalAlign":"top","width":"100%"}, {}, {
-buttonSelect: ["wm.Button", {"border":"0","caption":"Select customer","height":"40px","styles":{},"width":"100%"}, {"onclick":"serviceVarNuovaLista"}, {
+buttonSelect: ["wm.Button", {"border":"0","caption":"Select customer","height":"40px","styles":{},"width":"100%"}, {"onclick":"serviceVarNuovaVendita"}, {
 binding: ["wm.Binding", {}, {}, {
 wire: ["wm.Wire", {"expression":undefined,"source":"gridClienti.emptySelection","targetProperty":"disabled"}, {}]
 }]
 }]
 }]
 }]
-}],
-htmlErroreBarcode: ["wm.Html", {"autoScroll":false,"height":"1px","html":"<audio id=\"errorebarcode\"><source src=\"http://localhost/enumera/mp3/errorebarcode.mp3\" type=\"audio/mpeg\">\nYour browser does not support the audio element.\n</audio>","minDesktopHeight":15,"styles":{}}, {}]
+}]
 }]
 };
 
-Liste.prototype._cssText = '';
-Liste.prototype._htmlText = '';
+Vendite.prototype._cssText = '';
+Vendite.prototype._htmlText = '';

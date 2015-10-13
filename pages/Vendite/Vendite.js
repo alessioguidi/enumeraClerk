@@ -1,4 +1,4 @@
-dojo.declare("Liste", wm.Page, {
+dojo.declare("Vendite", wm.Page, {
 	start: function() {
         this.textBarcode.focus();
 		
@@ -14,8 +14,6 @@ dojo.declare("Liste", wm.Page, {
         if (item.errorCode != "") {
             app.toastError(item.message);
           //  app.phoneGapBeep.update();
-            
-            document.getElementById('errorebarcode').play();
             navigator.notification.beep(1);
             
         }
@@ -24,12 +22,9 @@ dojo.declare("Liste", wm.Page, {
     
 
 	buttonBackClick: function(inSender) {
-		this.listaListe.deselectAll();
-        this.gridRighe.deselectAll();
-        
+		this.listaVendite.deselectAll();
 	},
 	layerDettaglioShow: function(inSender) {
-        this.gridRighe.deselectAll();
 		this.textBarcode.focus();
 	},
 	textBarcodeChange: function(inSender, inDisplayValue, inDataValue, inSetByCode) {
@@ -45,15 +40,6 @@ dojo.declare("Liste", wm.Page, {
 	serviceVarNuovaRigaInflightBacklogComplete: function(inSender) {
 		this.textBarcode.setDataValue("");
         this.textBarcode.focus();
-	},
-	dialogModificaRigaClose: function(inSender, inWhy) {
-	    this.textBarcode.focus();	
-	},
-	gridRigheSelect: function(inSender) {
-		if (this.gridRighe.selectedItem != null){
-            //console.log(this.gridRighe.selectedItem);
-            //this.dialogModificaRiga.update();
-		}
 	},
 	_end: 0
 });
